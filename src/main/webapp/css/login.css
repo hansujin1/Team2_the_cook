@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+
+
+
+.login_input, .login_bt { /* login input 버튼 */
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+.login_top { /*맨 위 '오늘은' 부분  */
+  font-size: 20px;
+  margin: 40px auto 50px;
+  text-align: center;
+}
+
+.login_cont { /*로그인 div 페이지  */
+  overflow: hidden;
+  position: relative;
+  width: 900px;
+  height: 550px;
+  margin: 0 auto 100px;
+  background: #fff;
+}
+
+.login_txt { /*로그인 창 welco부분 글씨 위치  */
+  position: relative;
+  width: 640px;
+  height: 100%;
+  transition: transform 1.2s ease-in-out;
+  padding: 50px 30px 0;
+}
+
+.sub-cont { /* 로그인창 옆 div */
+  overflow: hidden;
+  position: absolute;
+  left: 640px;
+  top: 0;
+  width: 900px;
+  height: 100%;
+  padding-left: 260px;
+  background: #fff;
+  transition: transform 1.2s ease-in-out;
+}
+
+
+
+.login_bt {  /*로그인 버튼  */
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 36px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border: solid;
+}
+
+.login_img { /* 로그인 옆 부분 이미지 */
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  padding-top: 360px;
+  
+}
+.login_img:before { /* 로그인 옆 부분 이미지 */
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 900px;
+  height: 100%;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/sections-3.jpg");
+  background-size: cover;
+  transition: transform 1.2s ease-in-out;
+}
+.login_img:after { /* 로그인 옆 부분 이미지 */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.login_img__text { /* 로그인 옆 div 이미지 글 */
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+  transition: transform 1.2s ease-in-out;
+}
+
+.login_img__text h2 { /* 이미지 글 */
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+.login_img__text p { /* 이미지 글 */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.login_img__btn { /* 이미지 글 버튼 */
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  background: transparent;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 15px;
+  cursor: pointer;
+}
+.login_img__btn:after { /* 이미지 글 버튼 */
+  content: "";
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 95%;
+  height: 80%;
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+.login_img__btn span { /* 이미지 글 버튼 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s;
+}
+
+.lohin_h2 { /* 로그인 페이지 큰 글자 */
+  width: 100%;
+  font-size: 26px;
+  text-align: center;
+}
+
+.login_label { /* 로그인 label */
+  display: block;
+  width: 260px;
+  margin: 25px auto 0;
+  text-align: center;
+}
+.login_label span { /* 로그인 label */
+  font-size: 12px;
+  color: #cfcfcf;
+  text-transform: uppercase;
+}
+
+.login_input { /* login input */
+  display: block;
+  width: 100%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.forgot-pass {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+.login_bt { /*로그인 버튼  */
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background: #d4af7a;
+  text-transform: uppercase;
+}
+
