@@ -16,3 +16,16 @@ create sequence board_table_seq;
 select * from board_table;
 
 insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내용','파일',1,1,'1');
+
+select * from board_table where board_number =5
+
+
+
+
+
+
+
+
+
+
+

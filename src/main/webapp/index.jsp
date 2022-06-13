@@ -41,12 +41,9 @@
                                 <li class="Event"> <a href="#"> EVENT </a> </li> 
                             </ul>
                         </nav>
-                        
- 						
- 				
- 				
 
 </form>
+                       <jsp:include page="${contentPage}"></jsp:include>
 
 
 
