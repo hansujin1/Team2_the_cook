@@ -45,7 +45,7 @@
 			<div id="login">
 				<!-- login post 연결, LoginC로  -->
 				<h3>
-					<a href="#" class="login">LOGIN</a>
+					<a href="loginCont" class="login">LOGIN</a>
 				</h3>
 			</div>
 
