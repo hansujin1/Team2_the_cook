@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Main</title>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
- 	<form action="HC">
+ 	<form action="HC" >
         
                 <!-- header -->
                 <header id="header" style="margin: none;">
@@ -26,7 +26,7 @@
                         <button id="search"> <img class="searchEgg" src="img/SearchEgg.png"  > </button>
                     </div>
 
-                    <div id="login"> <!-- login -->
+                    <div id="login"> <!-- login post 연결-->
                         <h3><a href="#" class="login">LOGIN</a></h3>
                     </div>
                     
@@ -42,8 +42,7 @@
                             </ul>
                         </nav>
                         
- 				<span><jsp:include page="${contentPage}"></jsp:include></span>  
- 				
+ 						
  				
  				
 
