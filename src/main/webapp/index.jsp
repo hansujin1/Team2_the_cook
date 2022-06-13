@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Main</title>
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 
@@ -27,7 +28,7 @@
                     </div>
 
                     <div id="login"> <!-- login post 연결-->
-                        <h3><a href="#" class="login">LOGIN</a></h3>
+                        <h3><a href="loginCon" class="login">LOGIN</a></h3>
                     </div>
                     
                 </header>
@@ -43,7 +44,7 @@
                         </nav>
                         
  						
- 				
+ 				<span><jsp:include page="${contentPage}"></jsp:include></span>  
  				
 
 </form>
