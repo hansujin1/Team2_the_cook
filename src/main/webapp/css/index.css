@@ -1,0 +1,96 @@
+header {
+    position: fixed;                    /* 스크롤 내려도 따라오게 */
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+}    
+
+body {
+    padding-top: 150px;                  /* header 고정값으로 인해 가려진 컨텐츠 보이게 패딩값 조절 */
+}    
+
+a{
+    text-decoration: none;                          /* a태그 보라색 밑줄 없애기 */
+    color: black;
+}
+
+#logo {
+    box-sizing: border-box;
+    width: 130px;
+    float: left;                        /* 메인 좌측 로고*/
+    margin-left: 18%;
+    margin-top: 20px;
+    position: relative;
+}    
+
+#query {
+    width:700px;
+    height: 45px;
+    box-sizing: border-box;
+    border: 2px solid rgb(0, 0, 0);
+    float: left;                             /* 검색 창 */
+    margin-left: 2%;
+    margin-top: 60px;
+    position: absolute;
+    border-radius: 30px 0px 0px 30px;
+    padding: 13pt 15pt;
+    font-size: 11pt;
+}    
+
+#query:focus {
+    border-color: rgb(255, 123, 0);        /* 검색 창 FOCUS*/
+    outline: none;
+}    
+
+
+#search {
+    box-sizing: border-box;
+    position: fixed;
+    border: 0;
+    margin-left: 750px;
+    background-color: rgb(0, 0, 0);          /* SEARCH */
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    margin-top: 60px;
+    padding: 0.5em 0.5em 0.5em 0em;
+    border-radius: 0px 30px 30px 0px;
+    height: 45px;
+    width: 60px;
+    
+}    
+
+#search:hover {
+    background-color: rgb(255, 145, 0);        /* SEARCH HOVER */
+    color:black;
+}    
+
+.searchEgg {
+    width: 30px;                                    /* Egg IMG 안깐달걀 -> 깐달걀 login에 쓸까 고민중*/
+}    
+
+#login{
+    float: right;
+    margin-right: 5%;
+}    
+
+#nav {
+    height: 300px;
+    width: 100%;
+}
+
+#nav ul li {
+/*    background-color: rgb(124, 230, 138);                */
+    padding-top: 10px;
+    list-style: none;
+    float: left;
+    width: 100px;
+    font-size: 15pt;
+    font-weight: bold;
+    margin-left: 8%;
+    letter-spacing: -0.5px;
+}
+
+.menu{
+    background-color: aquamarine;
+}
