@@ -10,14 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/regController")
 public class regController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		//회원가입 페이지로 이동
 		LoginDAO.loginCheck(request);
 		request.setAttribute("contentPage", "login/reg.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		//회원가입하기
+		
+				LoginDAO.regAccount(request);
+				
+				LoginDAO.loginCheck(request);
+				request.setAttribute("contentPage", "home.jsp");
+				request.getRequestDispatcher("index.jsp").forward(request, response);
+			
 	}
 
 }

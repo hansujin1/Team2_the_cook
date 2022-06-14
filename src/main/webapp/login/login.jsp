@@ -18,7 +18,7 @@
 			<label class="login_label"> <span>ID</span> 
 			<input class="login_input" name="id" />
 			</label> <label class="login_label"> <span>Password</span> 
-			<input class="login_input" name="pw" />
+			<input class="login_input" name="pw" type="password" />
 			</label>
 			<p class="forgot-pass">비밀번호를 잊으셨나요?</p>
 			<button class="login_bt">LOGIN</button>
