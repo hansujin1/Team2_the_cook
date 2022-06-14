@@ -70,6 +70,7 @@
 	<span><jsp:include page="${contentPage}"></jsp:include>
 	</span>
 	
+	<footer id = "footer">
 	<div class="footer">
 		<hr>
 		<img id="footerlogo" name="footerlogo" src="img/Logo_s.png">
@@ -83,7 +84,7 @@
 		</div>
 	</div>
 
-
+	</footer>
 
 </body>
 </html>
