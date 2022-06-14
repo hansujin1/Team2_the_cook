@@ -32,7 +32,7 @@
 				</div>
 
 				<div class="login_img__btn">
-					<button type="button" class="m--up"><a href="" class="login">회원 가입</a></button>
+					<button type="button" class="m--up"><a href="#" class="login">회원 가입</a></button>
 				</div>
 			</div>
 
