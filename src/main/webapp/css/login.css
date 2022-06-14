@@ -84,7 +84,7 @@ a:hover{
     top: 0;
     width: 1000px;
     height: 100%;
-    background-image: url(img/loginPage.jpg); 
+    background-image: url(../img/loginPage.jpg); 
     background-size: cover;
     transition: transform 1.2s ease-in-out;
 }
