@@ -9,6 +9,6 @@ create table comment_db(
 
 create sequence comment_db_seq;
 
-insert into comment_db values(comment_db_seq.nextval, 1, 'mz', 'ë‚´ìš©', sysdate);
+insert into comment_db values(comment_db_seq.nextval, 1, 'mz', '³»¿ë', sysdate);
 
 select * from comment_db;

@@ -26,7 +26,7 @@
 		<div>
 			<img src="img/마늘빵.jpg">
 			<h1 class="mainText1">
-				홈베이킹 <br> 바삭한 마늘빵
+			홈베이킹 <br> 바삭한 마늘빵
 			</h1>
 		</div>
 		<div>
@@ -58,11 +58,10 @@
 			slideWidth : 830,
 			slideMargin : 0,
 			captions : false,
-			autoHover : true, // autoHover: true 마우스 올리면 멈춤
+			autoHover : false, 
 			responsive : false,
 			controls : false, // 이전/다음 버튼 노출 여부
-			pager : false
-		// 동그라미 (불릿) 버튼 노출 여부  
+			pager : false	// 동그라미 (불릿) 버튼 노출 여부  
 
 		});
 	</script>
@@ -70,41 +69,24 @@
 
 	<div class="current">
 		<h2>최근게시물</h2>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
 		
 	</div>
 
 	<div class="hotlike">
 		<h2>인기게시물</h2>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
-		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="#"><img src="img/Pretzel.png"></a>
 	</div>
-
-
-	<div class="footer">
-		<hr>
-		<img id="footerlogo" name="footerlogo" src="img/Logo_s.png">
-		
-		<div class="f_company"> 
-		<h4>㈜더 쿡</h4>
-		<p>사업자정보 / 서울특별시 종로구 종로12길 15 5층 (관철동 13-13)</p>
-		<p>COPYRIGHT © THECOOK ALL RIGHTS RESERVED</p>
-		 
-		
-		</div>
-
-
-	</div>
-
 
 
 </body>
