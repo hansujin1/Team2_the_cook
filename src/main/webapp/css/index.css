@@ -79,6 +79,10 @@ a:hover{
     margin-right: 5%;
 }    
 
+#login:hover .dropdown-content {
+	display: block;
+}
+
 .loginBt{
 	 border: 0;
 	 background-color: white; 

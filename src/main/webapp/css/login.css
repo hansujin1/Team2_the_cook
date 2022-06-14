@@ -208,13 +208,13 @@ a:hover {
 .dropdown-content {
 	display: none;
 	position: absolute;
+	margin-top:10px;
 	z-index: 1; /*다른 요소들보다 앞에 배치*/
 	font-size: 11pt;
 	background: #F8ECD1;
 	opacity: 0.8;
 	padding: 10px 10px 10px 10px;
 	width: 100px;
-  	margin-top: 10px; 		  
 	text-align: center;
 }
 
@@ -222,13 +222,6 @@ a:hover {
 	line-height: 150%;
 }
 
-.dropdown-content a {
-	display: block;
-}
-
-.login_dropdown:hover .dropdown-content {
-	display: block;
-}
 
 .dropbtn:hover {
 	color: rgb(255, 123, 0);
