@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Main</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet"	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <style>
 /* bxslider border 지우기 및 그림자 지우기 */
 .bx-wrapper {
+	overflow: hidden;
 	border: 0;
 	background: #fbfbfb;
 	box-shadow: none;
@@ -59,7 +60,7 @@ pageEncoding="UTF-8"%>
 			captions : false,
 			autoHover : true, // autoHover: true 마우스 올리면 멈춤
 			responsive : false,
-			controls : true, // 이전/다음 버튼 노출 여부
+			controls : false, // 이전/다음 버튼 노출 여부
 			pager : false
 		// 동그라미 (불릿) 버튼 노출 여부  
 
@@ -67,16 +68,42 @@ pageEncoding="UTF-8"%>
 	</script>
 
 
-	<div id="contents">
+	<div class="current">
 		<h2>최근게시물</h2>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		
 	</div>
 
-	<footer>
-		<h2>Footer</h2>
-		<p></p>
+	<div class="hotlike">
+		<h2>인기게시물</h2>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+		<div><a href="#"><img src="img/Pretzel.png"></a></div>
+	</div>
 
 
-	</footer>
+	<div class="footer">
+		<hr>
+		<img id="footerlogo" name="footerlogo" src="img/Logo_s.png">
+		
+		<div class="f_company"> 
+		<h4>㈜더 쿡</h4>
+		<p>사업자정보 / 서울특별시 종로구 종로12길 15 5층 (관철동 13-13)</p>
+		<p>COPYRIGHT © THECOOK ALL RIGHTS RESERVED</p>
+		 
+		
+		</div>
+
+
+	</div>
 
 
 

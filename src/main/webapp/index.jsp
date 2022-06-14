@@ -26,7 +26,7 @@
 		<!-- header -->
 		<header id="header" style="margin: none;">
 			<div id="mainlogo">
-				<!-- 로고 이미지 클릭시 이동--가칭 "index.jsp"-->
+				<!-- 로고 이미지 클릭시 이동-->
 				<a href="HC"> <img id="logo" src="img/Logo2.png">
 				</a>
 			</div>
@@ -43,28 +43,29 @@
 			</div>
 
 			<div id="login">
-				<!-- login post 연결, LoginC로  -->
+				<!-- before:login after:myPage -->
 				<h3>
-					<a href="loginCont" class="login">LOGIN</a>
+					<button type="button" class = "loginBt">LOGIN</button>
+					<jsp:include page="${loginPage }"></jsp:include>
 				</h3>
 			</div>
 
+			<div id="nav">
+				<ul>
+					<li class="Korea"><a href="ShowBoardListController?category=1"> 한식 </a></li>
+					<li class="Japan"><a href="ShowBoardListController?category=2"> 일식 </a></li>
+					<li class="Western"><a href="ShowBoardListController?category=3"> 양식 </a></li>
+					<li class="China"><a href="ShowBoardListController?category=4"> 중식 </a></li>
+					<li class="Baking"><a href="#"> 홈베이킹 </a></li>
+					<li class="Event"><a href="#"> EVENT </a></li>
+				</ul>
+			</div>
 		</header>
-		<nav id="nav">
-			<ul>
-				<li class="Korea"><a href="#"> 한식 </a></li>
-				<li class="Japan"><a href="#"> 일식 </a></li>
-				<li class="Western"><a href="#"> 양식 </a></li>
-				<li class="China"><a href="#"> 중식 </a></li>
-				<li class="Baking"><a href="#"> 홈베이킹 </a></li>
-				<li class="Event"><a href="#"> EVENT </a></li>
-			</ul>
-		</nav>
-		
-		<span> <jsp:include page="${contentPage}"></jsp:include></span>
+
 
 	</form>
 
+	<span><jsp:include page="${contentPage}"></jsp:include></span>
 
 
 
