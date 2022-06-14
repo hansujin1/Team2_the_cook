@@ -7,78 +7,117 @@ import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.team2.main.DBManager;
 
 public class LoginDAO {
 
 	public static void login(HttpServletRequest request) {
-		
+
 		String userId = request.getParameter("id");
 		String userPw = request.getParameter("pw");
-		
-		Connection con =null;
-		
+
+		Connection con = null;
+
 		PreparedStatement pstmt = null;
-		
-		ResultSet rs =null;
-		
-		
+
+		ResultSet rs = null;
+
 		try {
-			con=DBManager.connect();
-			String sql ="select * from account_table where a_id=?";
-			pstmt=con.prepareStatement(sql);
+			con = DBManager.connect();
+			String sql = "select * from account_table where a_id=?";
+			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userId);
-			
-			rs=pstmt.executeQuery();
-			
+
+			rs = pstmt.executeQuery();
+
 			if (rs.next()) {
-				
+
 				if (userPw.equals(rs.getString("a_pw"))) {
-					
-					
-					LoginB a= new LoginB();
+
+					LoginB a = new LoginB();
 					a.setId(rs.getString("a_id"));
 					a.setName(rs.getString("a_name"));
 					a.setPw(rs.getString("a_pw"));
 					a.setMail(rs.getString("a_mail"));
-					
-					HttpSession hs=request.getSession();
+
+					HttpSession hs = request.getSession();
 					hs.setAttribute("loginInfo", a);
-					hs.setMaxInactiveInterval(5*60);
-				}else {
+					hs.setMaxInactiveInterval(5 * 60);
+				} else {
 					System.out.println("패스워드오류");
 				}
-			}else {
+			} else {
 				System.out.println("존재 안함");
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			DBManager.close(con, pstmt, rs);
 		}
-		
+
 	}
 
 	public static void loginCheck(HttpServletRequest request) {
-		//loin 확인하는 부분
+		// loin 확인하는 부분
 		HttpSession hs = request.getSession();
 		LoginB a = (LoginB) hs.getAttribute("loginInfo");
-		
-		if (a==null) {
+
+		if (a == null) {
 			request.setAttribute("loginPage", "login/loginBefore.jsp");
-		}else {
+		} else {
 			request.setAttribute("loginPage", "login/loginAfter.jsp");
 		}
-		
+
 	}
 
 	public static void logOut(HttpServletRequest request) {
 		// logOut
-		
+
 		HttpSession hs = request.getSession();
 		hs.setAttribute("loginInfo", null);
-		
+
+	}
+
+	public static void regAccount(HttpServletRequest request) {
+		// 회원가입 부분
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+
+		try {
+
+			con = DBManager.connect();
+			String sql = "insert into account_table values(?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+
+			String name = request.getParameter("name");
+			String id = request.getParameter("id");
+			String pw = request.getParameter("pw");
+			String mail = request.getParameter("e_mail");
+			System.out.println(name);
+
+			
+			  pstmt.setString(1, name); 
+			  pstmt.setString(2, id); 
+			  pstmt.setString(3, pw);
+			  pstmt.setString(4, mail);
+			 
+
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("가입성공");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+
 	}
 
 }
