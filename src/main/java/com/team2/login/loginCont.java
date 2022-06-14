@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public class loginCont extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		LoginDAO.loginCheck(request);
 		request.setAttribute("contentPage", "login/login.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

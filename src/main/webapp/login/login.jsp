@@ -10,16 +10,19 @@
 <body class="login_body">
 
 	<div class="login_cont">
+	
+	<form action="DoLoginController" method="post">
 
 		<div class="login_txt sign-in">
 			<h2 class="login_h2">Welcome!</h2>
-			<label class="login_label"> <span>ID</span> <input
-				class="login_input" />
-			</label> <label class="login_label"> <span>Password</span> <input
-				class="login_input" />
+			<label class="login_label"> <span>ID</span> 
+			<input class="login_input" name="id" />
+			</label> <label class="login_label"> <span>Password</span> 
+			<input class="login_input" name="pw" />
 			</label>
 			<p class="forgot-pass">비밀번호를 잊으셨나요?</p>
-			<button type="button" class="login_bt">LOGIN</button>
+			<button class="login_bt">LOGIN</button>
+			
 
 
 		</div>
@@ -32,15 +35,14 @@
 				</div>
 
 				<div class="login_img__btn">
-					<button type="button" class="m--up"><a href="#" class="login">회원 가입</a></button>
+					<button type="button" class="m--up" onclick="location.href='regController'">회원 가입</button>
 				</div>
 			</div>
 
 		</div>
 
+</form>
 	</div>
-
-
 
 
 </body>
