@@ -93,6 +93,35 @@ a:hover{
 }
 
 
+#nav{
+	margin-top:20px;
+}
+
+#nav ul li a { /* 메뉴 hover시 밑줄 효과 */
+  color: #000;
+  display:inline-block; 
+  margin:0;
+  text-transform:uppercase; }
+  
+#nav ul li a:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px #f1bc1b;  
+  transform: scaleX(0);  
+  transition: transform 150ms ease-in-out;
+}
+#nav ul li a:hover:after { 
+	transform: scaleX(1); 
+}
+#nav ul li a.fromRight:after{ 
+	transform-origin:100% 50%; 
+}
+#nav ul li a.fromLeft:after{
+	transform-origin:  0% 50%; 
+}
+
+
+
 #nav ul li {
     padding-top: 120px;
     margin-left: 5%;
@@ -102,7 +131,7 @@ a:hover{
     font-weight: 900;
     margin-right: 10pt;
     letter-spacing: -0.5px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     
 }
 
@@ -161,6 +190,7 @@ a:hover{
 }
 
 .current{
+	float: left;
     padding-left: 50px;
     padding-bottom: 150px;
     color: rgba(43, 43, 43, 0.555);
@@ -169,6 +199,7 @@ a:hover{
 }
 
 .hotlike{
+	float: left;
     padding-left: 50px;
     color: rgba(43, 43, 43, 0.555);
     font-size: 12pt;

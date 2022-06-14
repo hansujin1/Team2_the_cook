@@ -6,10 +6,13 @@
 <meta charset="UTF-8">
 <title>Main</title>
 <link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/board.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="login_js/check.js"></script>
+<script type="text/javascript" src="login_js/validCheck.js"></script>
 <style>
 /* bxslider border 지우기 및 그림자 지우기 */
 .bx-wrapper {
@@ -63,8 +66,22 @@
 
 
 	</form>
-
-	<span><jsp:include page="${contentPage}"></jsp:include></span>
+	
+	<span><jsp:include page="${contentPage}"></jsp:include>
+	</span>
+	
+	<div class="footer">
+		<hr>
+		<img id="footerlogo" name="footerlogo" src="img/Logo_s.png">
+		
+		<div class="f_company"> 
+		<h4>㈜더 쿡</h4>
+		<p>사업자정보 / 서울특별시 종로구 종로12길 15 5층 (관철동 13-13)</p>
+		<p>COPYRIGHT © THECOOK ALL RIGHTS RESERVED</p>
+		 
+		
+		</div>
+	</div>
 
 
 
