@@ -18,7 +18,7 @@ public class BoardDAO {
 	public static void createPost(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into board_table values (board_table_seq.nextval,'mz',sysdate,?,?,?,1,1,'1')";
+		String sql = "insert into board_table values (board_table_seq.nextval,'mz',sysdate,?,?,?,1,1,?)";
 		try {
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
@@ -30,14 +30,17 @@ public class BoardDAO {
 		String title = mr.getParameter("title");
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
-		
+        String category = mr.getParameter("category");
 		pstmt.setString(1, title);
 		pstmt.setString(2, txt);
 		pstmt.setString(3, file);
+		pstmt.setString(4, category);
+		
 		
 		
 		if (pstmt.executeUpdate() == 1){
 			System.out.println("등록성공");
+			request.setAttribute("category", category);
 		}
 		
 		} catch (Exception e) {
@@ -55,13 +58,22 @@ public class BoardDAO {
 		 ResultSet rs = null;
 		 String sql = "select * from board_table where board_number =?";
 		 String board_number = request.getParameter("num");	
+		 String num = (String)request.getAttribute("num");
 		 
 		 try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, board_number);
+			
+			if(num != null) {
+				pstmt.setString(1, num);
+			}else {
+				pstmt.setString(1, board_number);
+			}
+			
 			
 			rs = pstmt.executeQuery();
+			
+			
 			
 			if(rs.next()) {
 				PostB p = new PostB();
@@ -77,7 +89,8 @@ public class BoardDAO {
 				request.setAttribute("r", p);
 			}
 			
-			
+			String category = request.getParameter("category");
+			request.setAttribute("category", category);
 			
 			
 			} catch (Exception e) {
@@ -90,12 +103,13 @@ public class BoardDAO {
 
 	
 	
-	// 게시판 list 보여주기 ---------------------------------------------------
+	// 전체 게시판 list 보여주기 ---------------------------------------------------
 	public static void showPostList(HttpServletRequest request) {
 		
 		 Connection con = null;
 		 PreparedStatement pstmt = null;
 		 ResultSet rs = null;
+		 
 		 String sql = "select * from board_table";
 			try {
 			con = DBManager.connect();
@@ -131,12 +145,135 @@ public class BoardDAO {
 		 finally {
 				DBManager.close(con, pstmt, rs);
 			}
+	}
+
+	// 카테고리별 게시판 리스트
+	public static void showPostList_category(HttpServletRequest request) {
 		
-		
-		
-		
+		 Connection con = null;
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 String category1 = (String) request.getAttribute("category");
+		 String sql = "select * from board_table where board_category = ?";
+		 String category = request.getParameter("category");
+		  
+		 
+		 
+		 try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			if (category1!=null) {
+				pstmt.setString(1, category1);
+				
+			} else {
+				pstmt.setString(1, category);
+			}
+			
+			
+			
+			rs = pstmt.executeQuery();
+			
+
+			
+			ArrayList<PostB> post = new ArrayList<PostB>();
+			
+			while (rs.next()) {
+				PostB p = new PostB();
+				
+				p.setBoard_category(rs.getString("board_category"));
+				p.setBoard_count(rs.getString("board_count"));
+				p.setBoard_date(rs.getString("board_date"));
+				p.setBoard_file(rs.getString("board_file"));
+				p.setBoard_id(rs.getString("board_id"));
+				p.setBoard_like(rs.getString("board_like"));
+				p.setBoard_number(rs.getString("board_number"));
+				p.setBoard_title(rs.getString("board_title"));
+				p.setBoard_txt(rs.getString("board_txt"));
+				post.add(p);
+			}
+			
+			request.setAttribute("post", post);
+			
+			
+			
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 finally {
+				DBManager.close(con, pstmt, rs);
+			}
 		
 	}
+
+
+	public static void deletePost(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete board_table where board_number=?";
+		try {
+		con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		
+		String num= request.getParameter("num");
+		
+		pstmt.setString(1, num);
+		
+		
+		if (pstmt.executeUpdate() == 1){
+			System.out.println("삭제성공");
+		}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	 finally {
+			DBManager.close(con, pstmt, null);
+		}
+	
+	
+	
+	}
+
+	public static void updatePost(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+    try {
+		String sql = "update board_table set board_title=?,board_txt=?,board_file=? where board_number=?";
+    	
+    	con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		String path = request.getSession().getServletContext().getRealPath("fileFolder");
+		System.out.println(path);
+		MultipartRequest mr;
+		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+		
+		String title = mr.getParameter("title");
+		String txt = mr.getParameter("txt");
+		String file = mr.getFilesystemName("file");
+		String number = mr.getParameter("num");
+        pstmt.setString(1, title);
+        pstmt.setString(2, txt);
+        pstmt.setString(3, file);
+        pstmt.setString(4, number);
+			
+			
+    	if (pstmt.executeUpdate()==1) {
+		 System.out.println("변경완료");
+		 request.setAttribute("num", number);
+    	}
+         
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+	
+}
+
+	
+	
 
 	
 	

@@ -6,13 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-@WebServlet("/ShowBoardListController")
-public class ShowBoardListController extends HttpServlet {
+
+import com.team2.login.LoginDAO;
+@WebServlet("/DeletePostController")
+public class DeletePostController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		BoardDAO.showPostList_category(request);
-		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+	LoginDAO.loginCheck(request);
+	BoardDAO.deletePost(request);
+	BoardDAO.showPostList_category(request);
+	request.setAttribute("contentPage", "board_jsp/board_list.jsp");
+	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 

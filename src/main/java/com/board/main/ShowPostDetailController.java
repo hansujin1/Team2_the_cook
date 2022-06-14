@@ -6,10 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.team2.login.LoginDAO;
 @WebServlet("/ShowPostDetailController")
 public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	BoardDAO.showPost(request);
+		LoginDAO.loginCheck(request);
+
+		BoardDAO.showPost(request);
 	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
     request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
