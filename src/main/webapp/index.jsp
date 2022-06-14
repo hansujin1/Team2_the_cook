@@ -45,7 +45,6 @@
 			<div id="login">
 				<!-- before:login after:myPage -->
 				<h3>
-					<button type="button" class = "loginBt">LOGIN</button>
 					<jsp:include page="${loginPage }"></jsp:include>
 				</h3>
 			</div>
