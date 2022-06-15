@@ -198,7 +198,15 @@ a:hover {
 	border: 1px;
 	opacity: 0.83;
 }
+
+
+
+
 /* 드롭다운 */
+
+
+
+
 .login_dropdown {
 	position: relative;
 	display: inline-block;
@@ -235,7 +243,13 @@ a:hover {
 	width:25px;
 }
 
+
+
+
 /* 회원가입 */
+
+
+
 
 .reg{
 	text-align: center;
