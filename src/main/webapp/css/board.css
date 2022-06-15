@@ -90,3 +90,24 @@ ul, li {
 .left {
 	text-align: left;
 }
+
+.left:hover{
+	cursor:pointer;
+}
+
+.img:hover{
+	cursor:pointer;
+}
+
+/* post_details */
+.post_board{
+	background-color:  #F8ECD1;
+	font-size: 10pt;
+	text-align:center;
+}
+
+.txt{
+	width:20%;
+	height:20%;
+}
+
