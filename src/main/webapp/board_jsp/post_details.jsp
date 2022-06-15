@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +8,28 @@
 </head>
 <body>
 
-	<div class = "post_board">
-	
-			<div>${r.board_title}</div>
-			
-			<div><img src="fileFolder/${r.board_file}"></div>
-			
-			<div>${r.board_txt}</div>
-			
-			<div>
-				<button type="button"
-					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
-				<button
-					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
-			</div>
-	</div>
-	${r.board_category}
+<table border="1">
+<tr>
+<td>${r.board_title}</td>
+</tr>
+<tr>
+<td><img src="fileFolder/${r.board_file}"><br>${r.board_txt}</td>
+</tr>
+<tr>
+<td>
+<button type="button" onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
+<button onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
+</td>
+</tr>
+<!--
+<tr>
+  <td>
+<div><img src="img/pink.png" style="height: 50px;"></div>
+</td>
+</tr>
+ -->
+</table>
+
 
 </body>
 </html>
