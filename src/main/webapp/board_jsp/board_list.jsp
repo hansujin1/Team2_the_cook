@@ -10,30 +10,35 @@
 <body>
     <div id="mainWrapper">
         <ul>
-            <li id="Table_n">Board
+            <li id="Table_n">
             <ul id="ulTable">
                 <li><ul>
-                    <li>image</li>
-                    <li>제목</li>
-                    <li>date</li>
-                    <li>user</li>
-                      <li>no</li>
+                    <li class="img">image</li>
+                    <li class="left">제목</li>
+                    <li class="user">user</li>
+                    <li class="date">date</li>
+                    <li class="no">no</li>
                 </ul></li>
             <!-- 게시물이 출력될 영역 -->
             <c:forEach var="p" items="${post}">
                 <li>
-                    <ul>
-                        <li class="img"><img src="fileFolder/${p.board_file}"
+                    <ul id="ulTable">
+                    
+                        <li class="imgs"><img src="fileFolder/${p.board_file}"
                                     style="height: 100px"></li>
-                        <li class="left"><a
+                        <li class="title" style="height:100px;"><a
                                     onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></li>
-                        <li>${p.board_date}</li>
-                        <li>${p.board_id}</li>
-                        <li>${p.board_number}</li>
+                        <li class="user" style="height:100px;">${p.board_id}</li>
+                        <li class="date" style="height:100px;">${p.board_date}</li>
+                        <li class="no" style="height:100px;">${p.board_number}</li>
                     </ul>
                 </li>
             </c:forEach>
                 </ul>
+   				 <button class="text_Bt" onclick="location.href='BoardController?category=${param.category}'">
+   					 글쓰기
+   					 <img src="img/pencil.png" class="pencil">
+   				 </button>
             <li>
                 <div id="divPaging">
                     <div>◀</div>
@@ -50,7 +55,6 @@
         </ul>
     </div>
     
-    <button onclick="location.href='BoardController?category=${param.category}'"></button>
     
 </body>
 </html>
