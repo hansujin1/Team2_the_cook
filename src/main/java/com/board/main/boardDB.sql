@@ -9,6 +9,24 @@ board_like number(4) not null,
 board_count number(4) not null
 );
 
+
+select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from BOARD_TABLE where board_category = ?) where rn between ? and ?
+-------------------------------------
+select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(
+select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category
+from BOARD_TABLE 
+where board_category = '1') 
+where rn between 3 and 20
+
+-- between, and ? ?  ==> rn의 몇번부터 몇번까지 노출시킬건지
+
+
+
+
+select count(*) from board_table where board_category = ?
+
+
+
 alter table board_table add board_category varchar2(10) not null;
 create sequence board_table_seq;
 
@@ -17,10 +35,15 @@ select * from board_table;
 
 insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내용','파일',1,1,'1');
 
+insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내용','karina.jpg',1,1,'1');
+
 select * from board_table where board_number =5
 
 
 
+
+-- 특정 갯수만 보여주기
+select * from board_table where board_category = '1' and rownum <=10
 
 
 

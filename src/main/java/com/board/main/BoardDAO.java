@@ -7,9 +7,11 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.team2.login.LoginB;
 import com.team2.main.DBManager;
 
 public class BoardDAO {
@@ -18,7 +20,7 @@ public class BoardDAO {
 	public static void createPost(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into board_table values (board_table_seq.nextval,'mz',sysdate,?,?,?,1,1,?)";
+		String sql = "insert into board_table values (board_table_seq.nextval,?,sysdate,?,?,?,1,1,?)";
 		try {
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
@@ -27,14 +29,20 @@ public class BoardDAO {
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		String id = a.getId();
 		String title = mr.getParameter("title");
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
         String category = mr.getParameter("category");
-		pstmt.setString(1, title);
-		pstmt.setString(2, txt);
-		pstmt.setString(3, file);
-		pstmt.setString(4, category);
+		
+        pstmt.setString(1, id);
+        pstmt.setString(2, title);
+		pstmt.setString(3, txt);
+		pstmt.setString(4, file);
+		pstmt.setString(5, category);
 		
 		
 		
@@ -154,6 +162,8 @@ public class BoardDAO {
 		 PreparedStatement pstmt = null;
 		 ResultSet rs = null;
 		 String category1 = (String) request.getAttribute("category");
+		 
+		 
 		 String sql = "select * from board_table where board_category = ?";
 		 String category = request.getParameter("category");
 		  
@@ -193,7 +203,6 @@ public class BoardDAO {
 			}
 			
 			request.setAttribute("post", post);
-			
 			
 			
 			
@@ -271,6 +280,119 @@ public class BoardDAO {
 		}
 	
 }
+
+	public static void lastpage(HttpServletRequest request) {
+		 Connection con = null;
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 String category1 = (String) request.getAttribute("category");
+		 String sql = "select count(*) from board_table where board_category = ?";
+		 String category = request.getParameter("category");
+		 try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			if (category1!=null) {
+				pstmt.setString(1, category1);
+				
+			} else {
+				pstmt.setString(1, category);
+			}
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+			
+				int total = rs.getInt("COUNT(*)");
+			    int lastpage = (int) Math.ceil((double)total/10);
+			    request.setAttribute("lastpage", lastpage);
+			}
+			  
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 finally {
+				DBManager.close(con, pstmt, rs);
+			}
+		
+	}
+    
+	
+	public static void showpage(HttpServletRequest request) {
+	  
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String category1 = (String) request.getAttribute("category");
+		String category = request.getParameter("category");
+		String vpage = request.getParameter("vpage");
+
+	   if( vpage == null) {
+		   vpage = "1";
+	   }
+		
+	  int page = Integer.parseInt(vpage);
+	  // 1p  1   1~10
+	  // 2p  2   11~20
+	  // 3p  3   21~30
+	  int rnStart = 1;
+	  int rnEnd = 10;
+	  
+	  if(page != 1) {
+		 rnStart = page*10-9;
+		 rnEnd = rnStart+9;
+	  } 
+
+	  
+	  String sql ="select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from BOARD_TABLE where board_category = ?) where rn between ? and ?";
+	  
+	   
+	  
+	  try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			if (category1!=null) {
+				pstmt.setString(1, category1);
+				
+			} else {
+				pstmt.setString(1, category);
+			}
+			
+			pstmt.setInt(2, rnStart);
+			pstmt.setInt(3, rnEnd);
+			
+			
+			rs = pstmt.executeQuery();
+			
+
+			
+			ArrayList<PostB> post = new ArrayList<PostB>();
+			
+			while (rs.next()) {
+				PostB p = new PostB();
+				
+				p.setBoard_category(rs.getString("board_category"));
+				p.setBoard_count(rs.getString("board_count"));
+				p.setBoard_date(rs.getString("board_date"));
+				p.setBoard_file(rs.getString("board_file"));
+				p.setBoard_id(rs.getString("board_id"));
+				p.setBoard_like(rs.getString("board_like"));
+				p.setBoard_number(rs.getString("board_number"));
+				p.setBoard_title(rs.getString("board_title"));
+				p.setBoard_txt(rs.getString("board_txt"));
+				post.add(p);
+			}
+			
+			request.setAttribute("post", post);
+			
+			
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 finally {
+				DBManager.close(con, pstmt, rs);
+			}
+		
+	}
 
 	
 	

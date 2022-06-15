@@ -12,7 +12,8 @@ import com.team2.login.LoginDAO;
 public class ShowBoardListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
-		BoardDAO.showPostList_category(request);
+		BoardDAO.lastpage(request);
+		BoardDAO.showpage(request);
 		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
