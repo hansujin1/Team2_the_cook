@@ -44,7 +44,7 @@ public class LoginDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("loginInfo", a);
-					hs.setMaxInactiveInterval(5 * 60);
+					hs.setMaxInactiveInterval(60 * 60 *5);
 					
 					isLogin = true;
 				} else {
