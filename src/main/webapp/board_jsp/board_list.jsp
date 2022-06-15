@@ -37,7 +37,7 @@
                 </ul>
    				 <button class="text_Bt" onclick="location.href='BoardController?category=${param.category}'">
    					 글쓰기
-   					 <img src="img/pencil.png" class="pencil">
+   					 <img src="../img/pencil.png" class="pencil">
    				 </button>
             <li>
                 <div id="divPaging">
