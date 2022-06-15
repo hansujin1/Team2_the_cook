@@ -127,4 +127,80 @@ public class LoginDAO {
 
 	}
 
+	public static void findPw(HttpServletRequest request) {
+		// 비밀번호 찾기 기능
+		
+		String id = request.getParameter("find_id");
+		String name = request.getParameter("find_name");
+		String mail = request.getParameter("find_mail");
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			con = DBManager.connect();
+			String sql = "select a_pw from account_table where a_name=? and a_id=? and a_mail=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			pstmt.setString(3, mail);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				String pw = rs.getString("a_pw");
+				request.setAttribute("findPw", pw);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public static void findId(HttpServletRequest request) {
+		// find ID
+		
+		String name = request.getParameter("find_name");
+		String mail = request.getParameter("find_mail");
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			con = DBManager.connect();
+			String sql = "select a_id from account_table where a_name=? and a_mail=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, mail);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				String id = rs.getString("a_id");
+				request.setAttribute("findId", id);
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		
+		
+	}
+
+	
+	
 }
