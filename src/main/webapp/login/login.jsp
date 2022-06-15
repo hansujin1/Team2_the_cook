@@ -11,7 +11,7 @@
 
 	<div class="login_cont">
 	
-	<form action="DoLoginController" method="post">
+	<form action="DoLoginController" method="post" name="loginForm" onsubmit="return login_call()">
 
 		<div class="login_txt sign-in">
 			<h2 class="login_h2">Welcome!</h2>
@@ -20,7 +20,8 @@
 			</label> <label class="login_label"> <span>Password</span> 
 			<input class="login_input" name="pw" type="password" />
 			</label>
-			<p class="forgot-pass">비밀번호를 잊으셨나요?</p>
+			<p class="forgot-pass" onclick="location.href='idFindController'">아이디를 잊으셨나요?</p>
+			<p class="forgot-pass" onclick="location.href='pwFindController'">비밀번호를 잊으셨나요?</p>
 			<button class="login_bt">LOGIN</button>
 			
 

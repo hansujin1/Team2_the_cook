@@ -9,7 +9,6 @@
 </head>
 <body>
 	<div id="mainWrapper">
-
 		<ul>
 			<li id="Table_n">Board
 			<ul id="ulTable">
@@ -34,7 +33,6 @@
 					</ul>
 				</li>
 			</c:forEach>
-			
 				</ul>
 			<li>
 				<div id="divPaging">
@@ -49,7 +47,6 @@
 					<div>▶</div>
 				</div>
 			</li>
-			
 		</ul>
 	</div>
 </body>
