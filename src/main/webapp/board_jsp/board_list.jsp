@@ -49,5 +49,8 @@
             </li>
         </ul>
     </div>
+    
+    <button onclick="location.href='BoardController?category=${param.category}'"></button>
+    
 </body>
 </html>
