@@ -15,6 +15,7 @@ public class DBManager {
 
 	//db작업시엔 어쨋든 연결 해야됨
 	public static Connection connect() throws SQLException {
+<<<<<<< HEAD
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		return DriverManager.getConnection(url, "leeyoky", "leeyoky");
 	}
@@ -22,17 +23,27 @@ public class DBManager {
 
 
 // 닫을게 많은데 한번에 닫기
+=======
+		
+		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+		return DriverManager.getConnection(url,"c##sj","sj");
+	}
+	
+	//닫을게 많은데 한번에 닫기
+>>>>>>> 6d246f22815e52f9c4e793f617e582d4460ad092
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
+		
 		try {
-			if (rs != null) {
+			if (rs != null) {				
 				rs.close();
 			}
 			pstmt.close();
 			con.close();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		
 	}
 }
-
