@@ -7,31 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/pwFindController")
-public class pwFindController extends HttpServlet {
+@WebServlet("/myPageChangeController")
+public class myPageChangeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//비밀번호 찾기 페이지로 이동
-		
+	
+		//내 페이지 수정하기했을 때 비번 확인
 		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "login/pwFind.jsp");
+		request.setAttribute("contentPage", "login/mypageBefor_Check.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//비밀번호 찾기 기능
-		
-		if (LoginDAO.findPw(request)) {
+	
+		//마이페이지 수정하기전에 비밀번호확인기능
+		if(LoginDAO.pwCheck(request)) {
 			LoginDAO.loginCheck(request);
-			request.setAttribute("contentPage", "login/tellFindPw.jsp");
+			request.setAttribute("contentPage", "login/mypageChange.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else {
 			LoginDAO.loginCheck(request);
-			request.setAttribute("contentPage", "login/pwFind.jsp");
+			request.setAttribute("contentPage", "login/mypageBefor_Check.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 		
-		
+	
 	}
 
 }
