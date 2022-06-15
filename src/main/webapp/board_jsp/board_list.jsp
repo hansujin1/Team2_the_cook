@@ -50,7 +50,7 @@
         </ul>
     </div>
     
-    <button onclick="location.href='BoardController?category=${param.category}'">글쓰기</button>
+    <button onclick="location.href='BoardController?category=${param.category}'"></button>
     
 </body>
 </html>
