@@ -10,16 +10,18 @@
 
 	<form action="BoardController" method="post"
 		enctype="multipart/form-data">
-		<table border="1">
+		<table class = "create_B">
 			<tr>
-				<td><input name="title"></td>
+				<td><input class = "create_Binput" name="title"
+				placeholder="제목을 입력해 주세요."></td>
 			</tr>
 			<tr>
-				<td><textarea name="txt"></textarea><input type="hidden"
-					name="category" value="${param.category}"></td>
+				<td><textarea class = "create_Btxt" name="txt"
+				placeholder="내용을 입력해 주세요."></textarea>
+				<input type="hidden" name="category" value="${param.category}"></td>
 			</tr>
 			<tr>
-				<td><input type="file" name="file">
+				<td><input class = "create_Bfile" type="file" name="file">
 					<button>업로드</button> ${param.category}</td>
 			</tr>
 		</table>

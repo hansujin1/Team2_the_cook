@@ -11,6 +11,21 @@ ul, li {
 	margin: 0;
 }
 
+button {
+	cursor:pointer;
+}
+
+.imgs{
+	max-width: 100%;
+	max-height:100%;
+	height: 100px;
+ 	width: 100px;
+}
+
+.img:hover{
+	cursor:pointer;
+}
+
 #mainWrapper {
 	width: 800px;
 	margin: 0 auto; /*가운데 정렬*/
@@ -31,6 +46,10 @@ ul, li {
 
 #ulTable {
 	margin-top: 10px;
+}
+
+#ulTable>li {
+	height:100px;
 }
 
 #ulTable>li:first-child>ul>li {
@@ -54,11 +73,11 @@ ul, li {
 }
 
 #ulTable>li>ul>li:first-child {
-	width: 20%;
+	width: 30%;
 } /*img 열 크기*/
 
 #ulTable>li>ul>li:first-child+li {
-	width: 40%;
+	width: 30%;
 } /*제목 열 크기*/
 
 #ulTable>li>ul>li:first-child+li+li {
@@ -73,11 +92,29 @@ ul, li {
 	width: 5%;
 } /*글번호 열 크기*/
 
+.text_Bt{
+	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 0.5em 1em 0.5em 1em;
+	font-weight: 900;
+	font-size: 9pt;
+	background: #ffffff;
+	border: none;
+	margin-left: 700px;
+}/*글쓰기 버튼*/
+
+.pencil{
+	width: 13px;
+}/*연필 이미지*/
+
 #divPaging {
 	clear: both;
 	margin: 0 auto;
 	width: 220px;
 	height: 50px;
+	margin-left:350px;
+	padding-top:20px;
 }
 
 #divPaging>div {
@@ -87,19 +124,23 @@ ul, li {
 	text-align: center;
 }
 
-.left {
+.title {
 	text-align: left;
 }
 
-.left:hover{
+.title:hover{
 	cursor:pointer;
 }
 
-.img:hover{
-	cursor:pointer;
-}
+
+
+
+
+
 
 /* post_details */
+
+
 .post_board{
 	background-color:  #F8ECD1;
 	font-size: 10pt;
@@ -110,4 +151,35 @@ ul, li {
 	width:20%;
 	height:20%;
 }
+
+
+/* 글쓰기 */
+
+
+
+.create_B{
+	background-color:  #f3f3f3;
+	margin-top: 30px;
+	margin-left: 25%;
+	margin-bottom: 50px;
+}
+
+.create_Binput{
+	border: none;
+	outline: none;
+	width: 855px;
+	height:20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	padding-left:10px;
+}
+
+.create_Btxt{
+	width: 850px;
+	height: 500px;
+	outline: none;
+	border: none;
+	padding : 10px 10px 10px 10px;
+}
+
+
 
