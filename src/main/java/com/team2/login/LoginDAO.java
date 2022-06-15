@@ -127,7 +127,7 @@ public class LoginDAO {
 
 	}
 
-	public static void findPw(HttpServletRequest request) {
+	public static boolean findPw(HttpServletRequest request) {
 		// 비밀번호 찾기 기능
 		
 		String id = request.getParameter("find_id");
@@ -139,6 +139,8 @@ public class LoginDAO {
 		PreparedStatement pstmt = null;
 
 		ResultSet rs = null;
+		
+		boolean isFindPw = false;
 		
 		try {
 			con = DBManager.connect();
@@ -153,18 +155,22 @@ public class LoginDAO {
 			if (rs.next()) {
 				String pw = rs.getString("a_pw");
 				request.setAttribute("findPw", pw);
+				
+				isFindPw = true;
 			}
 			
-			
+			return isFindPw;
 		} catch (Exception e) {
 			e.printStackTrace();
+			
+			return isFindPw;
 		}finally {
 			DBManager.close(con, pstmt, rs);
 		}
 		
 	}
 
-	public static void findId(HttpServletRequest request) {
+	public static boolean findId(HttpServletRequest request) {
 		// find ID
 		
 		String name = request.getParameter("find_name");
@@ -175,6 +181,8 @@ public class LoginDAO {
 		PreparedStatement pstmt = null;
 
 		ResultSet rs = null;
+		
+		boolean isFindId = false;
 		
 		try {
 			con = DBManager.connect();
@@ -188,17 +196,37 @@ public class LoginDAO {
 			if (rs.next()) {
 				String id = rs.getString("a_id");
 				request.setAttribute("findId", id);
+				
+				isFindId = true;
 			}
 			
-			
+			return isFindId;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return isFindId;
 		}finally {
 			DBManager.close(con, pstmt, rs);
 		}
 		
 		
 		
+	}
+
+	public static boolean pwCheck(HttpServletRequest request) {
+		// 정보 수정하기 전 비밀번호 체크하기
+		
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		String check = request.getParameter("check_pw");
+		
+		boolean isPwCheck =false;
+		
+		if (check.equals(a.getPw())) {
+			
+			isPwCheck = true;
+		}
+		
+		return isPwCheck;
 	}
 
 	

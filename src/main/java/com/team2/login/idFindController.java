@@ -21,11 +21,17 @@ public class idFindController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		//아이디 찾아주는 기능
-		LoginDAO.findId(request);
+		if(LoginDAO.findId(request)) {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("contentPage", "login/tellFindId.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);			
+		}else {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("contentPage", "login/idFind.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
+		}
 	
-		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "login/tellFindId.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 }
