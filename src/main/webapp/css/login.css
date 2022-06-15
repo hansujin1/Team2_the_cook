@@ -24,6 +24,7 @@ a:hover {
 	width: 1100px;
 	height: 400px;
 	margin: 0 auto 100px;
+	margin-top: 80px;
 	background: #fff;
 }
 
@@ -32,7 +33,7 @@ a:hover {
 	position: relative;
 	width: 640px;
 	height: 100%;
-	padding: 50px 50px 0;
+	padding: 0px 50px 0;
 }
 
 .sub-cont {
@@ -174,11 +175,12 @@ a:hover {
 	text-align: center;
 	font-size: 12px;
 	color: #9b9b9b;
+	cursor: pointer;
 }
 
 .login_bt {
 	/*로그인 버튼  */
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-bottom: 20px;
 	background: rgb(255, 145, 0);
 	text-transform: uppercase;
@@ -199,14 +201,7 @@ a:hover {
 	opacity: 0.83;
 }
 
-
-
-
 /* 드롭다운 */
-
-
-
-
 .login_dropdown {
 	position: relative;
 	display: inline-block;
@@ -215,7 +210,7 @@ a:hover {
 .dropdown-content {
 	display: none;
 	position: absolute;
-	margin-top:10px;
+	margin-top: 10px;
 	z-index: 1; /*다른 요소들보다 앞에 배치*/
 	font-size: 11pt;
 	background: #F8ECD1;
@@ -229,56 +224,49 @@ a:hover {
 	line-height: 150%;
 }
 
-
 .dropbtn:hover {
 	color: rgb(255, 123, 0);
 	cursor: pointer;
 }
 
-.dropbtn{
+.dropbtn {
 	margin-bottom: 10px;
 }
 
-.loginBf{
-	width:25px;
+.loginBf {
+	width: 25px;
 }
-
-
-
 
 /* 회원가입 */
 
-
-
-
-.reg{
+.reg {
 	text-align: center;
-	margin:50px 0px 150px 0px ;
-	
+	margin: 50px 0px 150px 0px;
 }
 
-#reg_h2{
+#reg_h2 {
 	text-align: center;
 	font-size: 25px;
 	text-align: center;
 }
 
-.reg_bt{/* 회원가입 버튼 */
+.reg_bt { /* 회원가입 버튼 */
 	background-color: rgb(255, 145, 0);
 	outline: none;
 	background: none;
 	cursor: pointer;
-	margin-top:50px;
+	margin-top: 50px;
 	background: orange;
 	border-radius: 30px 30px 30px 30px;
 	padding: 0.5em 1em 0.5em 1em;
 	font-size: 11pt;
-	font-weight:900;
-	border:none;
+	font-weight: 900;
+	border: none;
 }
-.reg input{
-	border:none;
-	margin: 15px auto 0;
+
+.reg input {
+	border: none;
+	margin: 10px auto 0;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
@@ -286,7 +274,7 @@ a:hover {
 	/*  label */
 	display: block;
 	width: 260px;
-	margin: 25px auto 0;
+	margin: 10px auto 0;
 	text-align: left;
 	font-size: 12px;
 	color: #b6b6b6;
@@ -302,3 +290,57 @@ a:hover {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 	text-align: left;
 }
+
+/* id 찾기 */
+
+.find {
+	text-align: center;
+	margin: 50px 0px 150px 0px;
+}
+
+#find_id{
+	margin-bottom: 50px;
+}
+
+.find_label{
+	display: block;
+	width: 260px;
+	margin: 10px auto 0;
+	text-align: left;
+	font-size: 12px;
+	color: #b6b6b6;
+	text-align: left;
+}
+
+.find input{
+	border: none;
+	margin: 10px auto 0;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	width: 250px;
+}
+
+.find_bt{
+	background-color: rgb(255, 145, 0);
+	outline: none;
+	background: none;
+	cursor: pointer;
+	margin-top: 50px;
+	background: orange;
+	border-radius: 30px 30px 30px 30px;
+	padding: 0.5em 1em 0.5em 1em;
+	font-size: 11pt;
+	font-weight: 900;
+	border: none;
+}
+
+.find_input{
+	display: block;
+	width: 100%;
+	margin-top: 5px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	text-align: left;
+}
+
+

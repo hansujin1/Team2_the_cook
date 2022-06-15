@@ -23,7 +23,7 @@
 			<c:forEach var="p" items="${post}">
 				<li>
 					<ul>
-						<li><img src="fileFolder/${p.board_file}"
+						<li class="img"><img src="fileFolder/${p.board_file}"
 									style="height: 100px"></li>
 						<li class="left"><a
 									onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></li>
