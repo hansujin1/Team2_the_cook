@@ -291,11 +291,12 @@ a:hover {
 	text-align: left;
 }
 
-/* id 찾기 */
+/* id 찾기, pw 찾기 */
 
 .find {
 	text-align: center;
-	margin: 50px 0px 150px 0px;
+	margin: 50px 0px 100px 0px;
+	margin-bottom: 50px;
 }
 
 #find_id{
@@ -343,4 +344,34 @@ a:hover {
 	text-align: left;
 }
 
+
+/* Mypage - 내정보 */
+
+.reg_label2{
+	font-size: 10pt;
+	color : #c0c0c0;
+	text-align: left;
+	
+} 
+
+.myPage_value{
+	color : black;
+	font-size: 10pt;
+	text-align: left;
+}
+
+/* Mypage - 내정보 - 비밀번호 확인 */
+
+Check_pw input{
+	text-align: center;
+}
+
+
+.check_pw{
+	padding-bottom : 30px;
+}
+
+.check_pw2{
+	padding-bottom : 10px;
+}
 
