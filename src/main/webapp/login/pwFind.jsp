@@ -14,7 +14,7 @@
 		<h2 id="find_id">비밀번호 찾기</h2>
 		
 		<label class="find_label"> <span>ID</span><br>
-		<input class="find_name" name="find_name"></label><br>
+		<input class="find_name" name="find_id"></label><br>
 		
 		<label class="find_label"> <span>이름</span><br>
 		<input class="find_name" name="find_name"></label><br>
