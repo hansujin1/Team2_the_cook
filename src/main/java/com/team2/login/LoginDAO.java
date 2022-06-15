@@ -13,7 +13,7 @@ import com.team2.main.DBManager;
 
 public class LoginDAO {
 
-	public static void login(HttpServletRequest request) {
+	public static boolean login(HttpServletRequest request) {
 
 		String userId = request.getParameter("id");
 		String userPw = request.getParameter("pw");
@@ -24,6 +24,7 @@ public class LoginDAO {
 
 		ResultSet rs = null;
 
+		boolean isLogin = false;
 		try {
 			con = DBManager.connect();
 			String sql = "select * from account_table where a_id=?";
@@ -31,7 +32,6 @@ public class LoginDAO {
 			pstmt.setString(1, userId);
 
 			rs = pstmt.executeQuery();
-
 			if (rs.next()) {
 
 				if (userPw.equals(rs.getString("a_pw"))) {
@@ -45,17 +45,24 @@ public class LoginDAO {
 					HttpSession hs = request.getSession();
 					hs.setAttribute("loginInfo", a);
 					hs.setMaxInactiveInterval(5 * 60);
+					
+					isLogin = true;
 				} else {
 					System.out.println("패스워드오류");
+					
+					
 				}
 			} else {
 				System.out.println("존재 안함");
 			}
+			return isLogin; // try구문에
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			return isLogin; // 실패시 false 성공 true
 		} finally {
 			DBManager.close(con, pstmt, rs);
+			
 		}
 
 	}

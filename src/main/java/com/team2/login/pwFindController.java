@@ -7,36 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/DoLoginController")
-public class DoLoginController extends HttpServlet {
-	
+@WebServlet("/pwFindController")
+public class pwFindController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//로그 아웃하는 일
-		LoginDAO.logOut(request);
+		//비밀번호 찾기 페이지로 이동
 		
 		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "home.jsp");
+		request.setAttribute("contentPage", "login/pwFind.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//로그인 하는 일
-		if (LoginDAO.login(request)) {
-			 LoginDAO.loginCheck(request);
-				request.setAttribute("contentPage", "home.jsp");
-				request.getRequestDispatcher("index.jsp").forward(request, response);
-			
-		}else {
-			LoginDAO.loginCheck(request);
-			request.setAttribute("contentPage", "login/login.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
-		
-		 //로그인 체크하기
 		
 	}
 
