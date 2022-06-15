@@ -15,9 +15,14 @@
 <tr>
 <td><img src="fileFolder/${r.board_file}"><br>${r.board_txt}</td>
 </tr>
-
+<tr>
+<td>
+<button type="button" onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
+<button onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
+</td>
+</tr>
 </table>
-
+${r.board_category}
 
 </body>
 </html>

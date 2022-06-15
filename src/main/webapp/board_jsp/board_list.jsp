@@ -10,7 +10,7 @@
 <body>
 
 
-<table border="1" width="700px">
+<table border="1" width="700px" style="text-align: center; margin-left: auto; margin-right: auto;">
 <tr>
 <td>이미지</td>
 <td>제목</td>
@@ -28,6 +28,7 @@
 </tr>
 </c:forEach>
 </table>
+<button type="button" onclick="location.href='BoardController?category=${param.category}'">글쓰기</button>
 
 
 </body>
