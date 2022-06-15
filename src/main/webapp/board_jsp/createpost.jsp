@@ -14,11 +14,12 @@
 <td><input name="title"></td>
 </tr>
 <tr>
-<td><textarea name="txt"></textarea></td>
+<td><textarea name="txt"></textarea><input type="hidden" name="category" value="${param.category}"></td>
 </tr>
 <tr>
 <td><input type="file" name="file">
 <button>업로드</button>
+${param.category}
 </td>
 </tr>
 </table>
