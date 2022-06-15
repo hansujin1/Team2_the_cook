@@ -15,23 +15,14 @@ public class DBManager {
 
 	//db작업시엔 어쨋든 연결 해야됨
 	public static Connection connect() throws SQLException {
-<<<<<<< HEAD
+
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
 		return DriverManager.getConnection(url,"c##sj","sj");
 	}
 	
 	//닫을게 많은데 한번에 닫기
-=======
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String id = "kwb";
-		String pw = "kwb";
-		return DriverManager.getConnection(url, id, pw);
-	}	
 
-
-// 닫을게 많은데 한번에 닫기
->>>>>>> dev
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		try {
 			if (rs != null) {

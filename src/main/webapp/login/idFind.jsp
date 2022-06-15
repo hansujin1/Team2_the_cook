@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="pwFindController" method="post" name="pwFindForm" onsubmit="return pwFind_call()">
+<form action="idFindController" method="post" name="idFindForm" onsubmit="return idFind_call()">
 	
 	<div>
-		<div>비밀번호 찾기</div>
-		<div>
-		<div>아이디</div>
-		<div><input name="find_id"></div>
-		</div>
+		<div>아이디 찾기</div>
 		<div>
 		<div>이름</div>
 		<div><input name="find_name"></div>
@@ -27,6 +23,6 @@
 		<button>찾기</button>
 	</div>
 	
-	</form>
+	</form>	
 </body>
 </html>

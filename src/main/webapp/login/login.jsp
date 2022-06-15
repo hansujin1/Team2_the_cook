@@ -20,6 +20,7 @@
 			</label> <label class="login_label"> <span>Password</span> 
 			<input class="login_input" name="pw" type="password" />
 			</label>
+			<p class="forgot-pass" onclick="location.href='idFindController'">아이디를 잊으셨나요?</p>
 			<p class="forgot-pass" onclick="location.href='pwFindController'">비밀번호를 잊으셨나요?</p>
 			<button class="login_bt">LOGIN</button>
 			

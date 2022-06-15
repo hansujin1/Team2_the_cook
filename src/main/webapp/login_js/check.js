@@ -59,3 +59,57 @@ function login_call(){
 		return false;
 	}
 }
+
+function pwFind_call(){
+	let id = document.pwFindForm.find_id;
+	let name = document.pwFindForm.find_name;
+	let mail = document.pwFindForm.find_mail;
+	
+	if(isEmpty(id)){
+		alert("아이디를 입력하세요");
+		id.focus();
+		id.value="";
+		
+		return false;
+	}
+	
+	if(isEmpty(name)){
+		alert("이름을 입력하세요");
+		name.focus();
+		name.value="";
+		
+		return false;
+	}
+	
+	if(isEmpty(mail)){
+		alert("이메일을 입력하세요");
+		mail.focus();
+		mail.value="";
+		
+		return false;
+	}
+	
+}
+
+function idFind_call(){
+	let name = document.idFindForm.find_name;
+	let mail = document.idFindForm.find_mail;
+	
+	
+	if(isEmpty(name)){
+		alert("이름을 입력하세요");
+		name.focus();
+		name.value="";
+		
+		return false;
+	}
+	
+	if(isEmpty(mail)){
+		alert("이메일을 입력하세요");
+		mail.focus();
+		mail.value="";
+		
+		return false;
+	}
+	
+}

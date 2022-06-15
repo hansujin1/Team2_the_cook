@@ -7,24 +7,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/pwFindController")
-public class pwFindController extends HttpServlet {
+@WebServlet("/idFindController")
+public class idFindController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//비밀번호 찾기 페이지로 이동
+	
+		//아이디 찾기 페이지로 이동
 		
 		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "login/pwFind.jsp");
+		request.setAttribute("contentPage", "login/idFind.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//비밀번호 찾기 기능
-		LoginDAO.findPw(request);
-		
+	
+		//아이디 찾아주는 기능
+		LoginDAO.findId(request);
+	
 		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "login/tellFindPw.jsp");
+		request.setAttribute("contentPage", "login/tellFindId.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

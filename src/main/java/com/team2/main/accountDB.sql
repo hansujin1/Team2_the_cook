@@ -5,4 +5,8 @@ create table account_table(
 	a_mail varchar2(30 char)not null
 );
 
+
 insert into ACCOUNT_TABLE values('name','mz','1004','mz1004@naver.com');
+
+alter table ACCOUNT_TABLE modify a_mail unique;
+
