@@ -327,6 +327,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		
 		String category1 = (String) request.getAttribute("category");
 		String category = request.getParameter("category");
 		String vpage = request.getParameter("vpage");
