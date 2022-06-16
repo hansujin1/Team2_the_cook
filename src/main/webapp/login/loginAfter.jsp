@@ -15,7 +15,7 @@
 				<a href="myPageController">내 정보</a>
 			</p>
 			<p>
-				<a href="#">내가 쓴 글</a></p>
+				<a href="myTextC">내가 쓴 글</a></p>
 			<p>
 				<a href="#">스크랩</a></p>
 			<p>

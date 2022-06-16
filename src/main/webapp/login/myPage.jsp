@@ -13,7 +13,8 @@
 		<div class = "find">
 			<h2 id="reg_h2">회원 정보</h2>
 			<label class="reg_label2"> <span>이름</span> </label> 
-			<span class="myPage_value">${sessionScope.loginInfo.name }</span><button>변경</button> <br> 
+			<span class="myPage_value">${sessionScope.loginInfo.name }</span>
+			<button class="name_chgBt">변경</button> <br> 
 
 			<label class="reg_label2"> <span>아이디</span> </label> 
 			<span class="myPage_value">${sessionScope.loginInfo.id }</span><br> 
