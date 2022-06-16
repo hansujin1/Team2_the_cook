@@ -35,7 +35,7 @@
 			<c:forEach var="p" items="${post}">
 				<div class="ulTable">
 				
-				<div><img class="imgs" src="fileFolder/${p.board_file}"></div>
+				<div><img class="imgs" src="fileFolder/${p.board_file}" onclick="location.href='ShowPostDetailController?num=${p.board_number}'"></div>
 				<div class="left"><a onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></div>
 				<div class="user">${p.board_id}</div>
 				<div class="date">
