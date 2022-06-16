@@ -8,21 +8,19 @@ import java.sql.SQLException;
 
 import javax.naming.spi.DirStateFactory.Result;
 
-//DBê´€ë ¨ ì‘ì—…ì„ í• ë•Œ ë§¤ë²ˆ ì—°ê²°ì½”ë“œë¥¼ ì“´ ì´í›„ ì‘ì—… í•´ë‘ 
+//DB°ü·Ã ÀÛ¾÷À» ÇÒ¶§ ¸Å¹ø ¿¬°áÄÚµå¸¦ ¾´ ÀÌÈÄ ÀÛ¾÷ ÇØµÒ
 
-//ê·¸ê±° AOP í•˜ì
+//±×°Å AOP ÇÏÀÚ
 public class DBManager {
 
-	//dbì‘ì—…ì‹œì—” ì–´ì¨‹ë“  ì—°ê²° í•´ì•¼ë¨
+	//dbÀÛ¾÷½Ã¿£ ¾îÂ¶µç ¿¬°á ÇØ¾ßµÊ
 	public static Connection connect() throws SQLException {
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-
-		return DriverManager.getConnection(url,"leeyoky","leeyoky");
-
+		return DriverManager.getConnection(url,"c##sj","sj");
 	}
 	
-	//ë‹«ì„ê²Œ ë§ì€ë° í•œë²ˆì— ë‹«ê¸°
+	//´İÀ»°Ô ¸¹Àºµ¥ ÇÑ¹ø¿¡ ´İ±â
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		
 		try {
