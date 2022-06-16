@@ -11,6 +11,10 @@
     <div id="mainWrapper">
         <ul>
             <li id="Table_n">
+             <button class="text_Bt" onclick="location.href='BoardController?category=${param.category}'">
+   					 글쓰기
+   					 <img src="img/pencil.png" class="pencil">
+   				 </button>
             <ul id="ulTable">
                 <li><ul>
                     <li class="img">image</li>
@@ -35,18 +39,12 @@
                 </li>
             </c:forEach>
                 </ul>
-   				 <button class="text_Bt" onclick="location.href='BoardController?category=${param.category}'">
-   					 글쓰기
-   					 <img src="../img/pencil.png" class="pencil">
-   				 </button>
             <li>
                 <div id="divPaging">
                     <div>◀</div>
                     <c:forEach var="i" begin="1" end="${lastpage}">
-                    <div>
-                    <a href="ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}">
+                    <div onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}'">
                     <c:out value="${i}"/>
-                    </a>
                     </div>
                     </c:forEach>
                     <div>▶</div>
