@@ -22,7 +22,8 @@
 			</tr>
 			<tr>
 				<td><input class = "create_Bfile" type="file" name="file">
-					<button>업로드</button> ${param.category}</td>
+					<button>업로드</button>
+			    </td>
 			</tr>
 		</table>
 	</form>

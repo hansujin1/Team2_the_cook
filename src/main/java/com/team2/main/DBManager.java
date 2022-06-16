@@ -8,19 +8,20 @@ import java.sql.SQLException;
 
 import javax.naming.spi.DirStateFactory.Result;
 
-//DB°ü·Ã ÀÛ¾÷À» ÇÒ¶§ ¸Å¹ø ¿¬°áÄÚµå¸¦ ¾´ ÀÌÈÄ ÀÛ¾÷ ÇØµÒ
+//DBï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ò¶ï¿½ ï¿½Å¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµå¸¦ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ ï¿½Øµï¿½
 
-//±×°Å AOP ÇÏÀÚ
+//ï¿½×°ï¿½ AOP ï¿½ï¿½ï¿½ï¿½
 public class DBManager {
 
-	//dbÀÛ¾÷½Ã¿£ ¾îÂ¶µç ¿¬°á ÇØ¾ßµÊ
+
+	//dbï¿½Û¾ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½Â¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¾ßµï¿½
 	public static Connection connect() throws SQLException {
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-		return DriverManager.getConnection(url,"c##sj","sj");
+		return DriverManager.getConnection(url,"kwb","kwb");
 	}
 	
-	//´ÝÀ»°Ô ¸¹Àºµ¥ ÇÑ¹ø¿¡ ´Ý±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Ý±ï¿½
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		
 		try {
@@ -37,3 +38,4 @@ public class DBManager {
 		
 	}
 }
+
