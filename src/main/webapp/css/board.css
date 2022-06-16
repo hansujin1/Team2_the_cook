@@ -12,18 +12,18 @@ ul, li {
 }
 
 button {
-	cursor:pointer;
+	cursor: pointer;
 }
 
-.imgs{
+.imgs {
 	max-width: 100%;
-	max-height:100%;
+	max-height: 100%;
 	height: 100px;
- 	width: 100px;
+	width: 100px;
 }
 
-.img:hover{
-	cursor:pointer;
+.img:hover {
+	cursor: pointer;
 }
 
 #mainWrapper {
@@ -40,20 +40,19 @@ button {
 }
 
 #Table_n {
-	padding-top:20px;
+	padding-top: 20px;
 }
-
 
 #ulTable {
 	margin-top: 10px;
 }
 
 #ulTable>li {
-	height:100px;
+	height: 100px;
 }
 
 #ulTable>li:first-child>ul>li {
-	background-color:  #F8ECD1;
+	background-color: #F8ECD1;
 	font-weight: bold;
 	text-align: center;
 }
@@ -75,46 +74,40 @@ button {
 #ulTable>li>ul>li:first-child {
 	width: 30%;
 } /*img 열 크기*/
-
 #ulTable>li>ul>li:first-child+li {
 	width: 30%;
 } /*제목 열 크기*/
-
 #ulTable>li>ul>li:first-child+li+li {
 	width: 20%;
 } /*작성일 열 크기*/
-
 #ulTable>li>ul>li:first-child+li+li+li {
 	width: 15%;
 } /*작성자 열 크기*/
-
 #ulTable>li>ul>li:first-child+li+li+li+li {
 	width: 5%;
 } /*글번호 열 크기*/
-
-.text_Bt{
+.text_Bt {
 	cursor: pointer;
 	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 0.5em 1em 0.5em 1em;
+	margin-bottom: 0px;
+	padding: 0.5em 0em 0.5em 1em;
 	font-weight: 900;
 	font-size: 9pt;
 	background: #ffffff;
 	border: none;
 	margin-left: 700px;
-}/*글쓰기 버튼*/
-
-.pencil{
+} /*글쓰기 버튼*/
+.pencil {
 	width: 13px;
-}/*연필 이미지*/
-
+} /*연필 이미지*/
 #divPaging {
 	clear: both;
 	margin: 0 auto;
 	width: 220px;
 	height: 50px;
-	margin-left:350px;
-	padding-top:20px;
+	margin-left: 350px;
+	padding-top: 20px;
+	cursor: pointer;
 }
 
 #divPaging>div {
@@ -128,58 +121,128 @@ button {
 	text-align: left;
 }
 
-.title:hover{
-	cursor:pointer;
+.title:hover {
+	cursor: pointer;
 }
-
-
-
-
-
-
 
 /* post_details */
-
-
-.post_board{
-	background-color:  #F8ECD1;
+.post_board {
+	background-color: #F8ECD1;
 	font-size: 10pt;
-	text-align:center;
+	text-align: center;
 }
 
-.txt{
-	width:20%;
-	height:20%;
+.txt {
+	width: 20%;
+	height: 20%;
 }
-
 
 /* 글쓰기 */
-
-
-
-.create_B{
-	background-color:  #f3f3f3;
+.create_B {
+	background-color: #f3f3f3;
 	margin-top: 30px;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }
 
-.create_Binput{
+.create_Binput {
 	border: none;
 	outline: none;
 	width: 855px;
-	height:20px;
+	height: 20px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-	padding-left:10px;
+	padding-left: 10px;
 }
 
-.create_Btxt{
+.create_Btxt {
 	width: 850px;
 	height: 500px;
 	outline: none;
 	border: none;
-	padding : 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+}
+
+.create_Bfile { /* 파일 선택 */
+	padding: 0px 0px 20px 20px;
+}
+
+/* 게시글 보기 */
+
+
+.imgs2 { /* 최대 이미지 크기 조절 */
+	max-width: 100%;
+	max-height: 100%;
+	height: 500px;
+	width: 870px;
+}
+
+.title_P{
+	padding-left: 10px;
+	font-weight: 800;
+	font-size: 12pt;
+}
+
+.update_P{/* 수정버튼 */
+	cursor: pointer;
+	font-weight: 900;
+	font-size: 9pt;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	float: left;
+	margin: 20px 0px 20px 760px;
+}
+
+.del_P{/* 삭제버튼 */
+	cursor: pointer;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	font-weight: 900;
+	font-size: 9pt;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	float: left;
+	margin-left: 10px;
 }
 
 
+/* 게시글 수정Page */
+.update_B{
+	background-color: #f3f3f3;
+	margin-top: 30px;
+	margin-left: 25%;
+	margin-bottom: 50px;
+}
 
+
+.imgs3 { /* 최대 이미지 크기 조절 */
+	max-width: 100%;
+	max-height: 100%;
+	height: 500px;
+	width: 870px;
+}
+
+.update_title { /* 제목 수정 */
+	border: none;
+	outline: none;
+	width: 855px;
+	height: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+	padding-left: 10px;
+}
+
+.update_txt { /* 게시글 수정 */
+	width: 850px;
+	height: 500px;
+	outline: none;
+	border: none;
+	padding: 10px 10px 10px 10px;
+}
+
+
+.update_Bfile { /* 파일 선택 */
+	padding: 15px 0px 15px 15px;
+}
+
+.update_Bfile2{
+	margin : 0px 0px 15px 15px;
+}
