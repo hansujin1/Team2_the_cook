@@ -12,11 +12,13 @@ board_count number(4) not null
 
 select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from BOARD_TABLE where board_category = ?) where rn between ? and ?
 -------------------------------------
+
 select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(
 select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category
 from BOARD_TABLE 
 where board_category = '1') 
 where rn between 3 and 20
+order by board_date desc
 
 -- between, and ? ?  ==> rn의 몇번부터 몇번까지 노출시킬건지
 
@@ -47,7 +49,9 @@ select * from board_table where board_category = '1' and rownum <=10
 
 
 
+--조회수 업데이트
 
+update board_table set board_count = board_count + 1 where board_number = ?
 
 
 
