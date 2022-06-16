@@ -21,13 +21,9 @@
 <button onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
 </td>
 </tr>
-<!--
 <tr>
-  <td>
-<div><img src="img/pink.png" style="height: 50px;"></div>
-</td>
+<td>조회수 = >${r.board_count}</td>
 </tr>
- -->
 </table>
 
 

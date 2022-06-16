@@ -395,6 +395,32 @@ public class BoardDAO {
 	}
 
 	
+	// 조회수 증가
+	public static void updateCount(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String board_number = request.getParameter("num");
+		String sql = "update board_table set board_count = board_count + 1 where board_number = ?";
+    try {
+    	
+    	con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, board_number);
+		
+			
+    	if (pstmt.executeUpdate()==1) {
+    	  System.out.println("조회수 증가");
+    	}
+         
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+	}
+
+	
 	
 
 	

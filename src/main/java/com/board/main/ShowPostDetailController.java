@@ -12,7 +12,7 @@ import com.team2.login.LoginDAO;
 public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
-
+        BoardDAO.updateCount(request);
 		BoardDAO.showPost(request);
 	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
     request.getRequestDispatcher("index.jsp").forward(request, response);
