@@ -59,7 +59,7 @@
 					<li class="Western"><a href="ShowBoardListController?category=3"> 양식 </a></li>
 					<li class="China"><a href="ShowBoardListController?category=4"> 중식 </a></li>
 					<li class="Baking"><a href="#"> 홈베이킹 </a></li>
-					<li class="Event"><a href="#"> EVENT </a></li>
+					<li class="Event"><a href="ShowEventC"> EVENT </a></li>
 				</ul>
 			</div>
 		</header>
