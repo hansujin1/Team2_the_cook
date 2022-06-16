@@ -25,7 +25,6 @@
 			</td>
 		</tr>
 
-
 		<tr>
 			<td>조회수 = >${r.board_count}</td>
 		</tr>
