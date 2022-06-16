@@ -15,11 +15,12 @@
 
 		<div class="login_txt sign-in">
 			<h2 class="login_h2">Welcome!</h2>
-			${r }
+			
 			<label class="login_label"> <span>ID</span> 
 			<input class="login_input" name="id" />
 			</label> <label class="login_label"> <span>Password</span> 
 			<input class="login_input" name="pw" type="password" />
+			${r}
 			</label>
 			<p class="forgot-pass" onclick="location.href='idFindController'">아이디를 잊으셨나요?</p>
 			<p class="forgot-pass" onclick="location.href='pwFindController'">비밀번호를 잊으셨나요?</p>

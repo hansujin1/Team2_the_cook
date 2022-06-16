@@ -21,7 +21,12 @@ public class myPageController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		//내 정보 수정하기 기능
+		//비밀번호 변경하기
+		LoginDAO.changePw(request);
+		LoginDAO.login(request);
+		LoginDAO.loginCheck(request);
+		request.setAttribute("contentPage", "login/myPage.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}
 

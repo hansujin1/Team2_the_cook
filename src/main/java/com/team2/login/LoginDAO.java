@@ -17,7 +17,14 @@ public class LoginDAO {
 
 		String userId = request.getParameter("id");
 		String userPw = request.getParameter("pw");
-		String r ="";
+		
+		String n_id =(String) request.getAttribute("n_id");
+		String n_pw =(String) request.getAttribute("n_pw");
+		
+		if (n_id != null) {
+			userId = n_id;
+			userPw = n_pw;
+		}
 
 		Connection con = null;
 
@@ -45,19 +52,17 @@ public class LoginDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("loginInfo", a);
-					hs.setMaxInactiveInterval(60 * 60 *5);
+					hs.setMaxInactiveInterval(60 *10);
 					
 					isLogin = true;
 				} else {
-					r= "비번을 확인하세요";
-					request.setAttribute(r, r);
+					
 					System.out.println("패스워드오류");
 					
 					
 				}
 			} else {
-				r="존재하지않는 회원입니다";
-				request.setAttribute(r, r);
+				
 				System.out.println("존재 안함");
 			}
 			return isLogin; // try구문에
@@ -223,7 +228,7 @@ public class LoginDAO {
 		
 		HttpSession hs = request.getSession();
 		LoginB a = (LoginB) hs.getAttribute("loginInfo");
-		String check = request.getParameter("check_pw");
+		String check = request.getParameter("check_pw2");
 		
 		boolean isPwCheck =false;
 		
@@ -235,13 +240,48 @@ public class LoginDAO {
 		return isPwCheck;
 	}
 
-	public static void error(HttpServletRequest request) {
-		//에러창
+	public static void changePw(HttpServletRequest request) {
 		
-		String r= "비번을 확인하세요";
-		request.setAttribute(r, r);
+		//비밀번호 변경
+		
+		String pw = request.getParameter("pw");
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			
+			con = DBManager.connect();
+			String sql ="update account_table set a_pw =? where a_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, pw);
+			pstmt.setString(2, a.getId());
+			
+			request.setAttribute("n_id", a.getId());
+			request.setAttribute("n_pw", pw);
+			
+			if (pstmt.executeUpdate() ==1) {
+				System.out.println("성공");
+			}else {
+				System.out.println("실패");
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
 		
 	}
+
+
 
 	
 	
