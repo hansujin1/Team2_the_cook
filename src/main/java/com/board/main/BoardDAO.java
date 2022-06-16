@@ -37,18 +37,31 @@ public class BoardDAO {
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
         String category = mr.getParameter("category");
+        String category1 = (String) request.getAttribute(category);
 		
         pstmt.setString(1, id);
         pstmt.setString(2, title);
 		pstmt.setString(3, txt);
 		pstmt.setString(4, file);
-		pstmt.setString(5, category);
+		
+		
+		if(category != null) {
+			pstmt.setString(5, category);
+			hs.setAttribute("category", category);
+			hs.setMaxInactiveInterval(60 *10);
+		
+		} else {
+			pstmt.setString(5, category1);
+			hs.setAttribute("category", category1);
+			hs.setMaxInactiveInterval(60 *10);
+		}
+		
 		
 		
 		
 		if (pstmt.executeUpdate() == 1){
 			System.out.println("등록성공");
-			request.setAttribute("category", category);
+			
 		}
 		
 		} catch (Exception e) {
@@ -60,6 +73,10 @@ public class BoardDAO {
 		
 	}
 
+	
+	
+	
+	
 	public static void showPost(HttpServletRequest request) {
 		 Connection con = null;
 		 PreparedStatement pstmt = null;
@@ -325,15 +342,14 @@ public class BoardDAO {
 		String category1 = (String) request.getAttribute("category");
 		String category = request.getParameter("category");
 		String vpage = request.getParameter("vpage");
+		String Sessionecategory = null;
+         
 
 	   if( vpage == null) {
 		   vpage = "1";
 	   }
 		
 	  int page = Integer.parseInt(vpage);
-	  // 1p  1   1~10
-	  // 2p  2   11~20
-	  // 3p  3   21~30
 	  int rnStart = 1;
 	  int rnEnd = 10;
 	  
@@ -343,18 +359,30 @@ public class BoardDAO {
 	  } 
 
 	  
-	  String sql ="select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from BOARD_TABLE where board_category = ?) where rn between ? and ? order by board_date desc";
 	  
 	   
+	  String sql ="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_date desc )) where rn between ? and ?";
 	  
 	  try {
-			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
-			if (category1!=null) {
-				pstmt.setString(1, category1);
-				
-			} else {
+		   con = DBManager.connect();
+		   pstmt = con.prepareStatement(sql);
+		   
+		   
+		   
+		   HttpSession hs = request.getSession();
+		   Sessionecategory = (String) hs.getAttribute("category");
+		   // System.out.println("세션"+Sessionecategory);
+           
+		 
+		   
+		   
+	        if (category1!=null) {
+			    pstmt.setString(1, category1);
+			
+			} else if(category!=null) {
 				pstmt.setString(1, category);
+		    } else {
+				pstmt.setString(1, Sessionecategory);
 			}
 			
 			pstmt.setInt(2, rnStart);
@@ -383,6 +411,13 @@ public class BoardDAO {
 			}
 			
 			request.setAttribute("post", post);
+			
+			if (category1!=null) {
+				request.setAttribute("category",category1);
+				
+			} else {
+				request.setAttribute("category",category);
+			}
 			
 			
 			

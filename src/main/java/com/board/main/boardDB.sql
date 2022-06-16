@@ -14,11 +14,51 @@ select rn, board_number, board_id, board_date, board_title, board_txt, board_fil
 -------------------------------------
 
 select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from(
-select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category
+select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category
 from BOARD_TABLE 
 where board_category = '1') 
-where rn between 3 and 20
+where rn between 1 and 50
+
+
+-- 날짜 내림차순 정렬 
+select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = '1' order by board_date desc )) where rn between 1 and 30
+
+--------------
+select *
+from (
+select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category
+from (
+select *
+from board_table
+where board_category = '1'
 order by board_date desc
+))
+where rn between 1 and 30
+
+---------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -- between, and ? ?  ==> rn의 몇번부터 몇번까지 노출시킬건지
 

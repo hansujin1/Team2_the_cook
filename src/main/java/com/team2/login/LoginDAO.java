@@ -34,6 +34,7 @@ public class LoginDAO {
 
 		boolean isLogin = false;
 		try {
+			
 			con = DBManager.connect();
 			String sql = "select * from account_table where a_id=?";
 			pstmt = con.prepareStatement(sql);
@@ -108,7 +109,7 @@ public class LoginDAO {
 		ResultSet rs = null;
 
 		try {
-
+			request.setCharacterEncoding("utf-8");
 			con = DBManager.connect();
 			String sql = "insert into account_table values(?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
@@ -280,6 +281,40 @@ public class LoginDAO {
 		
 		
 	}
+
+	public static void deleteAccount(HttpServletRequest request) {
+		//Ε»Επ ±β΄Ι
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		try {
+			con = DBManager.connect();
+			String sql="delete account_table where a_id=? ";
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, a.getId());
+			
+			if (pstmt.executeUpdate() ==1) {
+				System.out.println("ΌΊ°ψ");
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+	}
+
+	
 
 
 
