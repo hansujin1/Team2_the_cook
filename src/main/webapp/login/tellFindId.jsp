@@ -9,11 +9,10 @@
 <body>
 
 	<form action="loginCont">
-		<div class = "tell" >
-			<div>아이디는</div>
-			<div>${findId }입니다</div>
-
-			<button>로그인 버튼으로 돌아가기</button>
+		<div class = "find2" >
+			<label class = "IDis" ><span>아이디는</span></label><br><br>
+			<label class = "IDwas"><span>${findId }입니다</span></label><br>
+			<button class = "backLogin_bt">로그인으로 돌아가기</button>
 		</div>
 	</form>
 </body>

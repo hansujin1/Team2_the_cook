@@ -375,3 +375,38 @@ Check_pw input{
 	padding-bottom : 10px;
 }
 
+/* tellFindID */
+
+.find2 {
+	text-align: center;
+	margin: 100px 0px 150px 0px;
+}
+
+.IDis{
+	font-size: 10pt;
+	color : #adadad;
+	text-align: left;
+	
+} 
+
+.IDwas{
+	color : black;
+	font-size: 12pt;
+	text-align: left;
+	font-weight : 800;
+}
+
+.backLogin_bt{
+	background-color: rgb(255, 145, 0);
+	outline: none;
+	background: none;
+	cursor: pointer;
+	margin-top: 50px;
+	background: orange;
+	border-radius: 30px 30px 30px 30px;
+	padding: 0.5em 1em 0.5em 1em;
+	font-size: 10pt;
+	font-weight: 900;
+	border: none;
+}
+
