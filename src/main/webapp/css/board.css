@@ -256,9 +256,17 @@ button {
 	position: relative;
 }
 
-
 .event_txt{
 	position: absolute;
 	left: 640px;
+	top: 250px;
 }
 
+.event_h3{
+	text-align:center;
+}
+
+.event_label{
+	font-size:12pt;
+	font-weight: 800;
+}
