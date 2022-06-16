@@ -17,6 +17,7 @@ public class LoginDAO {
 
 		String userId = request.getParameter("id");
 		String userPw = request.getParameter("pw");
+		String r ="";
 
 		Connection con = null;
 
@@ -30,7 +31,7 @@ public class LoginDAO {
 			String sql = "select * from account_table where a_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, userId);
-
+			
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 
@@ -48,14 +49,19 @@ public class LoginDAO {
 					
 					isLogin = true;
 				} else {
+					r= "비번을 확인하세요";
+					request.setAttribute(r, r);
 					System.out.println("패스워드오류");
 					
 					
 				}
 			} else {
+				r="존재하지않는 회원입니다";
+				request.setAttribute(r, r);
 				System.out.println("존재 안함");
 			}
 			return isLogin; // try구문에
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -227,6 +233,14 @@ public class LoginDAO {
 		}
 		
 		return isPwCheck;
+	}
+
+	public static void error(HttpServletRequest request) {
+		//에러창
+		
+		String r= "비번을 확인하세요";
+		request.setAttribute(r, r);
+		
 	}
 
 	

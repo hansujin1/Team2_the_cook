@@ -31,6 +31,7 @@ public class DoLoginController extends HttpServlet {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}else {
+			LoginDAO.error(request);
 			LoginDAO.loginCheck(request);
 			request.setAttribute("contentPage", "login/login.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);

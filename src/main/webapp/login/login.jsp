@@ -15,6 +15,7 @@
 
 		<div class="login_txt sign-in">
 			<h2 class="login_h2">Welcome!</h2>
+			${r }
 			<label class="login_label"> <span>ID</span> 
 			<input class="login_input" name="id" />
 			</label> <label class="login_label"> <span>Password</span> 
