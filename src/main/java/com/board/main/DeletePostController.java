@@ -13,7 +13,8 @@ public class DeletePostController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	LoginDAO.loginCheck(request);
 	BoardDAO.deletePost(request);
-	BoardDAO.showPostList_category(request);
+	BoardDAO.lastpage(request);
+	BoardDAO.showpage(request);
 	request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

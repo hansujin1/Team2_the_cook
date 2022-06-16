@@ -8,7 +8,12 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 	<table class="create_B">
+=======
+
+	<table class = "create_B">
+>>>>>>> e570dbf290c99a0f492272ff3a20a43b078b0dd6
 		<tr>
 			<td class="title_P">${r.board_title}</td>
 		</tr>
@@ -24,6 +29,7 @@
 					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
 			</td>
 		</tr>
+<<<<<<< HEAD
 		<tr>
 			<td>조회수 = >${r.board_count}</td>
 		</tr>
@@ -34,8 +40,16 @@
 				</div>
 			</td>
 		</tr>
+=======
+		
+
+<tr>
+<td>조회수 = >${r.board_count}</td>
+</tr>
+>>>>>>> e570dbf290c99a0f492272ff3a20a43b078b0dd6
 
 	</table>
+
 
 
 </body>
