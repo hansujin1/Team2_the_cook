@@ -37,12 +37,18 @@ public class BoardDAO {
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
         String category = mr.getParameter("category");
+        String category1 = (String) request.getAttribute(category);
 		
         pstmt.setString(1, id);
         pstmt.setString(2, title);
 		pstmt.setString(3, txt);
 		pstmt.setString(4, file);
-		pstmt.setString(5, category);
+		
+		if(category == null) {
+			pstmt.setString(5, category1);
+		} else {
+			pstmt.setString(5, category);
+		}
 		
 		
 		
@@ -382,6 +388,13 @@ public class BoardDAO {
 			}
 			
 			request.setAttribute("post", post);
+			
+			if (category1!=null) {
+				request.setAttribute("category",category1);
+				
+			} else {
+				request.setAttribute("category",category);
+			}
 			
 			
 			
