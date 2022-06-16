@@ -247,3 +247,18 @@ button {
 .update_Bfile2{
 	margin : 0px 0px 15px 15px;
 }
+
+
+/* EVENT 게시판 관리자전용 */
+
+#event{
+	margin : 50px 0px 50px 100px;
+	position: relative;
+}
+
+
+.event_txt{
+	position: absolute;
+	left: 640px;
+}
+
