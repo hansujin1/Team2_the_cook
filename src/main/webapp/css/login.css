@@ -23,7 +23,7 @@ a:hover {
 	position: relative;
 	width: 1100px;
 	height: 400px;
-	margin: 0 auto 100px;
+	margin: 0 auto 200px;
 	margin-top: 80px;
 	background: #fff;
 }
@@ -170,8 +170,14 @@ a:hover {
 	text-align: left;
 }
 
+.pw_alert {/* 패스워드 오류시 경고문 */
+	color: red;
+	font-size: 9pt;
+	margin-left:30%;
+}
+
 .forgot-pass {
-	margin-top: 15px;
+	margin-top: 0;
 	text-align: center;
 	font-size: 12px;
 	color: #9b9b9b;
@@ -212,12 +218,14 @@ a:hover {
 	position: absolute;
 	margin-top: 10px;
 	z-index: 1; /*다른 요소들보다 앞에 배치*/
-	font-size: 11pt;
+	font-size: 10pt;
+	font-weight: 800;
 	background: #F8ECD1;
 	opacity: 0.8;
 	padding: 10px 10px 10px 10px;
 	width: 100px;
 	text-align: center;
+	border-radius: 10px 10px 10px 10px;
 }
 
 .dropdown-content p {
@@ -237,7 +245,13 @@ a:hover {
 	width: 25px;
 }
 
-/* 회원가입 */
+
+
+
+
+
+
+/* ------------- 회원가입 --------------- */
 
 .reg {
 	text-align: center;
@@ -259,7 +273,7 @@ a:hover {
 	background: orange;
 	border-radius: 30px 30px 30px 30px;
 	padding: 0.5em 1em 0.5em 1em;
-	font-size: 11pt;
+	font-size: 10pt;
 	font-weight: 900;
 	border: none;
 }
@@ -291,7 +305,13 @@ a:hover {
 	text-align: left;
 }
 
-/* id 찾기, pw 찾기 */
+
+
+
+
+
+
+/* --------- id 찾기, pw 찾기 ------------ */
 
 .find {
 	text-align: center;
@@ -345,7 +365,7 @@ a:hover {
 }
 
 
-/* Mypage - 내정보 */
+/* ----------- Mypage - 내정보 -------------- */
 
 .reg_label2{
 	font-size: 10pt;
@@ -359,6 +379,19 @@ a:hover {
 	font-size: 10pt;
 	text-align: left;
 }
+
+.name_chgBt{
+	border: 1px solid #c0c0c0;
+	border-radius: 20px 20px 20px 20px;
+	font-size: 8pt;
+	color:black;
+	background-color: #ffffff;
+	margin-left: 10px;
+}
+
+
+
+
 
 /* Mypage - 내정보 - 비밀번호 확인 */
 

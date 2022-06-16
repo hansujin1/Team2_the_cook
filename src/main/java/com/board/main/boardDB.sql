@@ -93,6 +93,10 @@ select * from board_table where board_category = '1' and rownum <=10
 
 update board_table set board_count = board_count + 1 where board_number = ?
 
+--yk 내가 쓴 글
+
+select * from board_table where board_id = ?
+
 
 
 
