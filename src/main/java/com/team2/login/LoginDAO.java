@@ -144,11 +144,7 @@ public class LoginDAO {
 	public static boolean findPw(HttpServletRequest request) {
 		// 비밀번호 찾기 기능
 		
-		String id = request.getParameter("find_id");
-		String name = request.getParameter("find_name");
-		String mail = request.getParameter("find_mail");
-		System.out.println(name);
-		System.out.println(mail);
+		
 		
 		Connection con = null;
 
@@ -160,7 +156,11 @@ public class LoginDAO {
 		
 		try {
 			request.setCharacterEncoding("UTF-8");
-			
+			String id = request.getParameter("find_id");
+			String name = request.getParameter("find_name");
+			String mail = request.getParameter("find_mail");
+			System.out.println(name);
+			System.out.println(mail);
 			con = DBManager.connect();
 			String sql = "select a_pw from account_table where a_name=? and a_id=? and a_mail=?";
 			pstmt = con.prepareStatement(sql);
@@ -191,8 +191,7 @@ public class LoginDAO {
 	public static boolean findId(HttpServletRequest request) {
 		// find ID
 		
-		String name = request.getParameter("find_name");
-		String mail = request.getParameter("find_mail");
+		
 		
 		Connection con = null;
 
@@ -203,6 +202,9 @@ public class LoginDAO {
 		boolean isFindId = false;
 		
 		try {
+			request.setCharacterEncoding("UTF-8");
+			String name = request.getParameter("find_name");
+			String mail = request.getParameter("find_mail");
 			con = DBManager.connect();
 			String sql = "select a_id from account_table where a_name=? and a_mail=?";
 			pstmt = con.prepareStatement(sql);
