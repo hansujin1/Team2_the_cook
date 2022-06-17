@@ -27,6 +27,7 @@ public class idFindController extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);			
 		}else {
 			LoginDAO.loginCheck(request);
+			request.setAttribute("r", "다시 확인해주세요");
 			request.setAttribute("contentPage", "login/idFind.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
