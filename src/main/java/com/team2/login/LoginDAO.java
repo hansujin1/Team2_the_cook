@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.catalina.connector.Response;
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.team2.main.DBManager;
@@ -145,6 +147,8 @@ public class LoginDAO {
 		String id = request.getParameter("find_id");
 		String name = request.getParameter("find_name");
 		String mail = request.getParameter("find_mail");
+		System.out.println(name);
+		System.out.println(mail);
 		
 		Connection con = null;
 
@@ -155,6 +159,8 @@ public class LoginDAO {
 		boolean isFindPw = false;
 		
 		try {
+			request.setCharacterEncoding("UTF-8");
+			
 			con = DBManager.connect();
 			String sql = "select a_pw from account_table where a_name=? and a_id=? and a_mail=?";
 			pstmt = con.prepareStatement(sql);
