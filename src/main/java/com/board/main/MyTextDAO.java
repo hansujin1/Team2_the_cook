@@ -21,26 +21,25 @@ public class MyTextDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-	
-		String sql = "select * from board_table where board_id = ?";
+		
+		
 	try	{
+		HttpSession hs = request.getSession();
+        LoginB a = (LoginB) hs.getAttribute("loginInfo");
+        
+		String sql = "select * from board_table where board_id = ?";
 		
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
 		
-		String id = request.getParameter("id");
-		pstmt.setString(1, id);
+		pstmt.setString(1, a.getId());
 		
-		String path = request.getSession().getServletContext().getRealPath("fileFolder");
-		System.out.println(path);
-		MultipartRequest mr;
-		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
-	
 		rs = pstmt.executeQuery();
-	
-		ArrayList<PostB> post = new ArrayList<PostB>();
 		
-		while (rs.next()) {
+		ArrayList<PostB> post = new ArrayList<PostB>();
+	
+			while (rs.next()) {
+		
 			PostB p = new PostB();
 			
 			p.setBoard_category(rs.getString("board_category"));
@@ -53,8 +52,9 @@ public class MyTextDAO {
 			p.setBoard_title(rs.getString("board_title"));
 			p.setBoard_txt(rs.getString("board_txt"));
 			post.add(p);
+			
 		}
-		
+			
 		request.setAttribute("post", post);
 		
 		} catch (Exception e) {

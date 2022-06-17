@@ -21,11 +21,8 @@ public class DBManager {
 //		 * Connection con= DriverManager.getConnection(url,"ADMIN","Qwertyuiop135");
 		
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-<<<<<<< HEAD
 		return DriverManager.getConnection(url,"leeyoky","leeyoky");
-=======
-		return DriverManager.getConnection(url,"c##sj","sj");
->>>>>>> 310469431274a9598b86376506159c589f69b582
+
 	}
 	
 	//닫을게 많은데 한번에 닫기

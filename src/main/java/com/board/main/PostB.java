@@ -12,6 +12,7 @@ String board_file;
 String board_like;
 String board_count;
 String board_category;
+
 public String getBoard_category() {
 	return board_category;
 }
@@ -71,6 +72,7 @@ public String getBoard_count() {
 public void setBoard_count(String board_count) {
 	this.board_count = board_count;
 }
+
 public PostB(String board_number, String board_id, Date board_date, String board_title, String board_txt,
 		String board_file, String board_like, String board_count, String board_category) {
 	super();

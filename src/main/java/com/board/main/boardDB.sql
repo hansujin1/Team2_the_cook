@@ -97,6 +97,14 @@ update board_table set board_count = board_count + 1 where board_number = ?
 
 select * from board_table where board_id = ?
 
+-- 검색
+
+select rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category 
+	from(select  rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category 
+	from BOARD_TABLE where board_category <= 10 and board_title like '%검색%') 
+	where rn > 0;
+	
+
 
 
 

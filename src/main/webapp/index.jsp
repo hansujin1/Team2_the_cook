@@ -24,62 +24,66 @@
 </head>
 <body>
 
-	<form action="HC">
+	<!-- header -->
+	<header id="header" style="margin: none;">
 
-		<!-- header -->
-		<header id="header" style="margin: none;">
-			<div id="mainlogo">
-				<!-- 로고 이미지 클릭시 이동-->
-				<a href="HC"> <img id="logo" src="img/Logo2.png">
-				</a>
-			</div>
-			<div>
-				<!-- 검색창 -->
-				<input id="query" type="text"
-					placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?">
-			</div>
-			<div>
-				<!-- 검색 button 태그 -->
+		<div id="mainlogo">
+			<!-- 로고 이미지 클릭시 이동-->
+			<a href="HC"> <img id="logo" src="img/Logo2.png"></a>
+		</div>
+		
+	<form action="SearchC">
+		<div>
+			<!-- 검색창 -->
+			<input name="board_title" id="query" type="search"
+				placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?">
+		</div>
+		
+		<div>
+			<!-- 검색 button -->
 				<button id="search">
 					<img class="searchEgg" src="img/SearchEgg.png">
 				</button>
-			</div>
-
-			<div id="login">
-				<!-- before:login after:myPage -->
-				<h3>
-					<jsp:include page="${loginPage }"></jsp:include>
-				</h3>
-			</div>
-
-			<div id="nav">
-				<ul>
-					<li class="Korea"><a href="ShowBoardListController?category=1"> 한식 </a></li>
-					<li class="Japan"><a href="ShowBoardListController?category=2"> 일식 </a></li>
-					<li class="Western"><a href="ShowBoardListController?category=3"> 양식 </a></li>
-					<li class="China"><a href="ShowBoardListController?category=4"> 중식 </a></li>
-					<li class="Baking"><a href="#"> 홈베이킹 </a></li>
-					<li class="Event"><a href="ShowEventC"> EVENT </a></li>
-				</ul>
-			</div>
-		</header>
-
-
+		</div>
 	</form>
 	
-	<span><jsp:include page="${contentPage}"></jsp:include>
-	</span>
-	
+		<div id="login">
+			<!-- before:login after:myPage -->
+			<h3>
+				<jsp:include page="${loginPage }"></jsp:include>
+			</h3>
+		</div>
+
+		<div id="nav">
+			<ul>
+				<li class="Korea"><a href="ShowBoardListController?category=1">
+						한식 </a></li>
+				<li class="Japan"><a href="ShowBoardListController?category=2">
+						일식 </a></li>
+				<li class="Western"><a
+					href="ShowBoardListController?category=3"> 양식 </a></li>
+				<li class="China"><a href="ShowBoardListController?category=4">
+						중식 </a></li>
+				<li class="Baking"><a href="#"> 홈베이킹 </a></li>
+				<li class="Event"><a href="ShowEventC"> EVENT </a></li>
+			</ul>
+		</div>
+	</header>
+
+
+
+	<span><jsp:include page="${contentPage}"></jsp:include> </span>
+
 	<div class="footer">
 		<hr>
 		<img id="footerlogo" name="footerlogo" src="img/Logo_s.png">
-		
-		<div class="f_company"> 
-		<h4>㈜더 쿡</h4>
-		<p>사업자정보 / 서울특별시 종로구 종로12길 15 5층 (관철동 13-13)</p>
-		<p>COPYRIGHT © THECOOK ALL RIGHTS RESERVED</p>
-		 
-		
+
+		<div class="f_company">
+			<h4>㈜더 쿡</h4>
+			<p>사업자정보 / 서울특별시 종로구 종로12길 15 5층 (관철동 13-13)</p>
+			<p>COPYRIGHT © THECOOK ALL RIGHTS RESERVED</p>
+
+
 		</div>
 	</div>
 
