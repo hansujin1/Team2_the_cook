@@ -3,6 +3,7 @@ package com.board.main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,9 +22,9 @@ public class MyTextDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 	
+		String sql = "select * from board_table where board_id = ?";
 	try	{
 		
-		String sql = "select * from board_table where board_id = ?";
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
 		
@@ -37,21 +38,27 @@ public class MyTextDAO {
 	
 		rs = pstmt.executeQuery();
 	
+		ArrayList<PostB> post = new ArrayList<PostB>();
 		
-		if (rs.next()){
-			PostB a = new PostB();
-			a.setBoard_category(rs.getString("board_category"));
-			a.setBoard_count(rs.getString("board_count"));
-			a.setBoard_date(rs.getString("board_date"));
-			a.setBoard_file(rs.getString("board_file"));
-			a.setBoard_id(rs.getString("board_id"));
-			a.setBoard_like(rs.getString("board_like"));
-			a.setBoard_number(rs.getString("board_number"));
-			a.setBoard_title(rs.getString("board_title"));
-			a.setBoard_txt(rs.getString("board_txt"));
+		while (rs.next()) {
+			PostB p = new PostB();
+			
+			p.setBoard_category(rs.getString("board_category"));
+			p.setBoard_count(rs.getString("board_count"));
+			p.setBoard_date(rs.getString("board_date"));
+			p.setBoard_file(rs.getString("board_file"));
+			p.setBoard_id(rs.getString("board_id"));
+			p.setBoard_like(rs.getString("board_like"));
+			p.setBoard_number(rs.getString("board_number"));
+			p.setBoard_title(rs.getString("board_title"));
+			p.setBoard_txt(rs.getString("board_txt"));
+			post.add(p);
 		}
 		
+		request.setAttribute("post", post);
+		
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	 finally {
 			DBManager.close(con, pstmt, rs);
