@@ -8,6 +8,7 @@
 </head>
 <body id="Mypage">
 
+
 	<div class="find">
 		<h2 id="reg_h2">회원 정보</h2>
 		<label class="reg_label2"> <span>이름</span>

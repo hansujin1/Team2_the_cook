@@ -24,7 +24,7 @@
 			<tr>
 				<td><input class = "update_Bfile" name="file" type="file" value="${r.board_file}">
 					<input name="num" value="${r.board_number}" type="hidden">
-					<button class = "update_Bfile2">수정${r.board_number}</button>
+					<button class = "update_Bfile2">수정</button>
 				</td>
 			</tr>
 		</table>
