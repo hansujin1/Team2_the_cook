@@ -31,7 +31,7 @@ public class DoLoginController extends HttpServlet {
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		}else {
-			request.setAttribute("r", "패스워드를 다시 확인해주세요");
+			request.setAttribute("r", "다시 확인해주세요");
 			LoginDAO.loginCheck(request);
 			request.setAttribute("contentPage", "login/login.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
