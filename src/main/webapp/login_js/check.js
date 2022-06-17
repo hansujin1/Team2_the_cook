@@ -114,3 +114,48 @@ function idFind_call(){
 	
 }
 
+function pw_call(){
+	let pw = document.pwForm.check_pw2;
+	
+	if(isEmpty(pw)){
+		alert("비밀번호를 입력해주세요");
+		pw.focus();
+		
+		return false;
+	}
+}
+
+function changePw_call(){
+	let pw =document.changePwForm.pw;
+	let pw1 =document.changePwForm.pw1;
+	
+	if(isEmpty(pw)){
+		alert("변경하실 비밀번호를 입력해주세요");
+		pw.focus();
+		
+		return false;
+	}
+	
+	if(isEmpty(pw1)){
+		alert("제확인 비밀번호를 입력해주세요");
+		pw1.focus();
+		
+		return false;
+	}
+	
+	let ma = document.getElementById('changePW_m');
+	let a = ma.display;
+	
+	if(match(pw,pw1)){
+		
+		if(!a){
+			document.getElementById('changePW_m').style.display = "block";
+		}
+		pw1.focus();
+		pw1.value="";
+		
+		return false;
+	}
+	
+}
+

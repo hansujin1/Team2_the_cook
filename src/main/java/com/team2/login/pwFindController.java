@@ -27,6 +27,7 @@ public class pwFindController extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else {
 			LoginDAO.loginCheck(request);
+			request.setAttribute("r", "다시 확인해주세요");
 			request.setAttribute("contentPage", "login/pwFind.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}

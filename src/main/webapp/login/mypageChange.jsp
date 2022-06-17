@@ -9,7 +9,7 @@
 <body>
 <div class="reg">
 	
-	<form action="myPageController" method="post">
+	<form action="myPageController" method="post" name="changePwForm" onsubmit="return changePw_call()">
 		
 			<div>
 				<h2 id="reg_h2">비밀번호 변경</h2>
@@ -18,7 +18,12 @@
 					<input class="reg_input" type="password" name="pw" onchange="isSame()"  /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password" name="pw1" onchange="isSame()"/></label>
+					<input class="reg_input" type="password" name="pw1" onchange="isSame()"/></label><br>
+					<div>
+					<div id='message'></div>
+					<div class="pw_alert" id="changePW_m" style="display:none;">비밀번호가 일치하지 않습니다</div>
+					</div>
+					
 				
 				<button class="reg_bt">변경</button>
 				
@@ -28,4 +33,5 @@
 		</form>
 		</div>
 </body>
+
 </html>
