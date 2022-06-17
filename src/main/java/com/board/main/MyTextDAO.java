@@ -45,7 +45,7 @@ public class MyTextDAO {
 			
 			p.setBoard_category(rs.getString("board_category"));
 			p.setBoard_count(rs.getString("board_count"));
-			p.setBoard_date(rs.getString("board_date"));
+			p.setBoard_date(rs.getDate("board_date"));
 			p.setBoard_file(rs.getString("board_file"));
 			p.setBoard_id(rs.getString("board_id"));
 			p.setBoard_like(rs.getString("board_like"));

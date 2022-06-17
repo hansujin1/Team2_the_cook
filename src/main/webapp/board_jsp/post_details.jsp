@@ -14,7 +14,12 @@
 			<td class="title_P">${r.board_title}</td>
 		</tr>
 		<tr>
-			<td><img class="imgs2" src="fileFolder/${r.board_file}"><br>
+			<td class="view_c"><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/>
+				<span> 조회 ${r.board_count} </span>
+			</td>
+		</tr>
+		<tr>
+			<td class="txt_c"><img class="imgs2" src="fileFolder/${r.board_file}"><br>
 				${r.board_txt}</td>
 		</tr>
 		<tr>
@@ -24,13 +29,6 @@
 				<button type="button" class="del_P"
 					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
 			</td>
-		</tr>
-
-		<tr>
-			<td>조회수 = >${r.board_count}</td>
-		</tr>
-		<tr>
-			<td><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/></td>
 		</tr>
 
 	</table>

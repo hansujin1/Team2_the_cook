@@ -13,6 +13,7 @@ public class myTextC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		LoginDAO.loginCheck(request);
+		BoardDAO.showPostList(request);
 		MyTextDAO.MyText(request);
 		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

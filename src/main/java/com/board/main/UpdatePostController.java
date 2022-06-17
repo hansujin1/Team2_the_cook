@@ -11,6 +11,7 @@ import com.team2.login.LoginDAO;
 @WebServlet("/UpdatePostController")
 public class UpdatePostController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		LoginDAO.loginCheck(request);
 		BoardDAO.showPost(request);
 		request.setAttribute("contentPage", "board_jsp/updatepost.jsp");

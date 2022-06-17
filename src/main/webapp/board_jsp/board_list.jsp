@@ -11,18 +11,18 @@
 <body>
 	<div id="mainWrapper">
 
-		<li id="Table_n"></li>
+		<li id="Table_n">
 		<button class="text_Bt"
 			onclick="location.href='BoardController?category=${param.category}'">
 			글쓰기 <img src="img/pencil.png" class="pencil">
 		</button>
-
+		</li>
 		<ul id="ulTable">
 			<li>
 				<div class="hidden"></div>
 				<ul>
 					<li class="img">image</li>
-					<li class="left">제목</li>
+					<li class="title">제목</li>
 					<li class="user">user</li>
 					<li class="date">date</li>
 					<li class="no">조회수</li>
@@ -36,13 +36,13 @@
 				<div class="ulTable">
 				
 				<div><img class="imgs" src="fileFolder/${p.board_file}" onclick="location.href='ShowPostDetailController?num=${p.board_number}'"></div>
-				<div class="left"><a onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></div>
-				<div class="user">${p.board_id}</div>
-				<div class="date">
+				<div class="titles"><a onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></div>
+				<div class="users">${p.board_id}</div>
+				<div class="dates">
 				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/><br>
 				<fmt:formatDate value="${p.board_date}" type="time" pattern="HH:mm"/> 
 				</div>
-				<div class="no"> ${p.board_count}</div>
+				<div class="nos"> ${p.board_count}</div>
 					 
 				</div>
 			</c:forEach>
