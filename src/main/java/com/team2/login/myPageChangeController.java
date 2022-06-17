@@ -27,6 +27,7 @@ public class myPageChangeController extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}else {
 			LoginDAO.loginCheck(request);
+			request.setAttribute("r", "다시 확인해주세요");
 			request.setAttribute("contentPage", "login/mypageBefor_Check.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
