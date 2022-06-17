@@ -340,11 +340,12 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String category1 = (String) request.getAttribute("category");
-		System.out.println("카테고리1:"+category1);
+		//System.out.println("카테고리1:"+category1);
 		String category = request.getParameter("category");
-		System.out.println("카테고리:"+category);
+		//System.out.println("카테고리:"+category);
 		String vpage = request.getParameter("vpage");
 		String Sessionecategory = null;
+		String count = request.getParameter("count");
          
 
 	   if( vpage == null) {
@@ -365,6 +366,13 @@ public class BoardDAO {
 	   
 	  String sql ="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_date desc )) where rn between ? and ?";
 	  
+	  if(count != null) {
+		  sql="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_count desc )) where rn between ? and ?";
+	      request.setAttribute("count", count);
+	  }
+	 
+	  
+	  
 	  try {
 		   con = DBManager.connect();
 		   pstmt = con.prepareStatement(sql);
@@ -373,7 +381,7 @@ public class BoardDAO {
 		   
 		   HttpSession hs = request.getSession();
 		   Sessionecategory = (String) hs.getAttribute("category");
-		    System.out.println("세션"+Sessionecategory);
+		  //  System.out.println("세션"+Sessionecategory);
            
 		 
 		   
