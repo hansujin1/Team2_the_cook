@@ -44,17 +44,25 @@
 	</td>
 	<td><input name="contents" ><button>작성</button></td>
 	</tr>
-	<tr>
-	<td>
-	
-
-	
-	
-	</td>
-	</tr>
 	</table>
     </form>
-
+     
+  ${comment}
+  
+  <!--  
+    <c:if test="${comment != null}">
+    <c:forEach var="c" items="comment">
+    <table class="create_B">
+     <tr>
+     <td>작성자</td> <td>내용</td> <td>작성일</td>
+     </tr>
+     <tr>
+     <td>${c.c_id}</td> <td>${c.c_contents}</td> <td>${c_date}</td>
+     </tr>
+    </table>
+    </c:forEach>
+     </c:if> 
+ --> 
 
 </body>
 </html>
