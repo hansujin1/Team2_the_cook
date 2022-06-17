@@ -20,6 +20,7 @@
 				<label class="reg_label"> <span>Password</span><br>
 					<input class="reg_input" type="password" name="pw1" onchange="isSame()"/></label><br>
 					<div>
+					<div id='message'></div>
 					<div class="pw_alert" id="changePW_m" style="display:none;">비밀번호가 일치하지 않습니다</div>
 					</div>
 					
@@ -32,4 +33,5 @@
 		</form>
 		</div>
 </body>
+
 </html>
