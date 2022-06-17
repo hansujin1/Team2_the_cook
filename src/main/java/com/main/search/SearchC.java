@@ -1,4 +1,4 @@
-package com.board.main;
+package com.main.search;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,22 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.team2.login.LoginDAO;
-@WebServlet("/UpdatePostController")
-public class UpdatePostController extends HttpServlet {
+
+@WebServlet("/SearchC")
+public class SearchC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LoginDAO.loginCheck(request);
-		BoardDAO.showPost(request);
-		request.setAttribute("contentPage", "board_jsp/updatepost.jsp");
+		SearchDAO.search(request);
+		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LoginDAO.loginCheck(request);
-		BoardDAO.updatePost(request);
-		BoardDAO.showPost(request);
-		request.setAttribute("contentPage", "board_jsp/post_details.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+	
 	}
 
 }

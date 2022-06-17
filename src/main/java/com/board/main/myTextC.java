@@ -14,14 +14,14 @@ public class myTextC extends HttpServlet {
 	
 		LoginDAO.loginCheck(request);
 		MyTextDAO.MyText(request);
-		request.setAttribute("contentPage", "login/myPage.jsp");
+		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		request.setAttribute("contentPage", "login/myPage.jsp");
+		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
 	}
