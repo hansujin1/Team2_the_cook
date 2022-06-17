@@ -340,7 +340,9 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String category1 = (String) request.getAttribute("category");
+		System.out.println("墨抛绊府1:"+category1);
 		String category = request.getParameter("category");
+		System.out.println("墨抛绊府:"+category);
 		String vpage = request.getParameter("vpage");
 		String Sessionecategory = null;
          
@@ -371,7 +373,7 @@ public class BoardDAO {
 		   
 		   HttpSession hs = request.getSession();
 		   Sessionecategory = (String) hs.getAttribute("category");
-		   // System.out.println("技记"+Sessionecategory);
+		    System.out.println("技记"+Sessionecategory);
            
 		 
 		   
