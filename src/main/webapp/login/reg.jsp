@@ -5,6 +5,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function() {
+	const pw1 = document.getElementById('pw1');
+	const pw2 = document.getElementById('pw2');
+	const mydiv = document.getElementById('mydiv');
+	
+	pw2.addEventListener('keyup', () => {
+			if(pw1.value != pw2.value){
+				mydiv.innerHTML = "비번 불일치";
+			} else{
+				mydiv.innerHTML = "비번 일치!";
+			}
+		
+		});
+	
+};
+</script>
+
 </head>
 <body class="reg_body">
 
@@ -21,13 +39,13 @@
 					<input class="reg_input" name="id" placeholder="영어와 숫자로 5글자 이상" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password" name="pw" onchange="isSame()" 
+					<input id="pw1" class="reg_input" type="password" name="pw" onchange="isSame()" 
 					placeholder="대소문자 숫자 포함 3글자 이상" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password" name="pw1" onchange="isSame()"
+					<input id="pw2" class="reg_input" type="password" name="pw1" onchange="isSame()"
 					placeholder="비밀번호 재확인" /></label>
-					
+					<div style="width: 200px; border: 1px solid black" id="mydiv"></div>
 				<label class="reg_label"> <span>e-mail</span><br>
 					<input class="reg_input" type="email" name="e_mail" placeholder="필수" /></label>
 					

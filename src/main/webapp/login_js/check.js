@@ -143,19 +143,7 @@ function changePw_call(){
 		return false;
 	}
 	
-	let ma = document.getElementById('changePW_m');
-	let a = ma.display;
 	
-	if(match(pw,pw1)){
-		
-		if(!a){
-			document.getElementById('changePW_m').style.display = "block";
-		}
-		pw1.focus();
-		pw1.value="";
-		
-		return false;
-	}
 	
 }
 
