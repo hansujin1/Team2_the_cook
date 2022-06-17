@@ -25,7 +25,7 @@
 					<li class="title">제목</li>
 					<li class="user">user</li>
 					<li class="date">date</li>
-					<li class="no">조회수</li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">조회수</li>
 				</ul>
 			</li>
 		</ul>
@@ -52,7 +52,7 @@
 			<div>◀</div>
 			<c:forEach var="i" begin="1" end="${lastpage}">
 				<div
-					onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}'">
+					onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}&count=${count}'">
 					<c:out value="${i}" />
 				</div>
 			</c:forEach>

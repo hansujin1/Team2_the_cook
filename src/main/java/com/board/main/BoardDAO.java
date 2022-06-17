@@ -1,6 +1,5 @@
 package com.board.main;
 
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -18,6 +17,7 @@ public class BoardDAO {
      
 	//글쓰기--------------------------------------------------------
 	public static void createPost(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "insert into board_table values (board_table_seq.nextval,?,sysdate,?,?,?,1,1,?)";
@@ -29,32 +29,37 @@ public class BoardDAO {
 		MultipartRequest mr;
 		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
-		HttpSession hs = request.getSession();
+		
 		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		String sessioncategory = (String) hs.getAttribute("categorySession");
 		
 		String id = a.getId();
 		String title = mr.getParameter("title");
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
         String category = mr.getParameter("category");
-        String category1 = (String) request.getAttribute(category);
+        if(category.length() != 0) {
+        	hs.setAttribute("categorySession", category);
+        	hs.setMaxInactiveInterval(60 *10);
+        }
+       
 		
-        pstmt.setString(1, id);
+		pstmt.setString(1, id);
         pstmt.setString(2, title);
 		pstmt.setString(3, txt);
 		pstmt.setString(4, file);
-		
-		
-		if(category != null) {
+		System.out.println(category);
+		System.out.println("-------");
+		if (category.length() != 0) {
 			pstmt.setString(5, category);
-			hs.setAttribute("category", category);
-			hs.setMaxInactiveInterval(60 *10);
-		
 		} else {
-			pstmt.setString(5, category1);
-			hs.setAttribute("category", category1);
-			hs.setMaxInactiveInterval(60 *10);
+			System.out.println(sessioncategory);
+			pstmt.setString(5, sessioncategory);
 		}
+		
+		
+		
 		
 		
 		
@@ -303,17 +308,31 @@ public class BoardDAO {
 		 PreparedStatement pstmt = null;
 		 ResultSet rs = null;
 		 String category1 = (String) request.getAttribute("category");
+		 
 		 String sql = "select count(*) from board_table where board_category = ?";
 		 String category = request.getParameter("category");
 		 try {
-			con = DBManager.connect();
+			
+	     HttpSession hs = request.getSession();
+	     String sessioncategory = (String) hs.getAttribute("categorySession");
+			 
+			 
+			 
+			 con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			if (category1!=null) {
-				pstmt.setString(1, category1);
+			 if (category1 != null) {
+				    pstmt.setString(1, category1);
 				
-			} else {
-				pstmt.setString(1, category);
-			}
+				} else if(category != null) {
+					pstmt.setString(1, category);
+			    } else {
+			    	pstmt.setString(1, sessioncategory);
+			    }
+			
+			
+			
+			
+			
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 			
@@ -340,9 +359,11 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String category1 = (String) request.getAttribute("category");
+		//System.out.println("카테고리1:"+category1);
 		String category = request.getParameter("category");
+		//System.out.println("카테고리:"+category);
 		String vpage = request.getParameter("vpage");
-		String Sessionecategory = null;
+		String count = request.getParameter("count");
          
 
 	   if( vpage == null) {
@@ -363,6 +384,13 @@ public class BoardDAO {
 	   
 	  String sql ="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_date desc )) where rn between ? and ?";
 	  
+	  if(count != null) {
+		  sql="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_count desc )) where rn between ? and ?";
+	      request.setAttribute("count", count);
+	  }
+	 
+	  
+	  
 	  try {
 		   con = DBManager.connect();
 		   pstmt = con.prepareStatement(sql);
@@ -370,8 +398,8 @@ public class BoardDAO {
 		   
 		   
 		   HttpSession hs = request.getSession();
-		   Sessionecategory = (String) hs.getAttribute("category");
-		   // System.out.println("세션"+Sessionecategory);
+		   String sessionecategory = (String) hs.getAttribute("categorySession");
+		  // System.out.println("세션"+Sessionecategory);
            
 		 
 		   
@@ -382,7 +410,7 @@ public class BoardDAO {
 			} else if(category!=null) {
 				pstmt.setString(1, category);
 		    } else {
-				pstmt.setString(1, Sessionecategory);
+				pstmt.setString(1, sessionecategory);
 			}
 			
 			pstmt.setInt(2, rnStart);

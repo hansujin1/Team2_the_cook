@@ -17,7 +17,9 @@
 		<input class="find_name" name="find_name"></label><br>
 		
 		<label class="find_label"> <span>e-mail</span><br>
-		<input class="find_mail" name="find_mail"></label><br>
+		<input class="find_mail" name="find_mail" type="email"></label>
+		<span class="pw_alert">${r}</span><br>
+		
 		
 		<button class="find_bt">GO</button>
 	</div>

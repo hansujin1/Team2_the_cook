@@ -22,6 +22,8 @@ where rn between 1 and 50
 
 -- 날짜 내림차순 정렬 
 select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = '1' order by board_date desc )) where rn between 1 and 30
+-- 조회수 내림차순
+select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_count desc )) where rn between ? and ?
 
 --------------
 select *
@@ -30,12 +32,13 @@ select rownum as rn, board_number, board_id, board_date, board_title, board_txt,
 from (
 select *
 from board_table
-where board_category = '1'
-order by board_date desc
+where board_category = ?
+order by board_count desc
 ))
-where rn between 1 and 30
+where rn between ? and ?
 
 ---------------------
+
 
 
 
@@ -79,7 +82,7 @@ insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내�
 
 insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내용','karina.jpg',1,1,'1');
 
-select * from board_table where board_number =5
+select * from board_table where board_number =131
 
 
 

@@ -29,6 +29,7 @@
 			</label>
 		</div>
 		<button id="delete_bt" disabled="disabled" onclick="location.href='realdeleteController'">탈퇴하기</button>
+		<button onclick="location.href='HC'">홈으로</button>
 	</div>
 
 

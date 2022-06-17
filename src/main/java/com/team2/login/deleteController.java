@@ -21,10 +21,18 @@ public class deleteController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//탈퇴 동의서
+		if(LoginDAO.pwCheck(request)) {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("contentPage", "login/deleteOk.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("r", "다시 확인해주세요");
+			request.setAttribute("contentPage", "login/deleteMyInformation.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 		
-		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "login/deleteOk.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
 	}
 
 }

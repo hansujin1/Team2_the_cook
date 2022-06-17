@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,9 +32,42 @@
 			</td>
 		</tr>
 
+		<tr>
+			<td>조회수${r.board_count}</td>
+		</tr>
+		<tr>
+			<td><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/></td>
+		</tr>
+
 	</table>
-
-
+	
+	<form action="CommentUploadController">
+	<table class="create_B">
+	<tr>
+	<td>댓글쓰기
+	 <input name="num" value="${r.board_number}" type="hidden">
+	</td>
+	<td><input name="contents" ><button>작성</button></td>
+	</tr>
+	</table>
+    </form>
+     
+  ${comment}
+  
+  <!--  
+    <c:if test="${comment != null}">
+    <c:forEach var="c" items="comment">
+    <table class="create_B">
+     <tr>
+     <td>작성자</td> <td>내용</td> <td>작성일</td>
+     </tr>
+     <tr>
+     <td>${c.c_id}</td> <td>${c.c_contents}</td> <td>${c_date}</td>
+     </tr>
+    </table>
+    </c:forEach>
+     </c:if> 
+ --> 
 
 </body>
 </html>
