@@ -82,7 +82,7 @@ insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내�
 
 insert into board_table values (board_table_seq.nextval,'mz',sysdate,'제목','내용','karina.jpg',1,1,'1');
 
-select * from board_table where board_number =5
+select * from board_table where board_number =131
 
 
 

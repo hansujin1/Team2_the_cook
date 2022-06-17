@@ -12,3 +12,5 @@ create sequence comment_db_seq;
 insert into comment_db values(comment_db_seq.nextval, 1, 'mz', '³»¿ë', sysdate);
 
 select * from comment_db;
+
+select * from comment_db where c_boardnumber = ?

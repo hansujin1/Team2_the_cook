@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,25 @@
 		</tr>
 
 	</table>
+	
+	<form action="CommentUploadController">
+	<table class="create_B">
+	<tr>
+	<td>댓글쓰기
+	 <input name="num" value="${r.board_number}" type="hidden">
+	</td>
+	<td><input name="contents" ><button>작성</button></td>
+	</tr>
+	<tr>
+	<td>
+	
 
+	
+	
+	</td>
+	</tr>
+	</table>
+    </form>
 
 
 </body>
