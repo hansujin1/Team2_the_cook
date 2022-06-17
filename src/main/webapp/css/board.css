@@ -319,10 +319,13 @@ button {
 	left: 740px;
 	top: 250px;
 }
-
 .event_h3{
 	text-align:center;
-	margin-bottom: 100px;
+	margin-bottom: 10px;
+}
+
+.event_h6 {
+	text-align:center;
 }
 
 .event_label{
