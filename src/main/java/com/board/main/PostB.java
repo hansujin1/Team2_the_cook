@@ -1,9 +1,11 @@
 package com.board.main;
 
+import java.util.Date;
+
 public class PostB {
 String board_number;
 String board_id;
-String board_date;
+Date board_date;
 String board_title; 
 String board_txt;
 String board_file;
@@ -33,10 +35,10 @@ public String getBoard_id() {
 public void setBoard_id(String board_id) {
 	this.board_id = board_id;
 }
-public String getBoard_date() {
+public Date getBoard_date() {
 	return board_date;
 }
-public void setBoard_date(String board_date) {
+public void setBoard_date(Date board_date) {
 	this.board_date = board_date;
 }
 public String getBoard_title() {
@@ -69,7 +71,7 @@ public String getBoard_count() {
 public void setBoard_count(String board_count) {
 	this.board_count = board_count;
 }
-public PostB(String board_number, String board_id, String board_date, String board_title, String board_txt,
+public PostB(String board_number, String board_id, Date board_date, String board_title, String board_txt,
 		String board_file, String board_like, String board_count, String board_category) {
 	super();
 	this.board_number = board_number;
