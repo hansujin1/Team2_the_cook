@@ -391,10 +391,11 @@ public class LoginDAO {
 			
 			rs=pstmt.executeQuery();
 			if (rs.next()) {
-				request.setAttribute("mse", "사용할 수 없는 이메일입니다.");
+				request.setAttribute("mse", "사용할 수 없습니다.");
+				
 				request.setAttribute("mail", mail);
 			}else {
-				request.setAttribute("mse", "사용할 수 있는 이메일입니다");
+				request.setAttribute("mse", "사용할 수 있습니다.");
 				request.setAttribute("mail", mail);
 			}
 			
