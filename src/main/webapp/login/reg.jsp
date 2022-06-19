@@ -14,9 +14,9 @@ window.onload = function() {
 	
 	pw2.addEventListener('keyup', () => {
 			if(pw1.value != pw2.value){
-				mydiv.innerHTML = "비번 불일치";
+				mydiv.innerHTML = "비밀번호 불일치";
 			} else{
-/*  				mydiv.innerHTML = "비번 일치!"; */
+				mydiv.innerHTML = "비밀번호 일치"; 
 			}
 		
 		});
@@ -29,7 +29,7 @@ window.onload = function() {
 
 	<div class="reg">
 	
-	<form action="regController" method="post" name="regForm" ><!-- onsubmit="return call()" --> 
+	<form action="regController" method="post" name="regForm" onsubmit="return call()"> 
 		
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>
@@ -40,11 +40,11 @@ window.onload = function() {
 					<input class="reg_input" name="id" placeholder="영어와 숫자로 5글자 이상" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input id="pw1" class="reg_input" type="password" name="pw" onchange="isSame()" 
+					<input id="pw1" class="reg_input"  name="pw" onchange="isSame()" 
 					placeholder="대소문자 숫자 포함 3글자 이상" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input id="pw2" class="reg_input" type="password" name="pw1" onchange="isSame()"
+					<input id="pw2" class="reg_input"  name="pw1" onchange="isSame()"
 					placeholder="비밀번호 재확인" /></label>
 					
 					<!-- 비밀번호 일치 불일치 -->
