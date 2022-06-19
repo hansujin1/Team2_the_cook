@@ -93,6 +93,19 @@ public class LoginDAO {
 		}
 
 	}
+	
+	public static boolean onlyLoginCan(HttpServletRequest request) {
+		// loin 확인한 상태에서만 기능가능함
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		boolean isLoginOk = false;
+
+		if (a != null) {
+			isLoginOk = true;
+		} 
+		return isLoginOk;
+	}
 
 	public static void logOut(HttpServletRequest request) {
 		// logOut
