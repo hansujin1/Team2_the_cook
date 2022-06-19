@@ -346,13 +346,21 @@ public class LoginDAO {
 		
 		try {
 			String inputId = request.getParameter("idinput");
-			System.out.println(inputId);
+			
 			
 			con = DBManager.connect();
 			String sql ="select a_id from account_table where a_id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, inputId);
 			
+			rs=pstmt.executeQuery();
+			if (rs.next()) {
+				request.setAttribute("mse", "사용할 수 없는 아이디입니다.");
+				request.setAttribute("id", inputId);
+			}else {
+				request.setAttribute("mse", "사용할 수 있는 아이디입니다");
+				request.setAttribute("id", inputId);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -360,6 +368,41 @@ public class LoginDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 		
+		
+	}
+
+	public static void mailOverlap(HttpServletRequest request) {
+		//이메일 중복 체크
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			String mail = request.getParameter("mailinput");
+			
+			
+			con = DBManager.connect();
+			String sql ="select a_mail from account_table where a_mail=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mail);
+			
+			rs=pstmt.executeQuery();
+			if (rs.next()) {
+				request.setAttribute("mse", "사용할 수 없는 이메일입니다.");
+				request.setAttribute("mail", mail);
+			}else {
+				request.setAttribute("mse", "사용할 수 있는 이메일입니다");
+				request.setAttribute("mail", mail);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
 		
 	}
 

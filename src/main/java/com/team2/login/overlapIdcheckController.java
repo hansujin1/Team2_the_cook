@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 public class overlapIdcheckController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		LoginDAO.overlapID(request);
-	request.getRequestDispatcher("login/overlap.jsp").forward(request, response);
+	
+	request.getRequestDispatcher("login/overlapCheck.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		LoginDAO.overlapID(request);
+		request.getRequestDispatcher("login/overlap.jsp").forward(request, response);
 	}
 
 }

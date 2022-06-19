@@ -12,7 +12,9 @@ function valuecheck(){
 </script>
 </head>
 <body onload="valuecheck()">
+<form action="overlapIdcheckController" method="post">
 <input type="text" name="idinput" id="userId">
-<input type="button" value="중복확인" onclick=??>
+<button>중복</button>
+</form>
 </body>
 </html>

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-가능? 불가능?
+${mse }<br>
+${id }
+
 </body>
 </html>

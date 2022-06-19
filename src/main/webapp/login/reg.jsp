@@ -24,13 +24,25 @@ window.onload = function() {
 };
 
 function overlapCheck()  {
-	
-		window.open('login/overlapCheck.jsp','overlapCheck','width=500,height=500');
-	
+	let id =regForm.id;
+	if (id.value=="") {
+		alert("아이디를 입력해주세요");
+		id.focus();
+	}else {
 		
-	
-	
+		window.open('overlapIdcheckController','overlapCheck','width=300,height=250');
 	}
+	}
+	
+function overlapCheckMail() {
+	let mail=regForm.e_mail;
+	if (mail.value=="") {
+		alert("이메일을 입력해주세요");
+		mail.focus();
+	}else {
+		window.open('emailOverlapCheckController','overlapCheck','width=300,height=250');
+	}
+}
 </script>
 
 </head>
@@ -46,9 +58,10 @@ function overlapCheck()  {
 				<label class="reg_label"> <span>이름</span><br> <input
 					class="reg_input" name="name" placeholder="필수" /></label> <label
 					class="reg_label"> <span>아이디</span><br> <input
-					class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상" /></label> 
+					class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상" />
 					<input id='overlap' type='button' onclick='overlapCheck()'
-					value='중복 체크' /> <label class="reg_label">
+					value='중복 체크' /></label> 
+					 <label class="reg_label">
 					<span>Password</span><br> <input id="pw1" class="reg_input"
 					name="pw" onchange="isSame()" placeholder="대소문자 숫자 포함 3글자 이상" />
 				</label> <label class="reg_label"> <span>Password</span><br> <input
@@ -60,7 +73,11 @@ function overlapCheck()  {
 
 
 				<label class="reg_label"> <span>e-mail</span><br> <input
-					class="reg_input" type="email" name="e_mail" placeholder="필수" /></label>
+					class="reg_input" id="email" type="email" name="e_mail" placeholder="필수" />
+					<input id='overlapMail' type='button' onclick='overlapCheckMail()'
+					value='중복 체크' /> 
+					</label>
+					
 
 				<button class="reg_bt">JOIN</button>
 
