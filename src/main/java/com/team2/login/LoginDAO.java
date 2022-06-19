@@ -335,6 +335,34 @@ public class LoginDAO {
 		
 	}
 
+	public static void overlapID(HttpServletRequest request) {
+		// ID overlap
+		
+		Connection con = null;
+
+		PreparedStatement pstmt = null;
+
+		ResultSet rs = null;
+		
+		try {
+			String inputId = request.getParameter("idinput");
+			System.out.println(inputId);
+			
+			con = DBManager.connect();
+			String sql ="select a_id from account_table where a_id=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		
+	}
+
 	
 
 

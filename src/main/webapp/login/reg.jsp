@@ -22,46 +22,56 @@ window.onload = function() {
 		});
 	
 };
+
+function overlapCheck()  {
+	
+		window.open('login/overlapCheck.jsp','overlapCheck','width=500,height=500');
+	
+		
+	
+	
+	}
 </script>
 
 </head>
 <body class="reg_body">
 
 	<div class="reg">
-	
-	<form action="regController" method="post" name="regForm" onsubmit="return call()"> 
-		
+
+		<form action="regController" method="post" name="regForm"
+			onsubmit="return call()">
+
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>
-				<label class="reg_label"> <span>이름</span><br>
-					<input class="reg_input" name="name" placeholder="필수" /></label>
-					
-				<label class="reg_label"> <span>아이디</span><br>
-					<input class="reg_input" name="id" placeholder="영어와 숫자로 5글자 이상" /></label>
-					
-				<label class="reg_label"> <span>Password</span><br>
-					<input id="pw1" class="reg_input"  name="pw" onchange="isSame()" 
-					placeholder="대소문자 숫자 포함 3글자 이상" /></label>
-					
-				<label class="reg_label"> <span>Password</span><br>
-					<input id="pw2" class="reg_input"  name="pw1" onchange="isSame()"
+				<label class="reg_label"> <span>이름</span><br> <input
+					class="reg_input" name="name" placeholder="필수" /></label> <label
+					class="reg_label"> <span>아이디</span><br> <input
+					class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상" /></label> 
+					<input id='overlap' type='button' onclick='overlapCheck()'
+					value='중복 체크' /> <label class="reg_label">
+					<span>Password</span><br> <input id="pw1" class="reg_input"
+					name="pw" onchange="isSame()" placeholder="대소문자 숫자 포함 3글자 이상" />
+				</label> <label class="reg_label"> <span>Password</span><br> <input
+					id="pw2" class="reg_input" name="pw1" onchange="isSame()"
 					placeholder="비밀번호 재확인" /></label>
-					
-					<!-- 비밀번호 일치 불일치 -->
-					<p class="mydiv" id="mydiv"></p>
-					
-					
-				<label class="reg_label"> <span>e-mail</span><br>
-					<input class="reg_input" type="email" name="e_mail" placeholder="필수" /></label>
-					
+
+				<!-- 비밀번호 일치 불일치 -->
+				<p class="mydiv" id="mydiv"></p>
+
+
+				<label class="reg_label"> <span>e-mail</span><br> <input
+					class="reg_input" type="email" name="e_mail" placeholder="필수" /></label>
+
 				<button class="reg_bt">JOIN</button>
-				
-			</div>	
-			
-			
+
+			</div>
+
+
 		</form>
-		</div>
-	
-	
+
+	</div>
+
+
+
 </body>
 </html>
