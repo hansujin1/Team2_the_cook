@@ -31,7 +31,7 @@
 				사용하고 계신 아이디(${sessionScope.loginInfo.id })는 탈퇴할 경우 재사용 및 복구가 불가능
 				합니다.<br> 탈퇴 후 회원정보는 삭제되지만, 올리신 글은 그대로 유지가 됩니다.<br>
 			</div>
-			<label class="agree" for="agree"> 위의 내용을 읽었으며, 내용에 동의합니다 <input
+			<label class="agree" for="agree">위의 내용을 읽었으며, 내용에 동의합니다 <br> <input
 				type="checkbox" id="agree" onchange="agree()">
 			</label>
 			<button id="delete_bt" disabled="disabled"

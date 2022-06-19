@@ -433,7 +433,7 @@ Check_pw input{
 	margin-left: 35%;
 	margin-right: 35%;
 	background-color:  #eeeeee;
-	padding : 5px 15px 15px 20px;
+	padding : 5px 0px 15px 20px;
 	border-radius: 10px 10px 10px 10px;
 }
 
@@ -444,5 +444,5 @@ Check_pw input{
 
 .agree{
 	text-align: right;
-	padding-left:200px;
+	padding-left:00px;
 }
