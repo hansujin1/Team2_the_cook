@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <script type="text/javascript">
 window.onload = function() {
 	const pw1 = document.getElementById('pw1');
@@ -15,7 +16,7 @@ window.onload = function() {
 			if(pw1.value != pw2.value){
 				mydiv.innerHTML = "비번 불일치";
 			} else{
-				mydiv.innerHTML = "비번 일치!";
+/*  				mydiv.innerHTML = "비번 일치!"; */
 			}
 		
 		});
@@ -45,7 +46,11 @@ window.onload = function() {
 				<label class="reg_label"> <span>Password</span><br>
 					<input id="pw2" class="reg_input" type="password" name="pw1" onchange="isSame()"
 					placeholder="비밀번호 재확인" /></label>
-					<div style="width: 200px; border: 1px solid black" id="mydiv"></div>
+					
+					<!-- 비밀번호 일치 불일치 -->
+					<p class="mydiv" id="mydiv"></p>
+					
+					
 				<label class="reg_label"> <span>e-mail</span><br>
 					<input class="reg_input" type="email" name="e_mail" placeholder="필수" /></label>
 					
