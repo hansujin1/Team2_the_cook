@@ -20,8 +20,10 @@ public class DBManager {
 //		  jdbc:oracle:thin:@DB20220512144545_medium?TNS_ADMIN=C:/Users/gks36/jin/Wallet_DB20220512144545
 //		 * Connection con= DriverManager.getConnection(url,"ADMIN","Qwertyuiop135");
 		
+
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
 		return DriverManager.getConnection(url,"kwb","kwb");
+
 
 	}
 	
