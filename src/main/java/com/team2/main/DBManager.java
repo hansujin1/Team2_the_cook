@@ -22,7 +22,9 @@ public class DBManager {
 		
 
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
+
 		return DriverManager.getConnection(url,"c##sj","sj");
+
 
 
 	}
