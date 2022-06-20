@@ -45,9 +45,9 @@
 	</table>
     </form>
      
-  ${comment}
   
   <!--  
+  ${comment}
     <c:if test="${comment != null}">
     <c:forEach var="c" items="comment">
     <table class="create_B">
@@ -61,6 +61,9 @@
     </c:forEach>
      </c:if> 
  --> 
+ 
+
+ 
 
 </body>
 </html>

@@ -56,7 +56,8 @@ public class CommentDAO {
 		 
 		 String board_num = request.getParameter("num");
 		 String sql = "select * from comment_db where c_boardnumber = ?";
-			try {
+		 System.out.println(sql);	
+		 try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, board_num);
@@ -73,6 +74,7 @@ public class CommentDAO {
 				c.setC_id(rs.getString("c_id"));
 				c.setC_no(rs.getInt("c_no"));
 				comment.add(c);
+				System.out.println("ÄÚ¸àÆ®"+ comment);
 		    }
 			 
 		    request.setAttribute("comment", comment);
