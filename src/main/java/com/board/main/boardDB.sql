@@ -1,4 +1,5 @@
 create table board_table(
+
 board_number number(4) primary key,
 board_id varchar2(15char) not null,
 board_date date not null,
@@ -7,6 +8,7 @@ board_txt varchar2(1000char) not null,
 board_file varchar2(40char) not null,
 board_like number(4) not null,
 board_count number(4) not null
+
 );
 
 
