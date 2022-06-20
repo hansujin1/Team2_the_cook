@@ -17,6 +17,8 @@ public class BoardDAO {
      
 	//±Û¾²±â--------------------------------------------------------
 	public static void createPost(HttpServletRequest request) {
+		
+		
 		HttpSession hs = request.getSession();
 		Connection con = null;
 		PreparedStatement pstmt = null;
