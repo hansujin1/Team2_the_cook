@@ -109,7 +109,9 @@ select rn, board_number, board_id, board_date, board_title, board_txt, board_fil
 	from BOARD_TABLE where board_category <= 10 and board_title like '%검색%') 
 	where rn > 0;
 	
+-- 좋아요 수 업데이트
 
+update board_table set board_like = board_like + 1 where board_number = ?
 
 
 

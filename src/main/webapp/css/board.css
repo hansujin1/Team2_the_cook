@@ -185,6 +185,19 @@ button {
 	height: 20%;
 }
 
+.heart {
+	border : none;
+	color : red;
+	font-size : 10pt;
+	background-color: #f8f8f8;
+	position : left;
+}
+
+.like {
+	font-size: 9pt;
+	font-weight: 800;
+}
+
 /* 글쓰기 */
 .create_B {
 	background-color: #f8f8f8;

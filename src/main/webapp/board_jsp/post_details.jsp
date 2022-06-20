@@ -32,20 +32,17 @@
 			</td>
 		</tr>
 		
-		
 			<tr>
 				<td>
-				<button class="like" name="like" onclick="location.href='likeC'">
+				<button class="heart" name="like" onclick="location.href='likeC?num=${r.board_number}'">
 				♡
-				</button> 
-				<span>좋아요</span>
+				</button>
+				
+				<span class="like">좋아요 ${r.board_like}</span>
 				</td>
 			</tr>
 
 	</table>
-
-
-
 
 	<form action="CommentUploadController">
 		<table class="create_B">
