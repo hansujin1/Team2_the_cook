@@ -2,13 +2,21 @@ function call(){
 	
 	let name = document.regForm.name;
 	let id = document.regForm.id;
-	let pw = document.regForm.pw;
-	let pw1 = document.regForm.pw1;
+	let pw = document.getElementById('pw1');
+	let pw1 = document.getElementById('pw2');
+	let mail = document.regForm.e_mail;
 	
 	if(isEmpty(name)){
 		alert("이름을 입력하세요");
 		name.focus();
 		name.value="";
+		
+		return false;
+	}
+	if(isEmpty(mail)){
+		alert("이메일 입력하세요");
+		mail.focus();
+		mail.value="";
 		
 		return false;
 	}
@@ -36,6 +44,8 @@ function call(){
 		
 		return false;
 	}
+	
+	
 
 }
 
@@ -126,8 +136,9 @@ function pw_call(){
 }
 
 function changePw_call(){
-	let pw =document.changePwForm.pw;
-	let pw1 =document.changePwForm.pw1;
+	let pw =document.getElementById('pw1');
+	let pw1 =document.getElementById('pw2');
+	
 	
 	if(isEmpty(pw)){
 		alert("변경하실 비밀번호를 입력해주세요");
@@ -137,7 +148,7 @@ function changePw_call(){
 	}
 	
 	if(isEmpty(pw1)){
-		alert("제확인 비밀번호를 입력해주세요");
+		alert("재확인 비밀번호를 입력해주세요");
 		pw1.focus();
 		
 		return false;

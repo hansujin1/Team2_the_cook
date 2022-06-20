@@ -207,49 +207,6 @@ a:hover {
 	opacity: 0.83;
 }
 
-/* 드롭다운 */
-.login_dropdown {
-	position: relative;
-	display: inline-block;
-}
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	margin-top: 10px;
-	z-index: 1; /*다른 요소들보다 앞에 배치*/
-	font-size: 10pt;
-	font-weight: 800;
-	background: #F8ECD1;
-	opacity: 0.8;
-	padding: 10px 10px 10px 10px;
-	width: 100px;
-	text-align: center;
-	border-radius: 10px 10px 10px 10px;
-}
-
-.dropdown-content p {
-	line-height: 150%;
-}
-
-.dropbtn:hover {
-	color: rgb(255, 123, 0);
-	cursor: pointer;
-}
-
-.dropbtn {
-	margin-bottom: 10px;
-}
-
-.loginBf {
-	width: 25px;
-}
-
-
-
-
-
-
 
 /* ------------- 회원가입 --------------- */
 
@@ -305,9 +262,11 @@ a:hover {
 	text-align: left;
 }
 
-
-
-
+.mydiv {
+	color: red;
+	margin-right: 190px;
+	font-size:10pt;
+}
 
 
 
@@ -404,6 +363,12 @@ Check_pw input{
 	padding-bottom : 30px;
 }
 
+.pw_alertC{ /* 비밀번호 오류 */
+	color: red;
+	font-size: 9pt;
+	margin-right: 150px;
+}
+
 .check_pw2{
 	padding-bottom : 10px;
 }
@@ -443,3 +408,41 @@ Check_pw input{
 	border: none;
 }
 
+/* 회원탈퇴 시 Check PW - alert */
+
+.pw_alert_info{
+	color: red;
+	font-size: 9pt;
+	margin-right: 150px;
+	
+}
+
+.Say{
+	text-align: center;
+	margin-top:50px;
+/* 	background-color:  #F8ECD1; */
+	
+}
+
+.Good{
+	font-size:10pt;
+}
+
+.delete_acc{	/* 회원탈퇴 동의 */
+	font-size: 9pt;
+	margin-left: 35%;
+	margin-right: 35%;
+	background-color:  #eeeeee;
+	padding : 5px 0px 15px 20px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.delete_txt{
+	line-height: 15pt;
+	padding-bottom : 20px;
+}
+
+.agree{
+	text-align: right;
+	padding-left:00px;
+}

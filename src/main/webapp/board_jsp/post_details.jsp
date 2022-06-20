@@ -32,13 +32,6 @@
 			</td>
 		</tr>
 
-		<tr>
-			<td>조회수${r.board_count}</td>
-		</tr>
-		<tr>
-			<td><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/></td>
-		</tr>
-
 	</table>
 	
 	<form action="CommentUploadController">

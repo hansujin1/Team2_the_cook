@@ -13,12 +13,13 @@ window.onload = function() {
 	
 	pw2.addEventListener('keyup', () => {
 			if(pw1.value != pw2.value){
-				mydiv.innerHTML = "비번 불일치";
+				mydiv.innerHTML = "비밀번호 불일치";
 			} else{
-				mydiv.innerHTML = "비번 일치!";
+  				mydiv.innerHTML = "비밀번호 일치";
 			}
 		
 		});
+	
 	
 };
 </script>
@@ -32,11 +33,11 @@ window.onload = function() {
 				<h2 id="reg_h2">비밀번호 변경</h2>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password" name="pw" id="pw1" onchange="isSame()"  /></label>
+					<input class="reg_input" type="password"  id="pw1"   /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password" name="pw1" id="pw2" onchange="isSame()"/></label><br>
-					<div id='mydiv'></div>
+					<input class="reg_input" type="password"  id="pw2" /></label>
+					<div class="mydiv" id='mydiv'></div>
 
 				<button class="reg_bt">변경</button>
 				
