@@ -55,15 +55,14 @@ function overlapCheckMail() {
 
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>
-				<label class="reg_label"> <span>이름</span><br> <input
-					class="reg_input" name="name" placeholder="필수" /></label> <label
-					class="reg_label"> <span>아이디</span><br> <input
-					class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상" />
-					<input id='overlap' type='button' onclick='overlapCheck()'
-					value='중복 체크' /></label> 
-					 <label class="reg_label">
-					<span>Password</span><br> <input id="pw1" class="reg_input"
-					name="pw" onchange="isSame()" placeholder="대소문자 숫자 포함 3글자 이상" />
+				<label class="reg_label"> <span>이름</span><br> 
+				<input class="reg_input" name="name" placeholder="필수"></label> 
+				<label class="reg_label"> <span>아이디</span>
+				<input class="overlap" id='overlap' type='button' onclick='overlapCheck()' value='중복 체크'><br> 
+				<input class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상">
+				</label> 
+				<label class="reg_label"> <span>Password</span><br>
+				<input id="pw1" class="reg_input" name="pw" onchange="isSame()"	placeholder="대소문자 숫자 포함 3글자 이상">
 				</label> <label class="reg_label"> <span>Password</span><br> <input
 					id="pw2" class="reg_input" name="pw1" onchange="isSame()"
 					placeholder="비밀번호 재확인" /></label>
@@ -72,12 +71,14 @@ function overlapCheckMail() {
 				<p class="mydiv" id="mydiv"></p>
 
 
-				<label class="reg_label"> <span>e-mail</span><br> <input
-					class="reg_input" id="email" type="email" name="e_mail" placeholder="필수" />
-					<input id='overlapMail' type='button' onclick='overlapCheckMail()'
-					value='중복 체크' /> 
-					</label>
+				<label class="reg_label"> <span>e-mail</span>
+				<input class="overlapMail" id='overlapMail' type='button'
+					onclick='overlapCheckMail()' value='중복 체크' >
+				<br> 
+				<input class="reg_input" id="email" type="email" name="e_mail"	placeholder="필수" > 
 					
+				</label>
+
 
 				<button class="reg_bt">JOIN</button>
 
