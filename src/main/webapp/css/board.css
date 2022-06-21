@@ -188,9 +188,10 @@ button {
 .heart {
 	border : none;
 	color : red;
-	font-size : 10pt;
+	font-size : 15pt;
 	background-color: #f8f8f8;
 	position : left;
+	padding:0px 0px 10px 10px;
 }
 
 .like {
@@ -198,10 +199,61 @@ button {
 	font-weight: 800;
 }
 
+.comment {
+	font-size: 12pt;
+	font-weight: 800;
+	margin-left:20px;
+}
+
+.contents{ /* 코멘트입력창 */
+	 width:780px;
+	 border: 1px solid #bebebe;
+	 border-radius: 10px 10px 10px 10px;
+	 padding : 10px 10px 10px 10px;
+	 margin : 0px 0px 10px 10px ;
+}
+
+.contents_btn{ /* 작성버튼 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 10px;
+}
+
+.c_id{
+	font-size: 12pt;
+	font-weight: 900;
+	padding-left: 10px;
+}
+
+.c_com{
+	font-size: 10pt;
+}
+
+
+.c_date{
+	font-size: 8pt;
+	color:gray;
+	padding-right: 10px;
+}
+
+.list_C{	/* 댓글 리스트 */
+	margin-left: 25%;
+}
+
+
+
 /* 글쓰기 */
 .create_B {
 	background-color: #f8f8f8;
 	margin-top: 30px;
+	margin-left: 25%;
+}
+
+.create_C {
+	background-color: #f8f8f8;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }

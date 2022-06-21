@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -15,13 +15,13 @@
 			<td class="title_P">${r.board_title}</td>
 		</tr>
 		<tr>
-			<td class="view_c"><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/>
-				<span> 조회 ${r.board_count} </span>
-			</td>
+			<td class="view_c"><fmt:formatDate value="${r.board_date}"
+					type="both" dateStyle="short" timeStyle="short" /> <span>
+					조회 ${r.board_count} </span></td>
 		</tr>
 		<tr>
-			<td class="txt_c"><img class="imgs2" src="fileFolder/${r.board_file}"><br>
-				${r.board_txt}</td>
+			<td class="txt_c"><img class="imgs2"
+				src="fileFolder/${r.board_file}"><br> ${r.board_txt}</td>
 		</tr>
 		<tr>
 			<td>
@@ -32,48 +32,46 @@
 			</td>
 		</tr>
 
-		
-			<tr>
-				<td>
-				<button class="heart" name="like" onclick="location.href='likeC?num=${r.board_number}'">
-				♡
-				</button>
-				
-				<span class="like">좋아요 ${r.board_like}</span>
-				</td>
-			</tr>
+
+		<tr>
+			<td>
+				<button class="heart" name="like"
+					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
+				class="like">좋아요 ${r.board_like}</span>
+			</td>
+		</tr>
 
 	</table>
+	${comment}
 
-
+	<c:if test="${comment != null}">
+		<c:forEach var="c" items="${comment}">
+			<table class="list_C">
+				<tr>
+					<td><span class="c_id">${c.c_id}</span></td>
+					<td><span class="c_com">${c.c_contents}</span></td>
+					<td><span class="c_date">${c.c_date}</span></td>
+				</tr>
+			</table>
+		</c:forEach>
+	</c:if>
 	<form action="CommentUploadController">
-	<table class="create_B">
-	<tr>
-	<td>댓글쓰기
-	 <input name="num" value="${r.board_number}" type="hidden">
-	</td>
-	<td><input name="contents" ><button>작성</button></td>
-	</tr>
-	</table>
-    </form>
-     
-  ${comment}
-  
-  <c:if test="${comment != null}">
-    <c:forEach var="c" items="${comment}">
-    <table class="create_B">
-     <tr>
-     <td>작성자</td> <td>내용</td> <td>작성일</td>
-     </tr>
-     <tr>
-     <td>${c.c_id}</td> <td>${c.c_contents}</td> <td>${c.c_date}</td>
-     </tr>
-    </table>
-    </c:forEach>
-    </c:if>
+		<table class="create_C">
+			<tr>
+				<td><span class="comment">댓글</span></td>
+			</tr>
+			<tr>
+				<td><input name="num" value="${r.board_number}" type="hidden">
+					<input class="contents" name="contents" placeholder="댓글을 남겨보세요 :)">
+					<button class="contents_btn">작성</button></td>
+			</tr>
+		</table>
+	</form>
 
 
- 
+
+
+
 
 </body>
 </html>
