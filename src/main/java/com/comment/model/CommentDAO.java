@@ -17,7 +17,7 @@ public class CommentDAO {
 	public static void commentUp(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into comment_table values(comment_db_seq.nextval, ?, ?, ?, sysdate)";
+		String sql = "insert into comment_table values(comment_table_seq.nextval, ?, ?, ?, sysdate)";
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
