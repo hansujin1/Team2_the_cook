@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -25,13 +25,13 @@ $(function() {
 			<td class="title_P">${r.board_title}</td>
 		</tr>
 		<tr>
-			<td class="view_c"><fmt:formatDate value="${r.board_date}" type="both" dateStyle="short" timeStyle="short"/>
-				<span> 조회 ${r.board_count} </span>
-			</td>
+			<td class="view_c"><fmt:formatDate value="${r.board_date}"
+					type="both" dateStyle="short" timeStyle="short" /> <span>
+					조회 ${r.board_count} </span></td>
 		</tr>
 		<tr>
-			<td class="txt_c"><img class="imgs2" src="fileFolder/${r.board_file}"><br>
-				${r.board_txt}</td>
+			<td class="txt_c"><img class="imgs2"
+				src="fileFolder/${r.board_file}"><br> ${r.board_txt}</td>
 		</tr>
 		<tr>
 			<td>
@@ -42,19 +42,16 @@ $(function() {
 			</td>
 		</tr>
 
-		
-			<tr>
-				<td>
-				<button class="heart" name="like" onclick="location.href='likeC?num=${r.board_number}'">
-				♡
-				</button>
-				
-				<span class="like">좋아요 ${r.board_like}</span>
-				</td>
-			</tr>
+
+		<tr>
+			<td>
+				<button class="heart" name="like"
+					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
+				class="like">좋아요 ${r.board_like}</span>
+			</td>
+		</tr>
 
 	</table>
-
 
 	<form action="CommentUploadController">
 	<table class="create_B">
@@ -101,7 +98,7 @@ $(function() {
     </c:if>
 
 
- 
+
 
 </body>
 </html>
