@@ -67,13 +67,13 @@ public class likeDAO {
 			
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, board_number);
 			
+			pstmt.setString(1, board_number);
 			System.out.println(board_number);
 			
 			
 			if (pstmt.executeUpdate() == 1){
-				System.out.println("좋아요 증가");
+				System.out.println("좋아요한 글");
 				
 			}
 			
