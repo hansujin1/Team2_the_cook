@@ -16,8 +16,8 @@ public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
         BoardDAO.updateCount(request);
-        likeDAO.getHeart(request);
-        scrapDAO.scrapCheck(request);
+		/* likeDAO.getHeart(request); */
+		 scrapDAO.scrapCheck(request);
 		BoardDAO.showPost(request);
 		CommentDAO.showComment(request);
 	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
