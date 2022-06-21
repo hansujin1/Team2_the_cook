@@ -69,8 +69,10 @@ public class scrapDAO {
 			rs=pstmt.executeQuery();
 			if (rs.next()) {
 				System.out.println("스크랩 되어있음");
+				request.setAttribute("scrap", 1);
 			}else {
 				System.out.println("스크랩 안되어 있음");
+				request.setAttribute("scrap", 0);
 				isCheck = true;
 			}
 			

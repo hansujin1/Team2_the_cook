@@ -40,7 +40,12 @@
 				</button>
 				
 				<span class="like">좋아요 ${r.board_like}</span>
+				<c:if test="${scrap == 1 }">
+				<span onclick="location.href='doScrapController?num=${r.board_number}'" style="color: red;">스크랩</span>
+				</c:if>
+				<c:if test="${scrap == 0 }">
 				<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
+				</c:if>
 				</td>
 			</tr>
 
