@@ -204,6 +204,7 @@ button {
 	font-size: 12pt;
 	font-weight: 800;
 	margin-left:20px;
+	background-color: #fffcf0;
 }
 
 .contents{ /* 코멘트입력창 */
@@ -222,6 +223,27 @@ button {
 	font-size: 9pt;
 	margin-right : 10px;
 }
+
+.btn_toggle{/* 댓글 수정 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 5px;
+	margin-left: 10px;
+}
+
+.btn_del{/* 댓글 삭제 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 10px;
+}
+
+
 
 .c_id{
 	font-size: 11pt;
