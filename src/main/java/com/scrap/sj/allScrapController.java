@@ -14,7 +14,8 @@ public class allScrapController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "scrap/mypageBefor_Check.jsp");
+		scrapDAO.allScrap(request);
+		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
