@@ -23,4 +23,7 @@ insert into comment_table values(comment_table_seq.nextval, 184, 'kwb', '³»¿ë', 
 
 select * from comment_table where c_boardnumber = 183
 
+delete comment_table where c_no = 28
+
+update comment_table set c_contents = ? where c_no = ?
 

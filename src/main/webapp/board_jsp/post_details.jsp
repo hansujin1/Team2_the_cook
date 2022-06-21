@@ -7,6 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function() {
+	
+	$(".btn_toggle").click(function() {
+	  $(this).parent().find('div').toggle();
+	});
+	
+	
+});
+</script>
 </head>
 <body>
 
@@ -57,19 +67,37 @@
 	</table>
     </form>
      
-  ${comment}
   
   <c:if test="${comment != null}">
-    <c:forEach var="c" items="${comment}">
-    <table class="create_B">
+    <table class="create_B" border="">
      <tr>
      <td>작성자</td> <td>내용</td> <td>작성일</td>
      </tr>
+    <c:forEach var="c" items="${comment}">
      <tr>
-     <td>${c.c_id}</td> <td>${c.c_contents}</td> <td>${c.c_date}</td>
+     <td>${c.c_id}</td> 
+     <td>${c.c_contents}</td> 
+     <td>${c.c_date}  
+       
+      
+      
+     <button class="btn_toggle">수정</button> 
+     <button onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">삭제</button> 
+      
+      <div style= " display: none;">
+      <form action="UpdateCommentControlle">
+      <input name="commentnum" value="${c.c_no}" type="hidden">
+      <input name="num" value="${r.board_number}" type="hidden">
+      <br> 댓글수정 : <input name="contents"> <button>수정완료</button>
+      </form>
+      </div>   
+      
+       
+     
+     </td> 
      </tr>
-    </table>
     </c:forEach>
+    </table>
     </c:if>
 
 
