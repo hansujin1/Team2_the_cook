@@ -204,7 +204,6 @@ button {
 	font-size: 12pt;
 	font-weight: 800;
 	margin-left:20px;
-	background-color: #fffcf0;
 }
 
 .contents{ /* 코멘트입력창 */
@@ -270,19 +269,14 @@ button {
 	margin-bottom: 5px;
 }
 
-
-
-
-
 /* 글쓰기 */
 .create_B {
 	background-color: #f8f8f8;
 	margin-top: 30px;
 	margin-left: 25%;
 }
-
 .create_C {
-	background-color: #f8f8f8;
+	background-color:  #fff0f8;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }
