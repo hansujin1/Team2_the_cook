@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.comment.model.CommentDAO;
 import com.team2.login.LoginDAO;
 @WebServlet("/ShowPostDetailController")
 public class ShowPostDetailController extends HttpServlet {
@@ -14,6 +15,7 @@ public class ShowPostDetailController extends HttpServlet {
 		LoginDAO.loginCheck(request);
         BoardDAO.updateCount(request);
 		BoardDAO.showPost(request);
+		CommentDAO.showComment(request);
 	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
     request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

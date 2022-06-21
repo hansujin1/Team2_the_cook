@@ -19,8 +19,7 @@ public class BoardController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
 		BoardDAO.createPost(request);
-		BoardDAO.lastpage(request);
-		BoardDAO.showpage(request);
+		BoardDAO.showPostList_category(request);
 		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
