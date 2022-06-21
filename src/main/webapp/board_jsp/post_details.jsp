@@ -41,13 +41,17 @@ $(function() {
 					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
 			</td>
 		</tr>
-
-
 		<tr>
 			<td>
 				<button class="heart" name="like"
 					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
 				class="like">좋아요 ${r.board_like}</span>
+        <c:if test="${scrap == 1 }">
+				<span onclick="location.href='doScrapController?num=${r.board_number}'" style="color: red;">스크랩</span>
+				</c:if>
+				<c:if test="${scrap == 0 }">
+				<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
+				</c:if>
 			</td>
 		</tr>
 

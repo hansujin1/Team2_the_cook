@@ -12,3 +12,9 @@ create table scrap_table(
 create SEQUENCE scrap_table_seq INCREMENT by 1 start with 1;
 
 select * from scrap_table;
+
+insert into scrap_table values (scrap_table_seq.nextval,124,'mz');
+
+select * from scrap_table where scrap_boardNum = 124 and scrap_id='mz';
+
+select * from board_table where board_number in (select scrap_boardNum from scrap_table where scrap_id='mz');
