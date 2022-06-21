@@ -17,7 +17,7 @@ public class CommentDAO {
 	public static void commentUp(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into comment_db values(comment_db_seq.nextval, ?, ?, ?, sysdate)";
+		String sql = "insert into comment_table values(comment_db_seq.nextval, ?, ?, ?, sysdate)";
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -55,7 +55,8 @@ public class CommentDAO {
 		 ResultSet rs = null;
 		 
 		 String board_num = request.getParameter("num");
-		 String sql = "select * from comment_db where c_boardnumber = ?";
+		 System.out.println("num >>>>>>>>>>>>>>>>"+board_num);
+		 String sql = "select * from comment_table where c_boardnumber = ?";
 		 System.out.println(sql);	
 		 try {
 			con = DBManager.connect();

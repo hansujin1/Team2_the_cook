@@ -14,11 +14,8 @@ public class CommentUploadController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	LoginDAO.loginCheck(request);
 	CommentDAO.commentUp(request);
-	BoardDAO.updateCount(request);
-	BoardDAO.showPost(request);
-	CommentDAO.showComment(request);
-	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
-    request.getRequestDispatcher("index.jsp").forward(request, response);
+
+    request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
 	
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

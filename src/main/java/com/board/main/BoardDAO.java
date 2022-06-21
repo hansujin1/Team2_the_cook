@@ -188,21 +188,23 @@ public class BoardDAO {
 		 String category1 = (String) request.getAttribute("category");
 		 
 		 
-		 String sql = "select * from board_table where board_category = ?";
+		 String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_date desc )) where rn between 1 and 10";
 		 String category = request.getParameter("category");
-		  
+		 HttpSession hs = request.getSession();
+		 String sessionecategory = (String) hs.getAttribute("categorySession");
 		 
 		 
 		 try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			if (category1!=null) {
-				pstmt.setString(1, category1);
-				
-			} else {
-				pstmt.setString(1, category);
-			}
+	        if (category1!=null) {
+			    pstmt.setString(1, category1);
 			
+			} else if(category!=null) {
+				pstmt.setString(1, category);
+		    } else {
+				pstmt.setString(1, sessionecategory);
+			}
 			
 			
 			rs = pstmt.executeQuery();
