@@ -7,6 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function() {
+
+		$(".btn_toggle").click(function() {
+			$(this).parent().find('div').toggle();
+		});
+
+	});
+</script>
 </head>
 <body>
 
@@ -31,42 +40,71 @@
 					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
 			</td>
 		</tr>
-
-
 		<tr>
 			<td>
 				<button class="heart" name="like"
 					onclick="location.href='likeC?num=${r.board_number}'">♥</button> 
-					<span class="like">좋아요 ${r.board_like}</span>
+					<span class="like">좋아요 ${r.board_like}</span> 
+				<c:if test="${scrap == 1 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'"
+						style="color: red;">스크랩</span>
+				</c:if> 
+				<c:if test="${scrap == 0 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
+				</c:if>
 			</td>
 		</tr>
 
 	</table>
 
-	<c:if test="${comment != null}">
-		<c:forEach var="c" items="${comment}">
-			<div class="list_C">
-					<label class="c_id"><span>${c.c_id}</span></label>
-					<label class="c_com"><span>${c.c_contents}</span></label>
-					<label class="c_date"><span >${c.c_date}</span></label>
-					
-			</div>
-		</c:forEach>
-	</c:if>
 	<form action="CommentUploadController">
-		<table class="create_C">
+		<table class="create_B">
 			<tr>
-				<td><span class="comment">댓글</span></td>
-			</tr>
-			<tr>
-				<td><input name="num" value="${r.board_number}" type="hidden">
-					<input class="contents" name="contents" placeholder="댓글을 남겨보세요 :)">
-					<button class="contents_btn">작성</button></td>
+				<td>댓글쓰기 <input name="num" value="${r.board_number}"
+					type="hidden">
+				</td>
+				<td><input name="contents">
+				<button>작성</button></td>
 			</tr>
 		</table>
 	</form>
 
 
+	<c:if test="${comment != null}">
+		<table class="create_B" border="">
+			<tr>
+				<td>작성자</td>
+				<td>내용</td>
+				<td>작성일</td>
+			</tr>
+			<c:forEach var="c" items="${comment}">
+				<tr>
+					<td>${c.c_id}</td>
+					<td>${c.c_contents}</td>
+					<td>${c.c_date}
+
+
+
+						<button class="btn_toggle">수정</button>
+						<button
+							onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">삭제</button>
+
+						<div style="display: none;">
+							<form action="UpdateCommentControlle">
+								<input name="commentnum" value="${c.c_no}" type="hidden">
+								<input name="num" value="${r.board_number}" type="hidden">
+								<br> 댓글수정 : <input name="contents">
+								<button>수정완료</button>
+							</form>
+						</div>
+
+
+
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</c:if>
 
 
 

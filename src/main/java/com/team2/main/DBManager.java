@@ -27,6 +27,7 @@ public class DBManager {
 
 
 
+
 	}
 	
 	//닫을게 많은데 한번에 닫기

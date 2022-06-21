@@ -19,7 +19,7 @@
 			<p>
 				<a href="MyLikeC">좋아요 한 글</a></p>
 			<p>
-				<a href="#">스크랩 한 글</a></p>
+				<a href="allScrapController">스크랩 한 글</a></p>
 			<p>
 				<a href="DoLoginController">로그아웃</a></p>
 		</div>

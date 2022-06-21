@@ -51,8 +51,6 @@ public class likeDAO {
 			DBManager.close(con, pstmt, null);
 		}
 		
-		
-		
 	}
 
 	public static void updateHeart(HttpServletRequest request) {
