@@ -17,6 +17,7 @@ public class likeC extends HttpServlet {
 		LoginDAO.loginCheck(request);
 		likeDAO.getHeart(request);
 		BoardDAO.showPost(request);
+		likeDAO.updateHeart(request);
 		request.setAttribute("contentPage", "board_jsp/post_details.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	

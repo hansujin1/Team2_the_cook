@@ -19,25 +19,29 @@ public class likeDAO {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
 		String sql = "insert into heart_table values (like_no_seq.nextval,?,?)";
-		String b_no =  request.getParameter("b_no");
+		
+		String board_number =  request.getParameter("num");
+		HttpSession hs = request.getSession();
+		
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		String id = a.getId();
+		
+		System.out.println(id);
+		System.out.println(board_number);
 		
 		try {
-			
-			HttpSession hs = request.getSession();
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
 			
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, a.getId());
-			pstmt.setString(2, b_no);
+			pstmt.setString(1, board_number);
+			pstmt.setString(2, a.getId());
 			
-			System.out.println(b_no);
 			
 			if (pstmt.executeUpdate() == 1){
-				System.out.println("좋아요 완료");
+				System.out.println("좋아요");
+				
 			}
 			
 			
@@ -51,4 +55,41 @@ public class likeDAO {
 		
 	}
 
-}
+	public static void updateHeart(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String board_number = request.getParameter("num");
+		String sql = "update board_table set board_like = board_like + 1 where board_number = ?";
+				
+		
+		try {
+			
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, board_number);
+			
+			System.out.println(board_number);
+			
+			
+			if (pstmt.executeUpdate() == 1){
+				System.out.println("좋아요 증가");
+				
+			}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
+		
+		
+		
+	}
+
+		
+		
+	}
+
+
