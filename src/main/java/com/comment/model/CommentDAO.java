@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.board.main.PostB;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.team2.login.LoginB;
 import com.team2.main.DBManager;
 
@@ -55,9 +57,7 @@ public class CommentDAO {
 		 ResultSet rs = null;
 		 
 		 String board_num = request.getParameter("num");
-		 System.out.println("num >>>>>>>>>>>>>>>>"+board_num);
 		 String sql = "select * from comment_table where c_boardnumber = ?";
-		 System.out.println(sql);	
 		 try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -75,7 +75,6 @@ public class CommentDAO {
 				c.setC_id(rs.getString("c_id"));
 				c.setC_no(rs.getInt("c_no"));
 				comment.add(c);
-				System.out.println("코멘트"+ comment);
 		    }
 			 
 		    request.setAttribute("comment", comment);
@@ -93,12 +92,105 @@ public class CommentDAO {
 	}
 
 	
+	public static void deleteComment(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete comment_table where c_no =?";
+		try {
+		con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		
+		String c_no= request.getParameter("commentnum");
+		
+		pstmt.setString(1, c_no);
+		
+		
+		if (pstmt.executeUpdate() == 1){
+			System.out.println("삭제성공");
+		}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	 finally {
+			DBManager.close(con, pstmt, null);
+		}
 	
 	
 	
+	}
+	
+	public static void updatePost(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+    try {
+		String sql = "update comment_table set c_contents = ? where c_no = ?";
+    	String commentnum = request.getParameter("commentnum");
+    	String contents = request.getParameter("contents");
+		
+    	con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, contents);
+		pstmt.setString(2, commentnum);
+		
+			
+			
+    	if (pstmt.executeUpdate()==1) {
+		 System.out.println("변경완료");
+    	}
+         
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, null);
+		}
+	
+}
 	
 	
 	
+	public static void showComment_detail(HttpServletRequest request) {
+	       
+		 Connection con = null;
+		 PreparedStatement pstmt = null;
+		 ResultSet rs = null;
+		 
+		 String c_no = request.getParameter("commentnum");
+		 String sql = "select * from comment_table where c_no = ?";
+		 try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c_no);
+			
+			rs = pstmt.executeQuery();
+			
+			ArrayList<CommentBean> comment = new ArrayList<CommentBean>();
+			
+		    while (rs.next()) {
+		    	CommentBean c = new CommentBean();
+		    	c.setC_boardnumber(rs.getInt("c_boardnumber"));
+				c.setC_contents(rs.getString("c_contents"));
+				c.setC_date(rs.getDate("c_date"));
+				c.setC_id(rs.getString("c_id"));
+				c.setC_no(rs.getInt("c_no"));
+				comment.add(c);
+		    }
+			 
+		    request.setAttribute("comment", comment);
+			
+			
+			
+			
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		 finally {
+				DBManager.close(con, pstmt, rs);
+			}
+		
+	}
 	
 	
 	
