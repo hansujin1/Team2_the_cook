@@ -17,7 +17,7 @@ public class MyLikeDao {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String board_like = request.getParameter("like");
+		String like = request.getParameter("like");
 		
 		try	{
 	        
@@ -26,8 +26,8 @@ public class MyLikeDao {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, board_like);
-			System.out.println(board_like);
+			pstmt.setString(1, like);
+			System.out.println(like);
 			
 			rs = pstmt.executeQuery();
 			
