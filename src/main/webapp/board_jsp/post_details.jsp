@@ -42,17 +42,15 @@
 		</tr>
 
 	</table>
-	${comment}
 
 	<c:if test="${comment != null}">
 		<c:forEach var="c" items="${comment}">
-			<table class="list_C">
-				<tr>
-					<td><span class="c_id">${c.c_id}</span></td>
-					<td><span class="c_com">${c.c_contents}</span></td>
-					<td><span class="c_date">${c.c_date}</span></td>
-				</tr>
-			</table>
+			<div class="list_C">
+					<label class="c_id"><span>${c.c_id}</span></label>
+					<label class="c_com"><span>${c.c_contents}</span></label>
+					<label class="c_date"><span >${c.c_date}</span></label>
+					
+			</div>
 		</c:forEach>
 	</c:if>
 	<form action="CommentUploadController">

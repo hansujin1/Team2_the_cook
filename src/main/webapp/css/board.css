@@ -61,7 +61,7 @@ button {
 }
 
 .ulTable>div:first-child {
-	width: 25%;
+	width: 20%;
 }
 
 .ulTable>div:first-child+div {
@@ -73,7 +73,7 @@ button {
 }
 
 .ulTable>div:first-child+div+div+div {
-	width: 10%;
+	width: 15%;
 }
 
 .ulTable>div:first-child+div+div+div+div{
@@ -102,7 +102,7 @@ button {
 }
 
 #ulTable>li>ul>li:first-child {
-	width: 25%;
+	width: 20%;
 } /*img 열 크기*/
 #ulTable>li>ul>li:first-child+li {
 	width: 30%;
@@ -111,13 +111,11 @@ button {
 	width: 25%;
 } /*작성일 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li {
-	width: 10%;
+	width: 15%;
 } /*작성자 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li+li {
 	width: 10%;
 } /*글번호 열 크기*/
-
-
 
 .text_Bt { /*글쓰기 버튼*/
 	cursor: pointer;
@@ -223,25 +221,31 @@ button {
 }
 
 .c_id{
-	font-size: 12pt;
+	font-size: 11pt;
 	font-weight: 900;
 	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 10px;
 }
 
 .c_com{
 	font-size: 10pt;
+	width:20px;
+	padding-right: 10px;
 }
 
 
 .c_date{
 	font-size: 8pt;
 	color:gray;
-	padding-right: 10px;
 }
 
 .list_C{	/* 댓글 리스트 */
 	margin-left: 25%;
+	margin-bottom: 5px;
 }
+
+
 
 
 
@@ -253,7 +257,7 @@ button {
 }
 
 .create_C {
-	background-color: #f8f8f8;
+	background-color: #fdfcf2;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }
