@@ -24,17 +24,44 @@
 			<td class="title_P">${r.board_title}</td>
 		</tr>
 		<tr>
-			<td class="view_c"><fmt:formatDate value="${r.board_date}"
-					type="both" dateStyle="short" timeStyle="short" /> <span>
-					조회 ${r.board_count} </span></td>
+		
+			<td class="view_c">
+				<span class="view_cnt">
+				<fmt:formatDate value="${r.board_date}"	
+					type="both" dateStyle="short" timeStyle="short" /> 
+				 조회 ${r.board_count} </span>
+					
+				<c:if test="${likeCk == 1 }">
+					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
+						style="color: red;">♥</span>
+						<span class="like"> 좋아요</span>
+				</c:if> 
+				<c:if test="${likeCk == 0 }">
+					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
+						style="">♡</span>
+						<span class="like"> 좋아요</span>
+				
+				</c:if> 
+					<span class="like">${r.board_like}</span>
+			
+				<c:if test="${scrap == 1 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'"
+						style="color: black; font-weight: 800; cursor: pointer;">스크랩 한 게시물입니다.</span>
+				</c:if> 
+				<c:if test="${scrap == 0 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'"
+						style="color: gray;">스크랩</span>
+				</c:if></td>
+				
 		</tr>
+		
 		<tr>
 			<td class="txt_c"><img class="imgs2"
 				src="fileFolder/${r.board_file}"> 
 				<div style="white-space: pre;"><c:out value="${r.board_txt}"/></div>
-				
-				</td>
+			</td>
 		</tr>
+		
 		<tr>
 			<c:if test="${r.board_id == sessionScope.loginInfo.id}">
 			<td>
@@ -45,25 +72,7 @@
 			</td>
 			</c:if>	
 		</tr>
-		<tr>
-			<td>
-				<button class="heart" name="like"
-					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
-				class="like">좋아요 ${r.board_like}</span> 
-				
-				
-				<c:if test="${scrap == 1 }">
-					<span onclick="location.href='doScrapController?num=${r.board_number}'"
-						style="color: red;">스크랩</span>
-				</c:if> 
-				
-				
-				<c:if test="${scrap == 0 }">
-					<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
-				</c:if>
-			</td>
-		</tr>
-
+		
 	</table>
 
 
