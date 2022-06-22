@@ -30,7 +30,11 @@
 		</tr>
 		<tr>
 			<td class="txt_c"><img class="imgs2"
-				src="fileFolder/${r.board_file}"><br> ${r.board_txt}</td>
+				src="fileFolder/${r.board_file}"> 
+				<div style="white-space: pre;">
+				<c:out value="${r.board_txt}"/></div>
+				
+				</td>
 		</tr>
 		<tr>
 			<td>
