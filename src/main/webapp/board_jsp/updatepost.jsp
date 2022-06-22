@@ -5,6 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+$(function() {
+	
+	$("#file").on('change',function() {
+ 	 var fileName = $("#file").val();
+  	$(".upload-name").val(fileName);
+	});
+	
+});
+
+</script>
 </head>
 <body>
 	<form action="UpdatePostController" method="post"
@@ -21,6 +33,14 @@
 			<tr>
 				<td><input class="update_txt" name="txt" value="${r.board_txt}"></td>
 			</tr>
+
+			<tr class="filebox">
+				<td>
+					<input class="upload-name" name="file" placeholder="첨부할 사진을 선택해 주세요.">
+   			 		<label for="file">찾기</label> 
+   			 		<input type="file" id="file" name="file">
+   			 		<button class = "create_upload">업로드</button>
+
 			<tr>
 				<td><input class = "update_Bfile" name="file" type="file">
 					<input name="num" value="${r.board_number}" type="hidden">

@@ -7,17 +7,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.board.heart.likeDAO;
 import com.board.main.MyTextDAO;
+import com.scrap.sj.scrapDAO;
 import com.team2.login.LoginDAO;
 
 @WebServlet("/MyLikeC")
 public class MyLikeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		LoginDAO.loginCheck(request);
-		MyLikeDao.MyLike(request);
-		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		if (MyLikeDao.likeCheck(request)) {
+			LoginDAO.loginCheck(request);
+			likeDAO.hitHeart(request);	
+			likeDAO.updateHeart(request);
+			System.out.println("true");
+		}else {
+			LoginDAO.loginCheck(request);
+			MyLikeDao.deleteLike(request);
+			MyLikeDao.downHeart(request);
+			System.out.println("false");
+		}
+		
+		request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
