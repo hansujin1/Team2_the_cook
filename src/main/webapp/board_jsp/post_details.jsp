@@ -28,14 +28,14 @@
 					type="both" dateStyle="short" timeStyle="short" /> <span>
 					조회 ${r.board_count} </span></td>
 		</tr>
+		
 		<tr>
 			<td class="txt_c"><img class="imgs2"
 				src="fileFolder/${r.board_file}"> 
-				<div style="white-space: pre;">
-				<c:out value="${r.board_txt}"/></div>
-				
-				</td>
+				<div style="white-space: pre;"><c:out value="${r.board_txt}"/></div>
+			</td>
 		</tr>
+		
 		<tr>
 			<td>
 				<button type="button" class="update_P"
