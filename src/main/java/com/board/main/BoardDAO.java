@@ -282,39 +282,46 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
     try {
+    	int pstmtNum = 3;
+    	MultipartRequest mr;
+    	String path = request.getSession().getServletContext().getRealPath("fileFolder");
+    	mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+    	String title = mr.getParameter("title");
+		String txt = mr.getParameter("txt");
+		String number = mr.getParameter("num");
+		
+		String newfile = mr.getFilesystemName("file");
+		String oldfile = mr.getParameter("oldfile");
+		
 		String sql = "update board_table set board_title=?,board_txt=?,board_file=? where board_number=?";
-    	
+		
+		if(newfile == null) {
+			sql="update board_table set board_title=?,board_txt=? where board_number=?";
+		}
+		
+		
+		
     	con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
-		String path = request.getSession().getServletContext().getRealPath("fileFolder");
-		System.out.println(path);
-		MultipartRequest mr;
-		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
-		String title = mr.getParameter("title");
-		String txt = mr.getParameter("txt");
-		String file = mr.getFilesystemName("file");
-		String number = mr.getParameter("num");
-		String oldfile = mr.getParameter("oldfile");
+		
 		
         pstmt.setString(1, title);
         pstmt.setString(2, txt);
-        
-        if(file == null) {
-        	pstmt.setString(3, oldfile);
-        	
-        } else {
-        	pstmt.setString(3, file);
+        if(newfile != null) {
+        	pstmtNum = 4;
+        	pstmt.setString(3, newfile);
         	String delFile = path + "/" + oldfile;  
  			File f = new File(delFile);
  			f.delete();
-        }
-        
-       
+        } 
         
         
-        pstmt.setString(4, number);
+        pstmt.setString(pstmtNum, number);
 			
+        
+        
+        
 			
     	if (pstmt.executeUpdate()==1) {
 		 System.out.println("변경완료");

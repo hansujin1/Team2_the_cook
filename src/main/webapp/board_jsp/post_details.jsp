@@ -63,12 +63,14 @@
 		</tr>
 		
 		<tr>
+			<c:if test="${r.board_id == sessionScope.loginInfo.id}">
 			<td>
 				<button type="button" class="update_P"
-					onclick="location.href='UpdatePostController?num=${r.board_number}&file=${r.board_file}'">수정</button>
+					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
 				<button type="button" class="del_P"
 					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">삭제</button>
 			</td>
+			</c:if>	
 		</tr>
 		
 	</table>
