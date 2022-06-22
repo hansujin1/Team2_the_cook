@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.PageContext;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -45,6 +46,7 @@ public class BoardDAO {
         	hs.setAttribute("categorySession", category);
         	hs.setMaxInactiveInterval(60 *10);
         }
+       
        
 		
 		pstmt.setString(1, id);
@@ -123,7 +125,7 @@ public class BoardDAO {
 			
 			String category = request.getParameter("category");
 			request.setAttribute("category", category);
-			
+		
 			
 			} catch (Exception e) {
 				e.printStackTrace();

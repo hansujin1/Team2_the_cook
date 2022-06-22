@@ -34,13 +34,16 @@ select rownum as rn, board_number, board_id, board_date, board_title, board_txt,
 from (
 select *
 from board_table
-where board_category = ?
-order by board_count desc
+where board_category = 1
+order by board_date desc
 ))
-where rn between ? and ?
+where rn between 1 and 50
 
 ---------------------
 
+select * from board_table where board_category = 1
+
+1~50
 
 
 
