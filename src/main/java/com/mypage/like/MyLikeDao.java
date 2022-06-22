@@ -24,7 +24,7 @@ public class MyLikeDao {
 			HttpSession hs = request.getSession();
 	        LoginB a = (LoginB) hs.getAttribute("loginInfo");
 			String sql = "select * from board_table where board_number in (select like_bno from heart_table where id = ?)";
-			// select * 
+			// sql 수정하기
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			
@@ -60,5 +60,87 @@ public class MyLikeDao {
 				DBManager.close(con, pstmt, rs);
 			}
 	}
+	
+public static boolean likeCheck(HttpServletRequest request) {
+		
+		// 좋아요 체크하기
+		
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		if (a != null) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		boolean isLikeCheck = false;
+		try {
+			con = DBManager.connect();
+			String sql = "select * from heart_table where like_bno = ? and id=?";
+			
+			//값받기
+			String num =  request.getParameter("num");
+			
+			String id = a.getId();
+			
+			pstmt =con.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.setString(2, id);
+			
+			rs=pstmt.executeQuery();
+			if (rs.next()) {
+				System.out.println("이미 좋아요 한 글입니다.");
+				request.setAttribute("likeCk", 1);
+			}else {
+				System.out.println("좋아요를 취소합니다.");
+				request.setAttribute("likeCk", 0);
+				isLikeCheck = true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		return isLikeCheck;
+	}else {
+		request.setAttribute("likeCk", 0);
+		return true;
+	}
+	}
+
+public static void deleteLike(HttpServletRequest request) {
+	// 좋아요 취소하기
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	try {
+		con = DBManager.connect();
+		String sql ="delete heart_table where like_bno = ? and id=?";
+
+		//값받기
+		String num =  request.getParameter("num");
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		String id = a.getId();
+
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, num);
+		pstmt.setString(2, id);
+		
+		if (pstmt.executeUpdate()==1) {
+			System.out.println("좋아요 삭제");
+		}
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	}finally {
+		DBManager.close(con, pstmt, null);
+	}
+	
+	
+}
 
 }

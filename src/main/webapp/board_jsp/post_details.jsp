@@ -46,9 +46,19 @@
 		</tr>
 		<tr>
 			<td>
-				<button class="heart" name="like"
+				<c:if test="${likeCk == 1 }">
+					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
+						style="color: red;">♥${r.board_like}</span>
+				</c:if> 
+				
+				
+				<c:if test="${likeCk == 0 }">
+					<span onclick="location.href='MyLikeC?num=${r.board_number}'">♡${r.board_like}</span>
+				</c:if>
+			
+				<%-- <button class="heart" name="like"
 					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
-				class="like">좋아요 ${r.board_like}</span> 
+				class="like">좋아요 ${r.board_like}</span> --%>
 				
 				
 				<c:if test="${scrap == 1 }">

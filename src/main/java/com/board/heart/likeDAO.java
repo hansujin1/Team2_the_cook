@@ -17,7 +17,7 @@ import com.team2.main.DBManager;
 public class likeDAO {
 
 	public static void hitHeart(HttpServletRequest request) {
-
+		// 좋아요 하기
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "insert into heart_table values (like_no_seq.nextval,?,?)";
@@ -55,7 +55,7 @@ public class likeDAO {
 	}
 
 	public static void updateHeart(HttpServletRequest request) {
-		
+		// 좋아요수 증가
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String board_number = request.getParameter("num");
@@ -73,7 +73,6 @@ public class likeDAO {
 			
 			if (pstmt.executeUpdate() == 1){
 				System.out.println("좋아요 수 증가");
-				
 			}
 			
 			
@@ -88,23 +87,46 @@ public class likeDAO {
 	}
 
 	public static void allHeart(HttpServletRequest request) {
-		
+		// 좋아요 보여주기
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String like = request.getParameter("like");
+		
+		
 		try {
 			con = DBManager.connect();
 			
+			HttpSession hs = request.getSession();
+	        LoginB a = (LoginB) hs.getAttribute("loginInfo");
+	        
+	        String sql="select * from board_table where board_number in (select like_bno from heart_table where id = ?)";
 			
-	        
-	        String sql="select * from board_table where board_like = ? ";
-			pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, like);
-	        
-	        System.out.println(like);
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, a.getId());
 	        
 	        rs = pstmt.executeQuery();
+	        
+	        ArrayList<PostB> post = new ArrayList<PostB>();
+			
+			while (rs.next()) {
+		
+			PostB p = new PostB();
+			
+			p.setBoard_category(rs.getString("board_category"));
+			p.setBoard_count(rs.getString("board_count"));
+			p.setBoard_date(rs.getDate("board_date"));
+			p.setBoard_file(rs.getString("board_file"));
+			p.setBoard_id(rs.getString("board_id"));
+			p.setBoard_like(rs.getString("board_like"));
+			p.setBoard_number(rs.getString("board_number"));
+			p.setBoard_title(rs.getString("board_title"));
+			p.setBoard_txt(rs.getString("board_txt"));
+			post.add(p);
+			
+		}
+			
+		request.setAttribute("post", post);
+	       
 	        
 	      
 	        
