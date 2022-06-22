@@ -39,9 +39,9 @@
 		<tr>
 			<td>
 				<button type="button" class="update_P"
-					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
+					onclick="location.href='UpdatePostController?num=${r.board_number}&file=${r.board_file}'">수정</button>
 				<button type="button" class="del_P"
-					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}'">삭제</button>
+					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">삭제</button>
 			</td>
 		</tr>
 		<tr>
@@ -76,10 +76,13 @@
 					<label class="c_id"><span>${c.c_id}</span></label> 
 					<label class="c_com"><span>${c.c_contents}</span></label> 
 					<label class="c_date"><span>${c.c_date}</span></label>
+					
+					<c:if test="${r.board_id == sessionScope.loginInfo.id}">
 					<button class="btn_toggle">수정</button>
 					<button	class="btn_del" onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">
 					삭제</button>
-
+                    </c:if>
+                    
 					<div style="display: none;">
 						<form action="UpdateCommentControlle">
 							<input name="commentnum" value="${c.c_no}" type="hidden">

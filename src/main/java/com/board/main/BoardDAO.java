@@ -1,5 +1,6 @@
 package com.board.main;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -251,14 +252,19 @@ public class BoardDAO {
 		try {
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
-		
+		String path = request.getSession().getServletContext().getRealPath("fileFolder");
+		System.out.println(path);
 		String num= request.getParameter("num");
+		String file = request.getParameter("file");
 		
 		pstmt.setString(1, num);
 		
 		
 		if (pstmt.executeUpdate() == 1){
 			System.out.println("삭제성공");
+			String delFile = path + "/" + file; 
+			File f = new File(delFile);
+			f.delete();
 		}
 		
 		} catch (Exception e) {
@@ -289,9 +295,24 @@ public class BoardDAO {
 		String txt = mr.getParameter("txt");
 		String file = mr.getFilesystemName("file");
 		String number = mr.getParameter("num");
+		String oldfile = mr.getParameter("oldfile");
+		
         pstmt.setString(1, title);
         pstmt.setString(2, txt);
-        pstmt.setString(3, file);
+        
+        if(file == null) {
+        	pstmt.setString(3, oldfile);
+        	
+        } else {
+        	pstmt.setString(3, file);
+        	String delFile = path + "/" + oldfile;  
+ 			File f = new File(delFile);
+ 			f.delete();
+        }
+        
+       
+        
+        
         pstmt.setString(4, number);
 			
 			
