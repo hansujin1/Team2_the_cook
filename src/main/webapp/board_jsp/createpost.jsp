@@ -5,6 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+$(function() {
+	
+	$("#file").on('change',function() {
+ 	 var fileName = $("#file").val();
+  	$(".upload-name").val(fileName);
+	});
+	
+});
+
+</script>
 </head>
 <body>
 
@@ -20,12 +32,15 @@
 				placeholder="내용을 입력해 주세요."></textarea>
 				<input type="hidden" name="category" value="${param.category}"></td>
 			</tr>
-			<tr>
-				<td><input class = "create_Bfile" type="file" name="file">
-					<button>업로드</button>
-			    </td>
+			<tr class="filebox">
+    			<td>
+    				<input class="upload-name" name="file" placeholder="첨부할 사진을 선택해 주세요.">
+   			 		<label for="file">찾기</label> 
+   			 		<input type="file" id="file" name="file">
+   			 		<button class = "create_upload">업로드</button>
+   			 	</td>
 			</tr>
-		</table>
+			</table>
 	</form>
 
 </body>

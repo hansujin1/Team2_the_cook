@@ -49,14 +49,14 @@
 			
 		</div>
 		<div id="divPaging">
-			<div>◀</div>
+			<div class="control">◀</div>
 			<c:forEach var="i" begin="1" end="${lastpage}">
 				<div
 					onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}&count=${count}'">
 					<c:out value="${i}" />
 				</div>
 			</c:forEach>
-			<div>▶</div>
+			<div class="control">▶</div>
 		</div>
 
 	</div>

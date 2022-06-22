@@ -1,8 +1,9 @@
-package com.board.like;
+package com.board.heart;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,7 @@ import com.team2.main.DBManager;
 
 public class likeDAO {
 
-	public static void getHeart(HttpServletRequest request) {
+	public static void hitHeart(HttpServletRequest request) {
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -40,7 +41,7 @@ public class likeDAO {
 			
 			
 			if (pstmt.executeUpdate() == 1){
-				System.out.println("좋아요");
+				System.out.println("좋아요OK");
 				
 			}
 			
@@ -50,8 +51,6 @@ public class likeDAO {
 		} finally {
 			DBManager.close(con, pstmt, null);
 		}
-		
-		
 		
 	}
 
@@ -67,13 +66,13 @@ public class likeDAO {
 			
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, board_number);
 			
+			pstmt.setString(1, board_number);
 			System.out.println(board_number);
 			
 			
 			if (pstmt.executeUpdate() == 1){
-				System.out.println("좋아요 증가");
+				System.out.println("좋아요 수 증가");
 				
 			}
 			
@@ -83,6 +82,41 @@ public class likeDAO {
 		} finally {
 			DBManager.close(con, pstmt, null);
 		}
+		
+		
+		
+	}
+
+	public static void allHeart(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String like = request.getParameter("like");
+		try {
+			con = DBManager.connect();
+			
+			
+	        
+	        String sql="select * from board_table where board_like = ? ";
+			pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, like);
+	        
+	        System.out.println(like);
+	        
+	        rs = pstmt.executeQuery();
+	        
+	      
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+		
+		
+		
 		
 		
 		

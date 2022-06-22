@@ -1,4 +1,4 @@
-package com.board.like;
+package com.board.heart;
 
 public class likeB {
 	
