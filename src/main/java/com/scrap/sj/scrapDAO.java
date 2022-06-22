@@ -92,6 +92,7 @@ public class scrapDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 		return isCheck;
+		
 	}else {
 		request.setAttribute("scrap", 0);
 		return true;

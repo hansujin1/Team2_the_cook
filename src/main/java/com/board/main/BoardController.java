@@ -11,9 +11,15 @@ import com.team2.login.LoginDAO;
 @WebServlet("/BoardController")
 public class BoardController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		LoginDAO.loginCheck(request);
-		request.setAttribute("contentPage", "board_jsp/createpost.jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		if(LoginDAO.onlyLoginCan(request)) {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("contentPage", "board_jsp/createpost.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}else {
+			LoginDAO.loginCheck(request);
+			request.setAttribute("contentPage", "login/login.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
