@@ -17,11 +17,11 @@ public class ShowPostDetailController extends HttpServlet {
 		LoginDAO.loginCheck(request);
         BoardDAO.updateCount(request);
         likeDAO.hitHeart(request);
-        scrapDAO.scrapCheck(request);
+		scrapDAO.scrapCheck(request);
 		BoardDAO.showPost(request);
 		CommentDAO.showComment(request);
-	request.setAttribute("contentPage", "board_jsp/post_details.jsp");
-    request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.setAttribute("contentPage", "board_jsp/post_details.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
