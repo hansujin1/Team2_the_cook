@@ -1,4 +1,4 @@
-package com.board.like;
+package com.board.heart;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -15,9 +15,9 @@ public class likeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		LoginDAO.loginCheck(request);
-		likeDAO.getHeart(request);
-		
+		likeDAO.hitHeart(request);
 		likeDAO.updateHeart(request);
+		likeDAO.allHeart(request);
 		
 		request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
 	

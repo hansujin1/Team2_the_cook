@@ -136,7 +136,6 @@ button {
 	margin: 0 auto;
 	width: 220px;
 	height: 50px;
-	margin-left: 350px;
 	padding-top: 20px;
 	cursor: pointer;
 }
@@ -146,6 +145,10 @@ button {
 	width: 30px;
 	margin: 0 auto;
 	text-align: center;
+}
+
+.control{
+	font-size: 8pt;
 }
 
 .titles {
@@ -171,7 +174,15 @@ button {
 }
 
 
-/* post_details */
+/* post_details 게시글 보기*/
+
+.details_B {
+	background-color: #f8f8f8;
+	margin-top: 10px;
+	margin-left: 25%;
+	margin-bottom: 20px;
+}
+
 .post_board {
 	background-color: #F8ECD1;
 	font-size: 10pt;
@@ -211,6 +222,14 @@ button {
 	 margin : 0px 0px 10px 10px ;
 }
 
+.re_contents{/* 수정 코멘트 입력창 */
+	 width:750px;
+	 border: 1px solid #bebebe;
+	 border-radius: 5px 5px 5px 5px;
+	 padding : 5px 5px 5px 5px;
+	 margin : 0px 0px 10px 10px ;
+}
+
 .contents_btn{ /* 작성버튼 */
 	cursor: pointer;
 	font-weight: 900;
@@ -219,6 +238,42 @@ button {
 	font-size: 9pt;
 	margin-right : 10px;
 }
+
+.btn_toggle{/* 댓글 수정 버튼 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 5px;
+	margin-left: 10px;
+}
+
+.update_comment{/* 댓글 수정 input */
+	font-size:9pt;
+	font-weight: 900;
+}
+
+.btn_Update{/* 수정 완료 버튼 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 5px;
+	margin-left: 10px;
+}
+
+.btn_del{/* 댓글 삭제 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-right : 10px;
+}
+
+
 
 .c_id{
 	font-size: 11pt;
@@ -245,19 +300,14 @@ button {
 	margin-bottom: 5px;
 }
 
-
-
-
-
 /* 글쓰기 */
 .create_B {
 	background-color: #f8f8f8;
 	margin-top: 30px;
 	margin-left: 25%;
 }
-
 .create_C {
-	background-color: #fdfcf2;
+	background-color:  #fff0f8;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }
@@ -280,8 +330,44 @@ button {
 	padding: 10px 10px 10px 10px;
 }
 
-.create_Bfile { /* 파일 선택 */
-	padding: 0px 0px 20px 20px;
+.filebox .upload-name { /* 첨부 파일 */
+    display: inline-block;
+    height: 23px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 40%;
+    color: #999999;
+    margin : 0px 0px 5px 5px;
+}
+
+.filebox label { /* 찾기 */
+   	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-left : 10px;
+	margin-right : 10px;
+	padding : 2.5px 8px 2.5px 8px;
+}
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.create_upload { /* 업로드 버튼 */
+	cursor: pointer;
+	font-weight: 900;
+	background: #ffffff;
+	border: 1px solid #c0c0c0;
+	font-size: 9pt;
+	margin-left : 10px;
 }
 
 /* 게시글 보기 */

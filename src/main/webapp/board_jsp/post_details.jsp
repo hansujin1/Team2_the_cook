@@ -8,19 +8,18 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
-$(function() {
-	
-	$(".btn_toggle").click(function() {
-	  $(this).parent().find('div').toggle();
+	$(function() {
+
+		$(".btn_toggle").click(function() {
+			$(this).parent().find('div').toggle();
+		});
+
 	});
-	
-	
-});
 </script>
 </head>
 <body>
 
-	<table class="create_B">
+	<table class="details_B">
 		<tr>
 			<td class="title_P">${r.board_title}</td>
 		</tr>
@@ -31,7 +30,11 @@ $(function() {
 		</tr>
 		<tr>
 			<td class="txt_c"><img class="imgs2"
-				src="fileFolder/${r.board_file}"><br> ${r.board_txt}</td>
+				src="fileFolder/${r.board_file}"> 
+				<div style="white-space: pre;">
+				<c:out value="${r.board_txt}"/></div>
+				
+				</td>
 		</tr>
 		<tr>
 			<td>
@@ -45,61 +48,67 @@ $(function() {
 			<td>
 				<button class="heart" name="like"
 					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
-				class="like">좋아요 ${r.board_like}</span>
-        <c:if test="${scrap == 1 }">
-				<span onclick="location.href='doScrapController?num=${r.board_number}'" style="color: red;">스크랩</span>
-				</c:if>
+				class="like">좋아요 ${r.board_like}</span> 
+				
+				
+				<c:if test="${scrap == 1 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'"
+						style="color: red;">스크랩</span>
+				</c:if> 
+				
+				
 				<c:if test="${scrap == 0 }">
-				<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
+					<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
 				</c:if>
 			</td>
 		</tr>
 
 	</table>
 
-	<form action="CommentUploadController">
-	<table class="create_B">
-	<tr>
-	<td>댓글쓰기
-	 <input name="num" value="${r.board_number}" type="hidden">
-	</td>
-	<td><input name="contents" ><button>작성</button></td>
-	</tr>
-	</table>
-    </form>
-     
-  
-  <c:if test="${comment != null}">
-    <table class="create_B" border="">
-     <tr>
-     <td>작성자</td> <td>내용</td> <td>작성일</td>
-     </tr>
-    <c:forEach var="c" items="${comment}">
-     <tr>
-     <td>${c.c_id}</td> 
-     <td>${c.c_contents}</td> 
-     <td>${c.c_date}  
-       
-      
-      
-     <button class="btn_toggle">수정</button> 
-     <button onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">삭제</button> 
-      
-      <div style= " display: none;">
-      <form action="UpdateCommentControlle">
-      <input name="commentnum" value="${c.c_no}" type="hidden">
-      <input name="num" value="${r.board_number}" type="hidden">
-      <br> 댓글수정 : <input name="contents"> <button>수정완료</button>
-      </form>
-      </div>   
-      
-       
-     
-     </td> 
-     </tr>
-    </c:forEach>
-    </table>
-    </c:if>
+
+
+
+	<c:if test="${comment != null}">
+		<table class="create_B" border="">
+
+			<c:forEach var="c" items="${comment}">
+				<div class="list_C">
+					<label class="c_id"><span>${c.c_id}</span></label> 
+					<label class="c_com"><span>${c.c_contents}</span></label> 
+					<label class="c_date"><span>${c.c_date}</span></label>
+					<button class="btn_toggle">수정</button>
+					<button	class="btn_del" onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">
+					삭제</button>
+
+					<div style="display: none;">
+						<form action="UpdateCommentControlle">
+							<input name="commentnum" value="${c.c_no}" type="hidden">
+							<input name="num" value="${r.board_number}" type="hidden">
+							<br> <span class="update_comment"> 
+							<input class ="re_contents" name="contents" placeholder="수정할 댓글 내용을 입력하세요."> </span> 
+							<button class="btn_Update">수정완료</button>
+						</form>
+					</div>
+				</div>
+
+
+
+			</c:forEach>
+		</table>
+
+		<form action="CommentUploadController">
+			<table class="create_C">
+				<tr>
+					<td><span class="comment">댓글</span></td>
+				</tr>
+				<tr>
+					<td><input name="num" value="${r.board_number}" type="hidden">
+						<input class="contents" name="contents"	placeholder="댓글을 남겨보세요 :)">
+						<button class="contents_btn">작성</button></td>
+				</tr>
+			</table>
+		</form>
+	</c:if>
 
 
 

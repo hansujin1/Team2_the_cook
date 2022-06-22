@@ -17,7 +17,7 @@
 			<p>
 				<a href="myTextC">내가 쓴 글</a></p>
 			<p>
-				<a href="#">좋아요 한 글</a></p>
+				<a href="MyLikeC">좋아요 한 글</a></p>
 			<p>
 				<a href="allScrapController">스크랩 한 글</a></p>
 			<p>
