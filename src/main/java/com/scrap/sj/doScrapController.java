@@ -13,18 +13,27 @@ import com.team2.login.LoginDAO;
 public class doScrapController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//스크랩하기
-		if (scrapDAO.scrapCheck(request)) {
-			LoginDAO.loginCheck(request);
-			scrapDAO.addScrap(request);	
-			System.out.println("스크랩이 없기때문에 참 발동!!!");
+		if (LoginDAO.onlyLoginCan(request)) {
+			
+			if (scrapDAO.scrapCheck(request)) {
+				LoginDAO.loginCheck(request);
+				scrapDAO.addScrap(request);	
+				System.out.println("스크랩이 없기때문에 참 발동!!!");
+			}else {
+				LoginDAO.loginCheck(request);
+				scrapDAO.deleteScrap(request);
+				System.out.println("스크랩이 있기때문에 거짓발동!!!");
+			}
+			
+			request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
 		}else {
 			LoginDAO.loginCheck(request);
-			scrapDAO.deleteScrap(request);
-			System.out.println("스크랩이 있기때문에 거짓발동!!!");
+			request.setAttribute("contentPage", "login/login.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+			
 		}
 		
-		request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
