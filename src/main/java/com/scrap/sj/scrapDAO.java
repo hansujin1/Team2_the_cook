@@ -92,6 +92,7 @@ public class scrapDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 		return isCheck;
+		
 	}else {
 		request.setAttribute("scrap", 0);
 		return true;
@@ -145,7 +146,7 @@ public class scrapDAO {
 			HttpSession hs = request.getSession();
 	        LoginB a = (LoginB) hs.getAttribute("loginInfo");
 	        
-	        String sql="select * from board_table where board_number in (select scrap_boardNum from scrap_table where scrap_id=?)";
+	        String sql="select * from board_table where board_number in (select scrap_boardNum from scrap_table where scrap_id=?) ORDER BY board_date DESC";
 			pstmt = con.prepareStatement(sql);
 	        pstmt.setString(1, a.getId());
 	        

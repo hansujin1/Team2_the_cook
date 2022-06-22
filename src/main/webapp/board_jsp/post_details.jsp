@@ -31,8 +31,7 @@
 		<tr>
 			<td class="txt_c"><img class="imgs2"
 				src="fileFolder/${r.board_file}"> 
-				<div style="white-space: pre;">
-				<c:out value="${r.board_txt}"/></div>
+				<div style="white-space: pre;"><c:out value="${r.board_txt}"/></div>
 				
 				</td>
 		</tr>
