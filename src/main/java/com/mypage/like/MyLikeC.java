@@ -19,10 +19,12 @@ public class MyLikeC extends HttpServlet {
 		if (MyLikeDao.likeCheck(request)) {
 			LoginDAO.loginCheck(request);
 			likeDAO.hitHeart(request);	
+			likeDAO.updateHeart(request);
 			System.out.println("true");
 		}else {
 			LoginDAO.loginCheck(request);
 			MyLikeDao.deleteLike(request);
+			MyLikeDao.downHeart(request);
 			System.out.println("false");
 		}
 		

@@ -99,7 +99,7 @@ public class likeDAO {
 			HttpSession hs = request.getSession();
 	        LoginB a = (LoginB) hs.getAttribute("loginInfo");
 	        
-	        String sql="select * from board_table where board_number in (select like_bno from heart_table where id = ?)";
+	        String sql="select * from board_table where board_number in (select like_bno from heart_table where id = ?)ORDER BY board_date DESC";
 			
 	        pstmt = con.prepareStatement(sql);
 	        pstmt.setString(1, a.getId());

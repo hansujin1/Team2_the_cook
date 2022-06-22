@@ -143,4 +143,38 @@ public static void deleteLike(HttpServletRequest request) {
 	
 }
 
+public static void downHeart(HttpServletRequest request) {
+// 좋아요 취소시 다시 좋아요 수 내려가기
+	
+	Connection con = null;
+	PreparedStatement pstmt = null;
+	String board_number = request.getParameter("num");
+	String sql = "update board_table set board_like = board_like - 1 where board_number = ?";
+			
+	
+	try {
+		
+		con = DBManager.connect();
+		pstmt = con.prepareStatement(sql);
+		
+		pstmt.setString(1, board_number);
+		System.out.println(board_number);
+		
+		
+		if (pstmt.executeUpdate() == 1){
+			System.out.println("좋아요 수 증가");
+		}
+		
+		
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		DBManager.close(con, pstmt, null);
+	}
+	
+	
+	
 }
+}
+
+

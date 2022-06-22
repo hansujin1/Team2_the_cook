@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.heart.likeDAO;
-import com.scrap.sj.scrapDAO;
 import com.team2.login.LoginDAO;
 
 @WebServlet("/MyLikeListC")
@@ -17,7 +16,7 @@ public class MyLikeListC extends HttpServlet {
 		
 		LoginDAO.loginCheck(request);
 		likeDAO.allHeart(request);
-		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
+		request.setAttribute("contentPage", "myPage/mypage_list.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

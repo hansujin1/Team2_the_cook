@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.board.heart.likeDAO;
 import com.comment.model.CommentDAO;
+import com.mypage.like.MyLikeDao;
 import com.scrap.sj.scrapDAO;
 import com.team2.login.LoginDAO;
 @WebServlet("/ShowPostDetailController")
@@ -16,7 +17,7 @@ public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
         BoardDAO.updateCount(request);
-        likeDAO.hitHeart(request);
+        MyLikeDao.likeCheck(request);
 		scrapDAO.scrapCheck(request);
 		BoardDAO.showPost(request);
 		CommentDAO.showComment(request);
