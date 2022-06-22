@@ -24,7 +24,7 @@ public class BoardDAO {
 		HttpSession hs = request.getSession();
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into board_table values (board_table_seq.nextval,?,sysdate,?,?,?,1,1,?)";
+		String sql = "insert into board_table values (board_table_seq.nextval,?,sysdate,?,?,?,0,0,?)";
 		try {
 		con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
