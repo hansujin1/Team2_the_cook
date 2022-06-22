@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<table class="create_B">
+	<table class="details_B">
 		<tr>
 			<td class="title_P">${r.board_title}</td>
 		</tr>
@@ -44,13 +44,17 @@
 			<td>
 				<button class="heart" name="like"
 					onclick="location.href='likeC?num=${r.board_number}'">♥</button> <span
-				class="like">좋아요 ${r.board_like}</span> <c:if test="${scrap == 1 }">
-					<span
-						onclick="location.href='doScrapController?num=${r.board_number}'"
+				class="like">좋아요 ${r.board_like}</span> 
+				
+				
+				<c:if test="${scrap == 1 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'"
 						style="color: red;">스크랩</span>
-				</c:if> <c:if test="${scrap == 0 }">
-					<span
-						onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
+				</c:if> 
+				
+				
+				<c:if test="${scrap == 0 }">
+					<span onclick="location.href='doScrapController?num=${r.board_number}'">스크랩</span>
 				</c:if>
 			</td>
 		</tr>
@@ -76,8 +80,9 @@
 						<form action="UpdateCommentControlle">
 							<input name="commentnum" value="${c.c_no}" type="hidden">
 							<input name="num" value="${r.board_number}" type="hidden">
-							<br> 댓글수정 : <input name="contents">
-							<button>수정완료</button>
+							<br> <span class="update_comment"> 
+							<input class ="re_contents" name="contents" placeholder="수정할 댓글 내용을 입력하세요."> </span> 
+							<button class="btn_Update">수정완료</button>
 						</form>
 					</div>
 				</div>

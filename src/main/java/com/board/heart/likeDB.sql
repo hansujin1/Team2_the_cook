@@ -21,17 +21,23 @@ create table heart_table(
 
 select * from heart 
 select * from heart_table
+
 drop table heart_table cascade constraint purge;
 
 create sequence like_no_seq;
 
 select count(*) from heart_table where like_no  = ?
 
-insert into heart_table values(like_no_seq.nextval,'40','mz','5');
+insert into heart_table values(like_no_seq.nextval,'150','mz');
 
 select * from BOARD_TABLE ;
 
 -- 좋아요 수 업데이트
 
 update board_table set board_like = board_like + 1 where board_number = ?
+
+-- 좋아요 한 게시물
+
+select * from board_table where board_number in (select like_bno from heart_table where id ='mz');
+
 

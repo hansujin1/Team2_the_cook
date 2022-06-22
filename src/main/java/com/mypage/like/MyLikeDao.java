@@ -6,28 +6,29 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.board.main.PostB;
+import com.team2.login.LoginB;
 import com.team2.main.DBManager;
 
 public class MyLikeDao {
-
+	// 내가 좋아요한 글
 	public static void MyLike(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String like = request.getParameter("like");
 		
 		try	{
-	        
-			String sql = "select * from board_table where board_like = ?";
-			
+			HttpSession hs = request.getSession();
+	        LoginB a = (LoginB) hs.getAttribute("loginInfo");
+			String sql = "select * from board_table where board_number in (select like_bno from heart_table where id = ?)";
+			// select * 
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, like);
-			System.out.println(like);
+			pstmt.setString(1, a.getId());
 			
 			rs = pstmt.executeQuery();
 			
