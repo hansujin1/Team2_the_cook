@@ -48,7 +48,16 @@ public class scrapDAO {
 	}
 
 	public static boolean scrapCheck(HttpServletRequest request) {
+		
 		// 스크랩 체크하기
+		
+		HttpSession hs = request.getSession();
+		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		
+		if (a != null) {
+			
+		
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs =null;
@@ -60,8 +69,7 @@ public class scrapDAO {
 			
 			//값받기
 			String num =  request.getParameter("num");
-			HttpSession hs = request.getSession();
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
+			
 			String id = a.getId();
 			
 			pstmt =con.prepareStatement(sql);
@@ -84,6 +92,10 @@ public class scrapDAO {
 			DBManager.close(con, pstmt, rs);
 		}
 		return isCheck;
+	}else {
+		request.setAttribute("scrap", 0);
+		return true;
+	}
 	}
 
 	public static void deleteScrap(HttpServletRequest request) {
