@@ -22,9 +22,9 @@
 				<td><input class="update_txt" name="txt" value="${r.board_txt}"></td>
 			</tr>
 			<tr>
-				<td><input class = "update_Bfile" name="file" type="file" value="${r.board_file}">
+				<td><input class = "update_Bfile" name="file" type="file">
 					<input name="num" value="${r.board_number}" type="hidden">
-					<input name="oldfile" value="${r.board_number}" type="hidden">
+					<input name="oldfile" value="${r.board_file}" type="hidden">
 					<button class = "update_Bfile2">수정</button>
 				</td>
 			</tr>
