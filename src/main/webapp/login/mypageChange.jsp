@@ -33,7 +33,7 @@ window.onload = function() {
 				<h2 id="reg_h2">비밀번호 변경</h2>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password"  id="pw1"   /></label>
+					<input class="reg_input" type="password"  id="pw1"  name="pw" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
 					<input class="reg_input" type="password"  id="pw2" /></label>
