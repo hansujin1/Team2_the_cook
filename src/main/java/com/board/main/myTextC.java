@@ -14,7 +14,7 @@ public class myTextC extends HttpServlet {
 	
 		LoginDAO.loginCheck(request);
 		MyTextDAO.MyText(request);
-		request.setAttribute("contentPage", "myPage/myTxt_list.jsp");
+		request.setAttribute("contentPage", "myPage/myTxt.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 		
 	}

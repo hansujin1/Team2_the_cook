@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,11 +53,12 @@
 
 	<script>
 		$('.bxslider').bxSlider({
-			maxSlides : 2,
 			auto : true,
 			autoControls : false,
-			slideWidth : 830,
+			slideWidth : 850,
 			slideMargin : 0,
+			maxSlides : 2,
+			shrinkItems: true, // 반응형
 			captions : false,
 			autoHover : false, 
 			responsive : false,
@@ -65,27 +67,28 @@
 
 		});
 	</script>
-
-
-	<div class="current">
-		<h2>최근게시물</h2>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		
+	
+	<div class="currentDiv">
+		<h2 class= "mainText">최근게시물</h2>
+		<c:forEach var="p" items="${post}">
+		<div class="currentCont">
+			<img class="current_img" onclick="location.href='ShowPostDetailController?num=${p.board_number }'" 
+			src="fileFolder/${p.board_file}">
+			${p.board_title }
+		</div>
+		</c:forEach>
 	</div>
 
-	<div class="hotlike">
-		<h2>인기게시물</h2>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
+	<div class="popularDiv">
+		<h2 class= "mainText">인기게시물</h2>
+		<c:forEach var="p" items="${post1}">
+			<div class="popularCont">
+			<img class="popular_img"
+				 onclick="location.href='ShowPostDetailController?num=${p.board_number }'"
+				 src="fileFolder/${p.board_file}">
+				 ${p.board_title }
+			</div>
+		</c:forEach>
 	</div>
 
 

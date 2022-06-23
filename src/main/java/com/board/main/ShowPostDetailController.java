@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.board.heart.likeDAO;
 import com.comment.model.CommentDAO;
 import com.mypage.like.MyLikeDao;
 import com.scrap.sj.scrapDAO;
