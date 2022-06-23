@@ -13,6 +13,27 @@ function call(){
 		
 		return false;
 	}
+	if(isEmpty(id)){
+		alert("id 입력하세요");
+		id.focus();
+		id.value="";
+		
+		return false;
+	}
+	if(isEmpty(pw)){
+		alert("pw 입력하세요");
+		pw.focus();
+		pw.value="";
+		
+		return false;
+	}
+	if(isEmpty(pw1)){
+		alert("재 확인pw 입력하세요");
+		pw1.focus();
+		pw1.value="";
+		
+		return false;
+	}
 	if(isEmpty(mail)){
 		alert("이메일 입력하세요");
 		mail.focus();
@@ -45,6 +66,16 @@ function call(){
 		return false;
 	}
 	
+	if(regForm.overlapIDCheck.value !='idcheck'){
+		alert("아이디 중복체크를 해주세요");
+		
+		return false;
+	}
+	if(regForm.overlapmailCheck.value !='mailcheck'){
+		alert("메일 중복체크를 해주세요");
+		
+		return false;
+	}
 	
 
 }
