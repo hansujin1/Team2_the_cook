@@ -22,12 +22,8 @@ public class DBManager {
 		
 
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-
-<<<<<<< HEAD
 		return DriverManager.getConnection(url,"leeyoky","leeyoky");
-=======
-		return DriverManager.getConnection(url,"kwb","kwb");
->>>>>>> ce3ed9f1f65cee23ea2f90f440dee09506503e3d
+
 
 
 

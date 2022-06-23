@@ -19,8 +19,8 @@ create table heart_table(
    
 );
 
-select * from heart 
 select * from heart_table
+select * from BOARD_TABLE
 
 drop table heart_table cascade constraint purge;
 
@@ -30,7 +30,6 @@ select count(*) from heart_table where like_no  = ?
 
 insert into heart_table values(like_no_seq.nextval,'150','mz');
 
-select * from BOARD_TABLE ;
 
 -- 좋아요 수 업데이트
 
@@ -39,5 +38,20 @@ update board_table set board_like = board_like + 1 where board_number = ?
 -- 좋아요 한 게시물
 
 select * from board_table where board_number in (select like_bno from heart_table where id ='mz');
+
+-- 가장 최신글 게시물 정렬
+
+select * from (
+	select rownum as rn, board_number, board_date from board_table
+	order by board_date desc ) 
+		
+	
+-- 그 중에서 하나
+select * from (
+	select rownum as rn, board_number, board_date from board_table
+	order by board_date desc ) 
+	where board_number = ?
+	
+--
 
 

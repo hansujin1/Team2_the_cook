@@ -11,7 +11,7 @@ header {
 
 body {
     padding-top: 180px;                  /* header 고정값으로 인해 가려진 컨텐츠 보이게 패딩값 조절 */
-	margin:0px 10px 0px 10px;
+	margin:0px 0px 0px 0px;
 }    
 
 a{
@@ -155,7 +155,6 @@ input::placeholder{
 .bxslider{
 	width:100%;
 	height: auto;
-	
 }
 
 .bx-wrapper { 
@@ -172,53 +171,57 @@ input::placeholder{
 
 .bxslider>img{
 	z-index : 2;
-    width: 100%;
+    width: auto;
     height: auto;
-    position: absolute;
+    position: relative;
+    overflow: hidden;
 }
 
 .mainText1{
     position: absolute; 
-    top: 320px; 
+    top: 250px; 
     left: 550px; 
     z-index: 2; 
     color: rgb(0, 0, 0);
     font-weight: bolder;
     font-size: 25pt;
     line-height:40px;
-    
+    letter-spacing: -1px;
 }
 
 .mainText2{
     position: absolute; 
-    top: 320px; 
+    top: 250px; 
     left: 430px; 
     z-index: 3; 
     color: rgb(0, 0, 0);
     font-weight: bolder;
     font-size: 25pt;
     line-height:40px;
+    letter-spacing: -1px;
 }
 .mainText3{
     position: absolute; 
-    top: 320px; 
+    top: 250px; 
     left: 480px; 
     z-index: 3; 
     color: rgb(255, 255, 255);
     font-weight: bolder;
     font-size: 25pt;
     line-height:40px;
+    letter-spacing: -1px;
 }
 
 .mainText4{
     position: absolute; 
-    top: 320px; 
+    top: 250px; 
     left: 400px; 
     z-index: 3; 
     color: rgb(0, 0, 0);
     font-weight: bolder;
     font-size: 25pt;
     line-height:40px;
+    letter-spacing: -1px;
 }
 
 

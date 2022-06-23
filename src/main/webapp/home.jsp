@@ -52,11 +52,12 @@
 
 	<script>
 		$('.bxslider').bxSlider({
-			maxSlides : 2,
 			auto : true,
 			autoControls : false,
-			slideWidth : 830,
+			slideWidth : 850,
 			slideMargin : 0,
+			maxSlides : 2,
+			shrinkItems: true, // 반응형
 			captions : false,
 			autoHover : false, 
 			responsive : false,
@@ -69,23 +70,29 @@
 
 	<div class="current">
 		<h2>최근게시물</h2>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
+		<a href="currentC?num=${p.board_number}">
+		<img src="img/Pretzel.png"></a>
 		
 	</div>
 
 	<div class="hotlike">
 		<h2>인기게시물</h2>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
-		<a href="#"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
+		<a href="popularC"><img src="img/Pretzel.png"></a>
 	</div>
 
 
