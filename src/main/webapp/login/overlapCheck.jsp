@@ -42,6 +42,7 @@ function use() {
 }
 function pass() {
 	$("#id", opener.document).val($("#userId").val());
+	$("#idcheck",opener.document).val("idcheck");
 	window.close();
 	
 }

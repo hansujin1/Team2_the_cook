@@ -43,6 +43,7 @@ function use() {
 }
 function pass() {
 	$("#email", opener.document).val($("#mail").val());
+	$("#mailcheck",opener.document).val("mailcheck");
 	window.close();
 	
 }

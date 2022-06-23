@@ -31,7 +31,9 @@ function overlapCheck()  {
 	}else {
 		
 		window.open('overlapIdcheckController','overlapCheck','width=350,height=250');
+				
 	}
+	alert(check);
 	}
 	
 function overlapCheckMail() {
@@ -53,14 +55,16 @@ function overlapCheckMail() {
 	<div class="reg">
 
 		<form action="regController" method="post" name="regForm"
-			> <!-- onsubmit="return call()" -->
+			onsubmit="return call()">
 
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>
 				<label class="reg_label"> <span>이름</span><br> 
 				<input class="reg_input" name="name" placeholder="필수"></label> 
 				<label class="reg_label"> <span>아이디</span>
-				<input class="overlap" id='overlap' type='button' onclick='overlapCheck()' value='중복 체크'><br> 
+				<input class="overlap" id='overlap' type='button' onclick='overlapCheck()' value='중복 체크'>
+				<input type="hidden" name="overlapIDCheck" id="idcheck" value="idUncheck">
+				<br> 
 				<input class="reg_input" name="id" id="id" placeholder="영어와 숫자로 5글자 이상">
 				</label> 
 				<label class="reg_label"> <span>Password</span><br>
@@ -78,7 +82,7 @@ function overlapCheckMail() {
 					onclick='overlapCheckMail()' value='중복 체크' >
 				<br> 
 				<input class="reg_input" id="email" type="email" name="e_mail"	placeholder="필수" > 
-					
+				<input type="hidden" name="overlapmailCheck" id="mailcheck" value="mailUncheck">	
 				</label>
 
 
