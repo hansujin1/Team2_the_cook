@@ -17,8 +17,7 @@ public class overlapIdcheckController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		LoginDAO.overlapID(request);
-		request.getRequestDispatcher("login/overlap.jsp").forward(request, response);
+		
 	}
 
 }

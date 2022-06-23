@@ -30,7 +30,7 @@ function overlapCheck()  {
 		id.focus();
 	}else {
 		
-		window.open('overlapIdcheckController','overlapCheck','width=300,height=250');
+		window.open('overlapIdcheckController','overlapCheck','width=350,height=250');
 	}
 	}
 	
@@ -40,8 +40,10 @@ function overlapCheckMail() {
 		alert("이메일을 입력해주세요");
 		mail.focus();
 	}else {
-		window.open('emailOverlapCheckController','overlapCheck','width=300,height=250');
+		window.open('emailOverlapCheckController','overlapCheck','width=400,height=250');
 	}
+	
+	
 }
 </script>
 
@@ -51,7 +53,7 @@ function overlapCheckMail() {
 	<div class="reg">
 
 		<form action="regController" method="post" name="regForm"
-			onsubmit="return call()">
+			> <!-- onsubmit="return call()" -->
 
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>

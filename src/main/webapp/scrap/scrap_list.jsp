@@ -12,7 +12,7 @@
 	<div id="mainWrapper">
 
 		<li id="Table_n">
-		
+		${title }
 		</li>
 		<ul id="ulTable">
 			<li>

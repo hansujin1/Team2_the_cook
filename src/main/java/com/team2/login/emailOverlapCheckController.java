@@ -15,8 +15,7 @@ public class emailOverlapCheckController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	LoginDAO.mailOverlap(request);
-	request.getRequestDispatcher("login/mailOverlapOk.jsp").forward(request, response);
+	
 	
 	}
 
