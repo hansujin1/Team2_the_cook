@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.main.current.currentDAO;
+
 @WebServlet("/regController")
 public class regController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +22,7 @@ public class regController extends HttpServlet {
 		//회원가입하기
 		
 				LoginDAO.regAccount(request);
-				
+				currentDAO.popularList(request);
 				LoginDAO.loginCheck(request);
 				request.setAttribute("contentPage", "home.jsp");
 				request.getRequestDispatcher("index.jsp").forward(request, response);

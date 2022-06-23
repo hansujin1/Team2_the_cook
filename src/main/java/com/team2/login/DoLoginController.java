@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.main.current.currentDAO;
+
 
 @WebServlet("/DoLoginController")
 public class DoLoginController extends HttpServlet {
@@ -15,10 +17,14 @@ public class DoLoginController extends HttpServlet {
 		
 		//로그 아웃하는 일
 		LoginDAO.logOut(request);
-		
 		LoginDAO.loginCheck(request);
+		currentDAO.latestList(request);
+		currentDAO.popularList(request);
 		request.setAttribute("contentPage", "home.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+	
+	
+	
 	}
 
 	
@@ -27,6 +33,8 @@ public class DoLoginController extends HttpServlet {
 		//로그인 하는 일
 		if (LoginDAO.login(request)) {
 			 LoginDAO.loginCheck(request);
+			 currentDAO.latestList(request);
+			 currentDAO.popularList(request);
 				request.setAttribute("contentPage", "home.jsp");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			

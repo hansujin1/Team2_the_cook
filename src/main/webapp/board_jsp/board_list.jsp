@@ -11,12 +11,14 @@
 <body>
 	<div id="mainWrapper">
 
-		<li id="Table_n">
+		<li id ="Table_n">
 		<button class="text_Bt"
 			onclick="location.href='BoardController?category=${param.category}'">
-			글쓰기 <img src="img/pencil.png" class="pencil">
+			글쓰기 
+			<img src="img/pencil.png" class="pencil">
 		</button>
 		</li>
+		
 		<ul id="ulTable">
 			<li>
 				<div class="hidden"></div>
