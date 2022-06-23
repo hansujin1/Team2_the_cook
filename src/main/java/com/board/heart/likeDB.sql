@@ -59,4 +59,8 @@ select * from (
 	select rownum as rn, board_like from board_table
 	order by board_like desc )
 	where rownum <= 6;
+	
+	
+select * from ( select rownum as rn, board_number, board_date from board_table order by board_date desc ) WHERE ROWNUM <= 6 
 
+select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = '1' order by board_like desc )) where rn between 1 and 6

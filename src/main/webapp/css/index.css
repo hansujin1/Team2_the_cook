@@ -225,6 +225,7 @@ input::placeholder{
 }
 
 
+
 /* -------------------드롭다운-------------------- */
 
 
@@ -270,27 +271,71 @@ input::placeholder{
 
 /* ----------------최근 게시물, 인기 게시물--------------- */
 
+.mainText{
+	margin: 0px 0px 10px 0px ;
+}
 
-
-.current{
-	
+.currentDiv{/*- 최근 게시물 div-*/
     padding-left: 50px;
+    color: rgba(43, 43, 43, 0.555);
+    font-size: 12pt;
+    font-weight: bolder;
+    height:500px;
+    width:1640px;
+    background-color: #ffbe7d;
+    max-width: none !important; /*- width 크기 적용 x 무조건 적용-*/
+}
+
+.currentCont{/*- 최근 게시물 contents-*/
+	float: left;
+}
+
+.current_img{ /*- 최근 게시물 img-*/
+	max-height: 200px;
+	max-width: 200px;
+	display:block;
+	margin: 0px 20px 50px 0px;
+	border: 1px solid black;
+	object-fit : fill;
+}
+
+.popularDiv{/*- 인기 게시물 div-*/
+	padding-left: 50px;
     padding-bottom: 150px;
     color: rgba(43, 43, 43, 0.555);
     font-size: 12pt;
     font-weight: bolder;
+    height:500px;
+    width:1640px;
+    background-color: #ee7700;
+    max-width: none !important;
+	
 }
 
-.hotlike{
+.popularCont{/*- 인기 게시물 Contents-*/
+	float: left;
 	
-    padding-left: 50px;
-    color: rgba(43, 43, 43, 0.555);
-    font-size: 12pt;
-    font-weight: bolder;
 }
+
+.popular_img{/*- 인기 게시물 img-*/
+	width : 100%;
+	height: 100%;
+	max-height: 200px;
+	max-width: 200px;
+	display: block;
+	margin: 0px 20px 50px 0px;
+	
+}
+
 
 /* -------------------푸터-------------------- */
 
+
+.footer{
+	margin-top: 10px;
+	width:1240px;
+	max-width: none !important;
+}
 
 #footerlogo{
 	float: left;
