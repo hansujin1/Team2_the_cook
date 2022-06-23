@@ -79,8 +79,8 @@
 
 
 	<c:if test="${comment != null}">
-		<table class="create_B" border="">
-
+<!-- 		<table class="create_B" border="">
+ -->
 			<c:forEach var="c" items="${comment}">
 				<div class="list_C">
 					<label class="c_id"><span>${c.c_id}</span></label> 
@@ -107,8 +107,8 @@
 
 
 			</c:forEach>
-		</table>
-
+<!-- 		</table>
+ -->
 		<form action="CommentUploadController">
 			<table class="create_C">
 				<tr>
