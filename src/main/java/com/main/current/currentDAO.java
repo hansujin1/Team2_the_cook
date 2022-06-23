@@ -19,21 +19,12 @@ public class currentDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String latestA = (String) request.getAttribute("latest");
 		
-		String sql = "select * from ( select rownum as rn, board_date from board_table order by board_date desc ) board_number = ?";
-		 String board_number = request.getParameter("num");	
-		 String num = (String)request.getAttribute("num");
+		String sql = "select * from ( select rownum as rn, board_number, board_date from board_table order by board_date desc ) WHERE ROWNUM <= 6 ";
 		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			
-			if(num != null) {
-				pstmt.setString(1, num);
-			}else {
-				pstmt.setString(1, board_number);
-			}
 			
 			
 			rs = pstmt.executeQuery();
@@ -53,7 +44,7 @@ public class currentDAO {
 				p.setBoard_number(rs.getString("board_number"));
 				p.setBoard_title(rs.getString("board_title"));
 				p.setBoard_txt(rs.getString("board_txt"));
-				post.add(p);
+
 			}
 			
 			request.setAttribute("post", post);

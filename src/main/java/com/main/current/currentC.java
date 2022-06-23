@@ -18,10 +18,9 @@ public class currentC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LoginDAO.loginCheck(request);
-		BoardDAO.updateCount(request);
-	    MyLikeDao.likeCheck(request);
-	    scrapDAO.scrapCheck(request);
-		BoardDAO.showPost(request);
+        BoardDAO.updateCount(request);
+        MyLikeDao.likeCheck(request);
+		scrapDAO.scrapCheck(request);
 		currentDAO.latestList(request);
 		CommentDAO.showComment(request);
 		request.setAttribute("contentPage", "board_jsp/post_details.jsp");

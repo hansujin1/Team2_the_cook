@@ -66,22 +66,14 @@
 
 		});
 	</script>
-
-
+	
+	
 	<div class="current">
 		<h2>최근게시물</h2>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
-		<a href="currentC?num=${p.board_number}">
-		<img src="img/Pretzel.png"></a>
+		<c:forEach var="p" items="${post}">
+		<a href="currentC">
+		<img src="fileFolder/${p.board_file}"></a>
+			</c:forEach>
 		
 	</div>
 

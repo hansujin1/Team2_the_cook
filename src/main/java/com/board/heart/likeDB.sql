@@ -43,15 +43,20 @@ select * from board_table where board_number in (select like_bno from heart_tabl
 
 select * from (
 	select rownum as rn, board_number, board_date from board_table
-	order by board_date desc ) 
+	order by board_date desc )
 		
 	
--- 그 중에서 하나
+-- 그 중에서 여섯개?정도
+
 select * from (
 	select rownum as rn, board_number, board_date from board_table
 	order by board_date desc ) 
-	where board_number = ?
+	WHERE ROWNUM <= 6;
 	
---
+-- 좋아요 순 게시물 6개
 
+select * from (
+	select rownum as rn, board_like from board_table
+	order by board_like desc )
+	where rownum <= 6;
 
