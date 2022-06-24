@@ -43,7 +43,6 @@
 				
 				</c:if> 
 					<span class="like">${r.board_like}</span>
-			
 				<c:if test="${scrap == 1 }">
 					<span onclick="location.href='doScrapController?num=${r.board_number}'"
 						style="color: black; font-weight: 800; cursor: pointer;">스크랩 한 게시물입니다.</span>
@@ -123,9 +122,6 @@
 			</table>
 		</form>
 	</c:if>
-
-
-
-
+	
 </body>
 </html>
