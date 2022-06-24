@@ -55,7 +55,9 @@ public class LoginDAO {
 
 					HttpSession hs = request.getSession();
 					hs.setAttribute("loginInfo", a);
-					hs.setMaxInactiveInterval(2999);
+					hs.setMaxInactiveInterval(60*10*5);
+					System.out.println(hs.getMaxInactiveInterval());
+					
 					
 					isLogin = true;
 				} else {
@@ -85,6 +87,7 @@ public class LoginDAO {
 		// loin 확인하는 부분
 		HttpSession hs = request.getSession();
 		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		System.out.println("->>>>>>>" +hs.getMaxInactiveInterval());
 
 		if (a == null) {
 			request.setAttribute("loginPage", "login/loginBefore.jsp");

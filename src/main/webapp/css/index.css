@@ -253,6 +253,7 @@ input::placeholder{
 .login_dropdown {
 	position: relative;
 	display: inline-block;
+	
 }
 
 .dropdown-content {
@@ -287,7 +288,10 @@ input::placeholder{
 	width: 25px;
 }
 
-
+.session_counter{
+	position: relative;
+	display: inline-block;
+}
 
 
 /* ----------------최근 게시물, 인기 게시물--------------- */
