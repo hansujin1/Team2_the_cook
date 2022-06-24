@@ -56,7 +56,7 @@
 			</h3>
 		</div>
 
-		<div id="nav">
+		<nav id="nav">
 			<ul>
 				<li class="Korea"><a href="ShowBoardListController?category=1">
 						한식 </a></li>
@@ -69,7 +69,7 @@
 				<li class="Baking"><a href="#"> 홈베이킹 </a></li>
 				<li class="Event"><a href="ShowEventC"> EVENT </a></li>
 			</ul>
-		</div>
+		</nav>
 	</header>
 
 
