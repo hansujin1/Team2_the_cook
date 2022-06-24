@@ -38,9 +38,7 @@ window.onload = function() {
 				<label class="reg_label"> <span>Password</span><br>
 					<input class="reg_input" type="password"  id="pw2" /></label>
 					<div class="mydiv" id='mydiv'></div>
-
 				<button class="reg_bt">변경</button>
-				
 			</div>	
 			
 			

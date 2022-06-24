@@ -5,9 +5,10 @@ a {
 	color: black;
 }
 
-a:hover {
-	color: rgb(255, 123, 0);
+.login:hover{
+	color: rgb(234, 235, 222);
 }
+
 
 .login_input, .login_bt {
 	/* login input 버튼 */

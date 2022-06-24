@@ -87,7 +87,8 @@
 					<label class="c_com"><span>${c.c_contents}</span></label> 
 					<label class="c_date"><span>${c.c_date}</span></label>
 					
-					<c:if test="${r.board_id == sessionScope.loginInfo.id}">
+					
+					<c:if test="${c.c_id == sessionScope.loginInfo.id}">
 					<button class="btn_toggle">수정</button>
 					<button	class="btn_del" onclick="location.href='DeleteCommentController?commentnum=${c.c_no}&num=${r.board_number}'">
 					삭제</button>

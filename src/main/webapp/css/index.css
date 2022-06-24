@@ -18,9 +18,6 @@ a{
     text-decoration: none;                          /* a태그 보라색 밑줄 없애기 */
     color: black;
 }
-a:hover{
-    color:  #f1bc1b;
-}
 
 #logo {
     box-sizing: border-box;
@@ -97,12 +94,17 @@ input::placeholder{
 }
 
 .loginBt:hover{
-	color:  rgb(253, 123, 0);
+	color: rgb(253, 123, 0);
 }
 
 
-#nav{
+/* --------    메뉴 ----------*/
+
+#nav{	
+
+/* 6.23 nav에 opacity 주고싶었으나 div가 한참 위에 있음 왜 그래 너? */
 	margin-top:20px;
+	color:gray;
 }
 
 
@@ -146,15 +148,14 @@ input::placeholder{
 
 
 
-/* @media{
-	미디어쿼리는 다음에 알아보자 ^^.
-} */ 
+/* ---------------- bxslider ----------------- */ 
 
 
 
 .bxslider{
 	width:100%;
-	height: auto;
+	height: 650px;
+	overflow: hidden;
 }
 
 .bx-wrapper { 
@@ -162,6 +163,7 @@ input::placeholder{
     -webkit-box-shadow: none; 
     box-shadow: none; 
     border: 0;
+    margin-bottom: 0px;
 }
 
 .bxslider>li{
@@ -171,62 +173,83 @@ input::placeholder{
 
 .bxslider>img{
 	z-index : 2;
-    width: auto;
-    height: auto;
     position: relative;
     overflow: hidden;
 }
 
 .mainText1{
     position: absolute; 
-    top: 250px; 
-    left: 550px; 
+    top: 350px; 
+    left: 200px; 
     z-index: 2; 
     color: rgb(0, 0, 0);
     font-weight: bolder;
     font-size: 25pt;
-    line-height:40px;
+    line-height:40pt;
     letter-spacing: -1px;
 }
 
 .mainText2{
     position: absolute; 
-    top: 250px; 
-    left: 430px; 
-    z-index: 3; 
-    color: rgb(0, 0, 0);
-    font-weight: bolder;
-    font-size: 25pt;
-    line-height:40px;
-    letter-spacing: -1px;
-}
-.mainText3{
-    position: absolute; 
-    top: 250px; 
-    left: 480px; 
+    top: 350px; 
+    left: 200px;  
     z-index: 3; 
     color: rgb(255, 255, 255);
     font-weight: bolder;
     font-size: 25pt;
-    line-height:40px;
+    line-height:40pt;
+    letter-spacing: -1px;
+}
+.mainText3{
+    position: absolute; 
+    top: 400px; 
+    left: 200px;  
+    z-index: 3; 
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 30pt;
+    line-height:40pt;
     letter-spacing: -1px;
 }
 
 .mainText4{
     position: absolute; 
-    top: 250px; 
-    left: 400px; 
+    top: 400px; 
+    left: 200px;  
     z-index: 3; 
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-weight: bolder;
-    font-size: 25pt;
-    line-height:40px;
+    font-size: 30pt;
+    line-height:40pt;
+    letter-spacing: -1px;
+}
+
+.mainText5{
+    position: absolute; 
+    top: 400px; 
+    left: 200px;  
+    z-index: 3; 
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 30pt;
+    line-height:40pt;
+    letter-spacing: -1px;
+}
+
+.mainText6{
+    position: absolute; 
+    top: 400px; 
+    left: 200px;  
+    z-index: 3; 
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    font-size: 30pt;
+    line-height:40pt;
     letter-spacing: -1px;
 }
 
 
-
-/* -------------------드롭다운-------------------- */
+/* ---------------마이페이지 드롭다운---------------- */
 
 
 .login_dropdown {
@@ -241,7 +264,7 @@ input::placeholder{
 	z-index: 1; /*다른 요소들보다 앞에 배치*/
 	font-size: 10pt;
 	font-weight: 800;
-	background: #F8ECD1;
+	background: rgb(234, 235, 222);
 	opacity: 0.8;
 	padding: 10px 10px 10px 10px;
 	width: 90px;
@@ -254,7 +277,7 @@ input::placeholder{
 }
 
 .dropbtn:hover {
-	color: rgb(255, 123, 0);
+	color:rgb(188, 184, 141);
 	cursor: pointer;
 }
 
@@ -272,69 +295,166 @@ input::placeholder{
 /* ----------------최근 게시물, 인기 게시물--------------- */
 
 .mainText{
-	margin: 0px 0px 10px 0px ;
+	margin: 0px 0px 30px 0px ;
 }
 
 .currentDiv{/*- 최근 게시물 div-*/
-    padding-left: 50px;
+    padding: 0px 50px 0px 50px;
+    text-align:center;
     color: rgba(43, 43, 43, 0.555);
     font-size: 12pt;
     font-weight: bolder;
-    height:500px;
-    width:1640px;
-    background-color: #ffbe7d;
+    height:400px;
+    width:1600px;
     max-width: none !important; /*- width 크기 적용 x 무조건 적용-*/
 }
 
 .currentCont{/*- 최근 게시물 contents-*/
 	float: left;
+	margin: 0 auto;
+	display:block;
 }
 
 .current_img{ /*- 최근 게시물 img-*/
-	max-height: 200px;
-	max-width: 200px;
+	width: 230px;
+	height: 230px;
 	display:block;
-	margin: 0px 20px 50px 0px;
+	margin: 20px 20px 20px 0px;
 	border: 1px solid black;
-	object-fit : fill;
+	object-fit: cover;
+	cursor:pointer;
+	transition: all 0.2s linear;
 }
 
-.popularDiv{/*- 인기 게시물 div-*/
+.current_img:hover{  /*- 호버시 크기 키우기-*/
+	transform: scale(1.1);
+}
+
+.popularDiv{/*--- 인기 게시물 div -----*/
 	padding-left: 50px;
-    padding-bottom: 150px;
     color: rgba(43, 43, 43, 0.555);
     font-size: 12pt;
     font-weight: bolder;
-    height:500px;
-    width:1640px;
-    background-color: #ee7700;
+    height:400px;
+    width:1600px;
     max-width: none !important;
+    background-color: #ffffff;
+    text-align:center;
 	
 }
 
 .popularCont{/*- 인기 게시물 Contents-*/
 	float: left;
+	margin: 0 auto;
+	display:block;
 	
 }
 
 .popular_img{/*- 인기 게시물 img-*/
-	width : 100%;
-	height: 100%;
-	max-height: 200px;
-	max-width: 200px;
-	display: block;
-	margin: 0px 20px 50px 0px;
+	width: 230px;
+	height: 230px;
+	display:block;
+	margin: 20px 20px 20px 0px;
+	border: 1px solid black;
+	object-fit: cover;
+	cursor:pointer;
+	transition: all 0.2s linear;
+}
+
+.popular_img:hover{
+	transform: scale(1.1);
+}
+
+
+
+/* -------------------이벤트 contents-------------------- */
+
+.event_div{
+    font-size: 12pt;
+    font-weight: bolder;
+    height: 900px;
+    width:100%;
+    max-width: none !important;
+	background: black;
+    overflow: hidden;
+    position: relative;
+    margin:100px 0px 100px 0px;
+}
+
+.event_sub_div{
+    /* background: rgba(185, 185, 185, 0.6); */
+    background: black;
+	position:absolute;
+	width:100%;
+	height:900px;
+}
+.event_left{
+	top:20px;
+}
+
+.event_img{
+	top: 20px;
+	float : left;
+	display:block;
+	width: 730px;
+	height:100%;
 	
 }
+
+.event_right{
+	float : left;
+}
+
+.event_txt{
+	position: absolute;
+	left: 60%;
+	top: 100px;
+	letter-spacing: -1px;
+}
+.event_h3{
+	text-align:center;
+	margin-bottom: 100px;
+	color:white;
+	font-size: 30pt;
+}
+
+.event_h6 {
+	text-align:center;
+	color:red;
+}
+
+.event_label{
+	font-size:15pt;
+	font-weight: 500;
+	text-align: center;
+	color:white;
+}
+
+.event_txt2{
+	font-size:10pt;
+	text-align: center;
+}
+.event_txt3 {
+	color : red;
+	font-size:10pt;
+	margin-top:100px;
+	text-align: center;
+	color:white;
+}
+
+
 
 
 /* -------------------푸터-------------------- */
 
 
 .footer{
+	border-top: 1px solid rgba(0, 0, 0, 0.4);
+	display:block;
+	background-color: #ffffff;
 	margin-top: 10px;
-	width:1240px;
-	max-width: none !important;
+	width:100%;
+	position: absolute;
 }
 
 #footerlogo{
