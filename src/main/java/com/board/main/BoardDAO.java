@@ -54,8 +54,6 @@ public class BoardDAO {
         pstmt.setString(2, title);
 		pstmt.setString(3, txt);
 		pstmt.setString(4, file);
-		System.out.println(category);
-		System.out.println("-------");
 		if (category.length() != 0) {
 			pstmt.setString(5, category);
 		} else {
@@ -500,21 +498,47 @@ public class BoardDAO {
 
 	
 	// 조회수 증가
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void updateCount(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
+		HttpSession hs = request.getSession();
+		
+		
+		
+		
 		String board_number = request.getParameter("num");
 		String sql = "update board_table set board_count = board_count + 1 where board_number = ?";
-    try {
-    	
+		
+		hs.setAttribute("countcheck", board_number);
+		hs.setMaxInactiveInterval(60);
+    
+		try {
     	con = DBManager.connect();
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, board_number);
 		
+		
+		
 			
-    	if (pstmt.executeUpdate()==1) {
-    	  System.out.println("조회수 증가");
-    	}
+		if (pstmt.executeUpdate()==1) {
+			System.out.println("조회수 증가");
+		}
          
 	
 		} catch (Exception e) {
@@ -522,6 +546,35 @@ public class BoardDAO {
 		}finally {
 			DBManager.close(con, pstmt, null);
 		}
+	}
+
+
+
+
+
+	public static int countCheck(HttpServletRequest request) {
+		HttpSession hs = request.getSession();
+		
+		String count = (String) hs.getAttribute("countcheck");
+		
+		String board_number = request.getParameter("num");	
+		String num = (String)request.getAttribute("num");
+		
+		
+		
+		if(count == null) {
+			return 0;
+		} else if(count.equals(board_number) || count.equals(num)) {
+			return 1;
+			
+		} else {
+			return 0;
+		}
+		
+		
+		
+		
+		
 	}
 
 	

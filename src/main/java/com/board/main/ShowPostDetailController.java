@@ -15,8 +15,12 @@ import com.team2.login.LoginDAO;
 public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
-        BoardDAO.updateCount(request);
-        MyLikeDao.likeCheck(request);
+	
+		if( BoardDAO.countCheck(request) == 0) {
+			BoardDAO.updateCount(request);
+		}
+       
+		MyLikeDao.likeCheck(request);
 		scrapDAO.scrapCheck(request);
 		BoardDAO.showPost(request);
 		CommentDAO.showComment(request);
