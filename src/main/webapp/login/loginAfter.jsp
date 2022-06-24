@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 var tid;
-var cnt = parseInt(1800);//초기값(초단위)
+var cnt = parseInt(3000);//초기값(초단위)
 
 function counter_init() { //메인화면 세션 카운트 실행
 	tid = setInterval("counter_run()", 1000);
