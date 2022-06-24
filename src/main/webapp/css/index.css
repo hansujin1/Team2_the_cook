@@ -150,8 +150,6 @@ input::placeholder{
 
 /* ---------------- bxslider ----------------- */ 
 
-
-
 .bxslider{
 	width:100%;
 	height: 650px;
@@ -296,30 +294,32 @@ input::placeholder{
 
 .mainText{
 	margin: 0px 0px 30px 0px ;
+	color:gray;
+	font-size: 15pt;
+    font-weight: bolder;
+    letter-spacing: -2pt;
 }
 
 .currentDiv{/*- 최근 게시물 div-*/
-    padding: 0px 50px 0px 50px;
     text-align:center;
-    color: rgba(43, 43, 43, 0.555);
-    font-size: 12pt;
-    font-weight: bolder;
     height:400px;
-    width:1600px;
-    max-width: none !important; /*- width 크기 적용 x 무조건 적용-*/
+/*     width:100%;
+ */    margin: 0px 50px 80px 80px;
 }
 
 .currentCont{/*- 최근 게시물 contents-*/
 	float: left;
 	margin: 0 auto;
 	display:block;
+	color:black;
+	font-size: 12pt;
 }
 
 .current_img{ /*- 최근 게시물 img-*/
 	width: 230px;
 	height: 230px;
 	display:block;
-	margin: 20px 20px 20px 0px;
+	margin: 20px 10px 10px 10px;
 	border: 1px solid black;
 	object-fit: cover;
 	cursor:pointer;
@@ -330,31 +330,38 @@ input::placeholder{
 	transform: scale(1.1);
 }
 
+.c_id{
+	float: left;
+	margin-bottom:1px;
+	padding: 0px 90px 0px 10px;
+}
+.c_count{
+	width:20px;
+}
+
+.c_heart{
+	width:18px;
+}
+
 .popularDiv{/*--- 인기 게시물 div -----*/
-	padding-left: 50px;
-    color: rgba(43, 43, 43, 0.555);
-    font-size: 12pt;
-    font-weight: bolder;
-    height:400px;
-    width:1600px;
-    max-width: none !important;
-    background-color: #ffffff;
     text-align:center;
-	
+    height:400px;
+  /*   width:100%; */
+    margin: 0px 50px 80px 80px;
 }
 
 .popularCont{/*- 인기 게시물 Contents-*/
 	float: left;
 	margin: 0 auto;
 	display:block;
-	
+	color:black;
 }
 
 .popular_img{/*- 인기 게시물 img-*/
 	width: 230px;
 	height: 230px;
 	display:block;
-	margin: 20px 20px 20px 0px;
+	margin: 20px 10px 10px 10px;
 	border: 1px solid black;
 	object-fit: cover;
 	cursor:pointer;
@@ -373,12 +380,11 @@ input::placeholder{
     font-size: 12pt;
     font-weight: bolder;
     height: 900px;
-    width:100%;
-    max-width: none !important;
+    width:1660px;
 	background: black;
     overflow: hidden;
     position: relative;
-    margin:100px 0px 100px 0px;
+   /*  margin:0 auto; */
 }
 
 .event_sub_div{

@@ -97,21 +97,38 @@
 	<div class="currentDiv">
 		<h2 class= "mainText">최근게시물</h2>
 		<c:forEach var="p" items="${post}">
+		
+		
 		<div class="currentCont">
+			
 			<img class="current_img" onclick="location.href='ShowPostDetailController?num=${p.board_number }'" 
 			src="fileFolder/${p.board_file}">
+			<span class="c_id">${p.board_id}</span> 
+			<img class="c_count"src="img/eyes.png">${p.board_count} 
+			<img class="c_heart"src="img/heart.gif">${p.board_like}
 		</div>
+		
+		
 		</c:forEach>
 	</div>
 
 	<div class="popularDiv">
 		<h2 class= "mainText">인기게시물</h2>
+		
+		
 		<c:forEach var="p" items="${post1}">
 			<div class="popularCont">
+			
 			<img class="popular_img"
 				 onclick="location.href='ShowPostDetailController?num=${p.board_number }'"
 				 src="fileFolder/${p.board_file}">
+			<span class="c_id">${p.board_id}</span> 
+			<img class="c_count"src="img/eyes.png">${p.board_count} 
+			<img class="c_heart"src="img/heart.gif">${p.board_like}
+			
 			</div>
+			
+			
 		</c:forEach>
 		
 	</div>
