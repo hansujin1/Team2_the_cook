@@ -23,11 +23,12 @@
 			<li>
 				<div class="hidden"></div>
 				<ul>
-					<li class="img">image</li>
-					<li class="title">제목</li>
-					<li class="user">user</li>
-					<li class="date">date</li>
-					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">조회수</li>
+					<li class="img">Image</li>
+					<li class="title">Title</li>
+					<li class="user">UserID</li>
+					<li class="date">Date</li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}
+					&category=${param.category}&count=1'">View</li>
 				</ul>
 			</li>
 		</ul>
