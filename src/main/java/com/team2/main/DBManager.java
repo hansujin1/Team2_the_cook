@@ -8,31 +8,21 @@ import java.sql.SQLException;
 
 import javax.naming.spi.DirStateFactory.Result;
 
-//DB관련 작업을 할때 매번 연결코드를 쓴 이후 작업 해둠
+//DB���� �۾��� �Ҷ� �Ź� �����ڵ带 �� ���� �۾� �ص�
 
-//그거 AOP 하자
+//�װ� AOP ����
 public class DBManager {
 
-	//db작업시엔 어쨋든 연결 해야됨
+	//db�۾��ÿ� ��¶�� ���� �ؾߵ�
 	public static Connection connect() throws SQLException {
 		
-		
-//		  jdbc:oracle:thin:@DB20220512144545_medium?TNS_ADMIN=C:/Users/gks36/jin/Wallet_DB20220512144545
-//		 * Connection con= DriverManager.getConnection(url,"ADMIN","Qwertyuiop135");
-		
-
 		String url ="jdbc:oracle:thin:@localhost:1521:xe";
-		return DriverManager.getConnection(url,"leeyoky","leeyoky");
 
-
-
-
-
-
+		return DriverManager.getConnection(url,"c##sj","sj");
 
 	}
 	
-	//닫을게 많은데 한번에 닫기
+	//������ ������ �ѹ��� �ݱ�
 	public static void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
 		
 		try {

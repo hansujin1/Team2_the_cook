@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Main</title>
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/QA.css">
 <link rel="stylesheet" href="css/login.css">
 <link rel="stylesheet" href="css/board.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
