@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+
+.boxx{
+
+	width: 100px;
+	height: 100px;
+	background-color: salmon;
+	animation-name: box_ani;
+	animation-duration: 1s;
+	animation-iteration-count: 3;
+	transform: rotate(45deg)
+	
+	
+}
+ @keyframes box_ani{
+      from {
+        margin-left : 0;
+      }
+      to{
+        margin-left : 200px;
+      }
+ }
