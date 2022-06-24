@@ -19,7 +19,7 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		LoginDAO.loginCheck(request);
-		BoardDAO.updateCount(request);
+		/* BoardDAO.updateCount(request); */
 		MyLikeDao.likeCheck(request);
 		scrapDAO.scrapCheck(request);
 		currentDAO.latestList(request);
