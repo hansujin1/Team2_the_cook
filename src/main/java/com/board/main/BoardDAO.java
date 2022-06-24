@@ -21,7 +21,7 @@ public class BoardDAO {
 	public static void createPost(HttpServletRequest request) {
 		
 		
-		HttpSession hs = request.getSession();
+		HttpSession Http = request.getSession();
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "insert into board_table values (board_table_seq.nextval,?,sysdate,?,?,?,0,0,?)";
@@ -34,9 +34,9 @@ public class BoardDAO {
 		mr = new MultipartRequest(request, path, 20*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 		
 		
-		LoginB a = (LoginB) hs.getAttribute("loginInfo");
+		LoginB a = (LoginB) Http.getAttribute("loginInfo");
 		
-		String sessioncategory = (String) hs.getAttribute("categorySession");
+		String sessioncategory = (String) Http.getAttribute("categorySession");
 		
 		String id = a.getId();
 		String title = mr.getParameter("title");
@@ -44,8 +44,8 @@ public class BoardDAO {
 		String file = mr.getFilesystemName("file");
         String category = mr.getParameter("category");
         if(category.length() != 0) {
-        	hs.setAttribute("categorySession", category);
-        	hs.setMaxInactiveInterval(60 *10);
+        	Http.setAttribute("categorySession", category);
+        	Http.setMaxInactiveInterval(60 *10);
         }
        
        
@@ -191,8 +191,8 @@ public class BoardDAO {
 		 
 		 String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_date desc )) where rn between 1 and 10";
 		 String category = request.getParameter("category");
-		 HttpSession hs = request.getSession();
-		 String sessionecategory = (String) hs.getAttribute("categorySession");
+		 HttpSession HttpSession = request.getSession();
+		 String sessionecategory = (String) HttpSession.getAttribute("categorySession");
 		 
 		 
 		 try {
@@ -345,8 +345,8 @@ public class BoardDAO {
 		 String category = request.getParameter("category");
 		 try {
 			
-	     HttpSession hs = request.getSession();
-	     String sessioncategory = (String) hs.getAttribute("categorySession");
+	     HttpSession HttpSession1 = request.getSession();
+	     String sessioncategory = (String) HttpSession1.getAttribute("categorySession");
 			 
 			 
 			 
@@ -517,7 +517,7 @@ public class BoardDAO {
 	public static void updateCount(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		HttpSession hs = request.getSession();
+		HttpSession HttpSe = request.getSession();
 		
 		
 		
@@ -525,8 +525,8 @@ public class BoardDAO {
 		String board_number = request.getParameter("num");
 		String sql = "update board_table set board_count = board_count + 1 where board_number = ?";
 		
-		hs.setAttribute("countcheck", board_number);
-		hs.setMaxInactiveInterval(60);
+		HttpSe.setAttribute("countcheck", board_number);
+		HttpSe.setMaxInactiveInterval(60);
     
 		try {
     	con = DBManager.connect();
@@ -553,9 +553,9 @@ public class BoardDAO {
 
 
 	public static int countCheck(HttpServletRequest request) {
-		HttpSession hs = request.getSession();
+		HttpSession HttpSession5 = request.getSession();
 		
-		String count = (String) hs.getAttribute("countcheck");
+		String count = (String) HttpSession5.getAttribute("countcheck");
 		
 		String board_number = request.getParameter("num");	
 		String num = (String)request.getAttribute("num");

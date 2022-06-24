@@ -23,11 +23,11 @@ public class CommentDAO {
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
-			HttpSession hs = request.getSession();
+			HttpSession HttpSession9 = request.getSession();
 			
 			String boardnumber = request.getParameter("num");
 			String contents = request.getParameter("contents");
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
+			LoginB a = (LoginB) HttpSession9.getAttribute("loginInfo");
 			String id = a.getId();		
 			
 			pstmt.setString(1, boardnumber);
