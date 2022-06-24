@@ -41,13 +41,13 @@ $(function() {
    			 		<input type="file" id="file" name="file">
    			 		<button class = "create_upload">업로드</button>
 
-			<tr>
+			<%-- <tr>
 				<td><input class = "update_Bfile" name="file" type="file">
 					<input name="num" value="${r.board_number}" type="hidden">
 					<input name="oldfile" value="${r.board_file}" type="hidden">
 					<button class = "update_Bfile2">수정</button>
 				</td>
-			</tr>
+			</tr> --%>
 		</table>
 	</form>
 
