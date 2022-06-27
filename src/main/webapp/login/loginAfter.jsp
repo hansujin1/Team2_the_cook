@@ -8,60 +8,6 @@
 </head>
 <body onload="counter_init()">
 
-	<div class="session_counter">
-	
-		<div>
-			<span id="counter"></span>
-			<p class="counter_hover_text">사용자의 정보보호를 위해 자동 로그아웃됩니다</p>
-		</div>
-	</div>
-	
-	
-	
-	
-	<script type="text/javascript">
-	var tid;
-	var cnt = parseInt(3000);//초기값(초단위)
-
-	function counter_init() { //메인화면 세션 카운트 실행
-		tid = setInterval("counter_run()", 1000);
-	}
-	function counter_run() {
-		document.all.counter.innerText = time_format(cnt);
-		cnt--;
-
-		if (cnt < 0) {
-			window.location
-					.replace("http://localhost/Team2_The_cook/loginCont");
-		}
-	}
-
-	function time_format(s) {
-		var nHour = 0;
-		var nMin = 0;
-		var nSec = 0;
-		if (s > 0) {
-			nMin = parseInt(s / 60);
-			nSec = s % 60;
-
-			if (nMin > 60) {
-				nHour = parseInt(nMin / 60);
-				nMin = nMin % 60;
-			}
-		}
-		if (nSec < 10)
-			nSec = "0" + nSec;
-		if (nMin < 10)
-			nMin = "0" + nMin;
-
-		return "" + nHour + ":" + nMin + ":" + nSec;
-	}
-</script>
-	
-	
-	
-	
-	
 	<div class="login_dropdown">
 
 		<a href="#" class="dropbtn">My page</a>
