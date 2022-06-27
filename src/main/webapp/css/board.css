@@ -44,14 +44,17 @@ button {
 }
 
 #Table_MP{
-	padding-top: 20px;
+	padding-top: 30px;
 	font-size:20pt;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding-bottom: 20px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	font-weight: 900;
+	color:#bbbb00;
 }
 
 #ulTable {
+	line-height: 2.4em;
 	width:950px;
 	margin:0 auto;
 	color:#454329;
@@ -148,7 +151,7 @@ button {
 	font-size: 9pt;
 	background: #ffffff;
 	border: none;
-	margin: 50px 0px 0px 770px;
+	margin: 50px 0px 0px 850px;
 } 
 
 .pencil { /*연필 이미지*/
@@ -157,21 +160,19 @@ button {
 
 #divPaging {
 	clear: both;
-	margin: 0 auto;
-	width: 300px;
+	width: 100%;
 	height: 50px;
 	padding-top: 40px;
 	padding-bottom: 20px;
 	cursor: pointer;
 	text-align: center;
-	left:30%;
+	display:block;
 }
 
 #divPaging>div {
-	float: left;
 	width: 30px;
-	margin: 0 auto;
 	text-align: center;
+	display: inline-block;
 }
 
 .control{
@@ -182,7 +183,7 @@ button {
 	text-align: center;
 	margin: 0 auto;
 	vertical-align: middle;
-	padding-top:7%;
+	padding-top:6%;
 	font-size:10pt;
 	word-break: break-all;
 }
@@ -192,7 +193,7 @@ button {
 }
 
 .users {
-	padding-top:7%;
+	padding-top:6%;
 	word-break: break-all;
 	
 }
@@ -206,14 +207,14 @@ button {
 }
 
 .dates{
-	padding-top:7%;
+	padding-top:6%;
 }
 
 .dates_calender{
 	width:15px;
 }
 .nos{
-	padding-top:7%;
+	padding-top:6%;
 }
 
 .like{
@@ -221,7 +222,7 @@ button {
 }
 
 .likes{
-	padding-top:7%;
+	padding-top:6%;
 }
 
 /* post_details 게시글 보기*/
