@@ -29,7 +29,7 @@ button {
 }
 
 #mainWrapper {
-	width: 900px; /* 게시판 크기 조절할때 ultable 클라스도 너비 바꾸자 */
+	width: 950px; /* 게시판 크기 조절할때 ultable 클라스도 너비 바꾸자 */
 	margin: 0 auto; /*가운데 정렬*/
 }
 
@@ -44,7 +44,7 @@ button {
 }
 
 #ulTable {
-	width:900px;
+	width:950px;
 	margin:0 auto;
 	color:#454329;
 }
@@ -82,10 +82,14 @@ button {
 }
 
 .ulTable>div:first-child+div+div+div {
-	width: 15%;
+	width: 10%;
 }
 
 .ulTable>div:first-child+div+div+div+div{
+	width: 5%;
+}
+
+.ulTable>div:first-child+div+div+div+div+div{
 	width: 5%;
 }
 
@@ -120,11 +124,14 @@ button {
 	width: 10%;
 } /*작성일 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li {
-	width: 15%;
+	width: 10%;
 } /*작성자 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li+li {
 	width: 5%;
 } /*글번호 열 크기*/
+#ulTable>li>ul>li:first-child+li+li+li+li+li {
+	width: 5%;
+} /*좋아요 열 크기*/
 
 .text_Bt { /*글쓰기 버튼*/
 	cursor: pointer;
@@ -186,13 +193,28 @@ button {
 	cursor : pointer;
 }
 
+.date{
+	cursor:pointer;
+}
+
 .dates{
 	padding-top:7%;
+}
+
+.dates_calender{
+	width:15px;
 }
 .nos{
 	padding-top:7%;
 }
 
+.like{
+	cursor:pointer;
+}
+
+.likes{
+	padding-top:7%;
+}
 
 /* post_details 게시글 보기*/
 

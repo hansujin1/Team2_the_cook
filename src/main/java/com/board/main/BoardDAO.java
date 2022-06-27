@@ -6,9 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
+
+import org.apache.catalina.connector.Response;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -45,7 +49,6 @@ public class BoardDAO {
         String category = mr.getParameter("category");
         if(category.length() != 0) {
         	Http.setAttribute("categorySession", category);
-        	Http.setMaxInactiveInterval(60 *10);
         }
        
        
@@ -420,11 +423,13 @@ public class BoardDAO {
 	  
 	  if(count != null) {
 		  
-		  if(count.length()>0) {
+		  if(count.equals("1")) {
 		  
 		  sql="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_count desc )) where rn between ? and ?";
 	      request.setAttribute("count", count);
-		  }
+		  } else if (count.equals("2")) {
+		  sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_like desc )) where rn between ? and ?";
+		}
 	  }
 	 
 	  
@@ -437,7 +442,6 @@ public class BoardDAO {
 		   
 		   HttpSession hs = request.getSession();
 		   String sessionecategory = (String) hs.getAttribute("categorySession");
-		  // System.out.println("¼¼¼Ç"+Sessionecategory);
            
 		 
 		   
@@ -514,19 +518,32 @@ public class BoardDAO {
 	
 	
 	
-	public static void updateCount(HttpServletRequest request) {
+	public static void updateCount(HttpServletRequest request, HttpServletResponse response) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		HttpSession HttpSe = request.getSession();
-		
+		Cookie[] cookies = request.getCookies();
 		
 		
 		
 		String board_number = request.getParameter("num");
 		String sql = "update board_table set board_count = board_count + 1 where board_number = ?";
 		
-		HttpSe.setAttribute("countcheck", board_number);
-		HttpSe.setMaxInactiveInterval(60);
+		String value = null;
+		
+		if(cookies != null) {
+			for (Cookie c : cookies) {
+				value = c.getValue();
+				if (!value.equals(board_number)) {
+					Cookie cookie = new Cookie(board_number, board_number);
+					cookie.setMaxAge(60);
+					cookie.setPath("/");
+					response.addCookie(cookie);
+				}
+			}
+		}
+		
+
+	
     
 		try {
     	con = DBManager.connect();
@@ -553,23 +570,28 @@ public class BoardDAO {
 
 
 	public static int countCheck(HttpServletRequest request) {
-		HttpSession HttpSession5 = request.getSession();
-		
-		String count = (String) HttpSession5.getAttribute("countcheck");
-		
 		String board_number = request.getParameter("num");	
 		String num = (String)request.getAttribute("num");
+		Cookie[] cookies = request.getCookies();
+		
+		String value = null;
 		
 		
-		
-		if(count == null) {
-			return 0;
-		} else if(count.equals(board_number) || count.equals(num)) {
-			return 1;
+		if(cookies != null) {
+			 for (Cookie c : cookies) {
+				 value = c.getValue();
 			
-		} else {
-			return 0;
-		}
+				 if(value.equals(board_number) || value.equals(num)) {
+						return 1;
+						
+					} 
+			 }
+		
+		
+		} 
+		
+		
+		return 0;
 		
 		
 		
