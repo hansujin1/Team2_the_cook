@@ -19,7 +19,6 @@ public class currentC extends HttpServlet {
 		
 		LoginDAO.loginCheck(request);
 		currentDAO.latestList(request);
-        BoardDAO.updateCount(request);
         MyLikeDao.likeCheck(request);
 		scrapDAO.scrapCheck(request);
 		CommentDAO.showComment(request);

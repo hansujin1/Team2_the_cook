@@ -17,7 +17,7 @@ public class ShowPostDetailController extends HttpServlet {
 		LoginDAO.loginCheck(request);
 	
 		if( BoardDAO.countCheck(request) == 0) {
-			BoardDAO.updateCount(request);
+			BoardDAO.updateCount(request, response);
 		}
        
 		MyLikeDao.likeCheck(request);
