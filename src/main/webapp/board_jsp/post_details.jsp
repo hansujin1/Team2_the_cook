@@ -1,3 +1,4 @@
+<%@page import="com.team2.login.LoginB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -15,6 +16,30 @@
 		});
 
 	});
+			<%
+			HttpSession hs = request.getSession();
+			LoginB a = (LoginB) hs.getAttribute("loginInfo");
+			 %>
+	
+	$(function() {
+		$("#test_contents").click(function() {
+			
+			if (<%=a%> == null) {
+				alert("로그인 해주세요");
+			}
+				
+		});
+	});
+	
+	$(function() {
+		$(".contents").click(function() {
+			
+			if (<%=a%> == null) {
+				alert("로그인 해주세요");
+			}
+		});
+	});
+	
 </script>
 </head>
 <body>
@@ -33,12 +58,12 @@
 					
 				<c:if test="${likeCk == 1 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="color: red;">♥</span>
+						style="color: red;" >♥</span>
 						<span class="like"> 좋아요</span>
 				</c:if> 
 				<c:if test="${likeCk == 0 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="">♡</span>
+						style="" id="test_contents">♡</span>
 						<span class="like"> 좋아요</span>
 				
 				</c:if> 
@@ -49,7 +74,7 @@
 				</c:if> 
 				<c:if test="${scrap == 0 }">
 					<span onclick="location.href='doScrapController?num=${r.board_number}'"
-						style="color: gray;">스크랩</span>
+						style="color: gray;" id="test_contents">스크랩</span>
 				</c:if></td>
 				
 		</tr>
