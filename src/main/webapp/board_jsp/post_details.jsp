@@ -15,30 +15,21 @@
 			$(this).parent().find('div').toggle();
 		});
 
-	});
-			<%
-			HttpSession hs = request.getSession();
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
-			 %>
 	
-	$(function() {
-		$("#test_contents").click(function() {
 			
-			if (<%=a%> == null) {
+	
+	
+		
+		$(".contents").click(function() {
+			let a = $(".contents2").val();
+			if (a == "") {
 				alert("로그인 해주세요");
 			}
 				
-		});
 	});
 	
-	$(function() {
-		$(".contents").click(function() {
-			
-			if (<%=a%> == null) {
-				alert("로그인 해주세요");
-			}
-		});
 	});
+	
 	
 </script>
 </head>
@@ -143,6 +134,7 @@
 					<td><input name="num" value="${r.board_number}" type="hidden">
 						<input class="contents" name="contents"	placeholder="댓글을 남겨보세요 :)">
 						<button class="contents_btn">작성</button></td>
+						<input class="contents2" value="${sessionScope.loginInfo }" type="hidden">
 				</tr>
 			</table>
 		</form>
