@@ -10,35 +10,17 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-
+		
 		$(".btn_toggle").click(function() {
 			$(this).parent().find('div').toggle();
 		});
 
-	});
-			<%
-			HttpSession hs = request.getSession();
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
-			 %>
 	
-	$(function() {
-		$("#test_contents").click(function() {
-			
-			if (<%=a%> == null) {
-				alert("로그인 해주세요");
-			}
-				
-		});
 	});
 	
-	$(function() {
-		$(".contents").click(function() {
-			
-			if (<%=a%> == null) {
-				alert("로그인 해주세요");
-			}
-		});
-	});
+	
+
+
 	
 </script>
 </head>
@@ -118,7 +100,7 @@
 					삭제</button>
                     </c:if>
                     
-					<div style="display: none;">
+					<div class="div_toggle" style="display: none;">
 						<form action="UpdateCommentControlle">
 							<input name="commentnum" value="${c.c_no}" type="hidden">
 							<input name="num" value="${r.board_number}" type="hidden">

@@ -19,8 +19,8 @@ $(function() {
 </script>
 </head>
 <body>
-	<form action="UpdatePostController" method="post"
-		enctype="multipart/form-data">
+	<form name="board" action="UpdatePostController" method="post"
+		enctype="multipart/form-data" onsubmit="return callCheck()">
 
 		<table class = "update_B">
 			<tr>

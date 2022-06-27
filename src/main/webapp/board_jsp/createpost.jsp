@@ -20,8 +20,8 @@ $(function() {
 </head>
 <body>
 
-	<form action="BoardController" method="post"
-		enctype="multipart/form-data">
+	<form name="board" action="BoardController" method="post"
+		enctype="multipart/form-data" onsubmit="return callCheck()">
 		<table class = "create_B">
 			<tr>
 				<td><input class = "create_Binput" name="title"
