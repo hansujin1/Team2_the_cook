@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@ $(function() {
 				<td><img class = "imgs3" src="fileFolder/${r.board_file}"></td>
 			</tr>
 			<tr>
-				<td><input class="update_txt" name="txt" value="${r.board_txt}"></td>
+				<td><textarea class = "create_Btxt" name="txt" style="white-space: pre;"><c:out value="${r.board_txt}"/></textarea></td>
 			</tr>
 
 			<tr class="filebox">

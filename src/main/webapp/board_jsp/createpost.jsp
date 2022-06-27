@@ -39,15 +39,15 @@ $(function() {
 			</tr>
 			<tr>
 				<td><textarea class = "create_Btxt" name="txt"
-				placeholder="내용을 입력해 주세요."></textarea>
+				placeholder="내용을 입력해 주세요." style="white-space: pre;"></textarea>
 				<input type="hidden" name="category" value="${param.category}"></td>
 			</tr>
 			<tr class="filebox">
     			<td>
     				<input id="filecheck" class="upload-name" name="file" placeholder="첨부할 사진을 선택해 주세요.">
-   			 		<label for="file">찾기</label> 
+   			 		<label for="file" class="file_btn">찾기</label> 
    			 		<input type="file" id="file" name="file">
-   			 		<button class = "create_upload">업로드</button>
+   			 		<button class = "create_upload">UPLOAD</button>
    			 	</td>
 			</tr>
 			</table>
