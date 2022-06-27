@@ -25,7 +25,7 @@ $(function() {
 		<table class = "create_B">
 			<tr>
 				<td><input class = "create_Binput" name="title"
-				placeholder="제목을 입력해 주세요."></td>
+				placeholder="제목을 입력해 주세요.(40자 내외)"></td>
 			</tr>
 			<tr>
 				<td><textarea class = "create_Btxt" name="txt"
