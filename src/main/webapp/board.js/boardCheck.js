@@ -23,5 +23,47 @@ function callCheck() {
 
 }
 
+function checkComment() {
+	let comment = document.commentForm.contents;
+
+
+	if (isEmpty(comment)) {
+		alert("내용을 입력하세요!")
+		this.focus;
+		return false;
+	}
+	
+	
+	if (maxlength(title, 250)) {
+		alert('내용이 너무 길어요!');
+		this.focus();
+		this.value = "";
+		return false;
+	}
+
+
+}
+
+function checkUpdateComment() {
+	let comment = document.updateComment.contents;
+
+
+	if (isEmpty(comment)) {
+		alert("내용을 입력하세요!")
+		this.focus;
+		return false;
+	}
+	
+	
+	if (maxlength(title, 250)) {
+		alert('내용이 너무 길어요!');
+		this.focus();
+		this.value = "";
+		return false;
+	}
+
+
+}
+
 
 

@@ -101,7 +101,7 @@
                     </c:if>
                     
 					<div class="div_toggle" style="display: none;">
-						<form action="UpdateCommentControlle">
+						<form name="updateComment" action="UpdateCommentControlle" onsubmit="return checkUpdateComment()">
 							<input name="commentnum" value="${c.c_no}" type="hidden">
 							<input name="num" value="${r.board_number}" type="hidden">
 							<br> <span class="update_comment"> 
@@ -116,7 +116,7 @@
 			</c:forEach>
 <!-- 		</table>
  -->
-		<form action="CommentUploadController">
+		<form name="commentForm" action="CommentUploadController" onsubmit="return checkComment()">
 			<table class="create_C">
 				<tr>
 					<td><span class="comment">댓글</span></td>
