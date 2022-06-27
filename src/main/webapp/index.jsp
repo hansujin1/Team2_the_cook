@@ -71,7 +71,6 @@
 						CHINESE </a></li>
 				<li class="Baking"><a href="ShowBoardListController?category=5"> 
 						HOME BAKING </a></li>
-				<li class="Event"><a href="ShowEventC"> EVENT </a></li>
 			</ul>
 		</nav>
 	</header>
