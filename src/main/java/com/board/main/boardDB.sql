@@ -45,6 +45,10 @@ select * from board_table where board_category = 1
 
 1~50
 
+update board_table
+set board_like =80
+where board_number =462;
+
 
 
 
