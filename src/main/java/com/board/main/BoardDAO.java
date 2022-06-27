@@ -45,7 +45,6 @@ public class BoardDAO {
         String category = mr.getParameter("category");
         if(category.length() != 0) {
         	Http.setAttribute("categorySession", category);
-        	Http.setMaxInactiveInterval(60 *10);
         }
        
        
