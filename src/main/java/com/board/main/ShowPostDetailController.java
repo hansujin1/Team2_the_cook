@@ -16,9 +16,9 @@ public class ShowPostDetailController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.loginCheck(request);
 	
-		/*
-		 * if( BoardDAO.countCheck(request) == 0) { BoardDAO.updateCount(request); }
-		 */
+		if( BoardDAO.countCheck(request) == 0) {
+			BoardDAO.updateCount(request, response);
+		}
        
 		MyLikeDao.likeCheck(request);
 		scrapDAO.scrapCheck(request);
