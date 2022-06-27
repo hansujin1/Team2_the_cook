@@ -9,20 +9,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="mainWrapper">
+<div id="mainWrapper">
 
-		<li id="Table_n">
-		
+		<li id="Table_MP">
+		MY TEXT
 		</li>
-		<ul id="ulTable">
+	<ul id="ulTable">
 			<li>
 				<div class="hidden"></div>
 				<ul>
-					<li class="img">image</li>
-					<li class="title">제목</li>
-					<li class="user">user</li>
-					<li class="date">date</li>
-					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">조회수</li>
+					<li class="img">Image</li>
+					<li class="title">Title</li>
+					<li class="user">UserID</li>
+					<li class="date" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=0'">
+					Date<img class="dates_calender" src="img/calender.png"></li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">
+					View</li>
+					<li class="like" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=2'">
+					Like</li>
 				</ul>
 			</li>
 		</ul>
@@ -36,10 +40,12 @@
 				<div class="titles"><a onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></div>
 				<div class="users">${p.board_id}</div>
 				<div class="dates">
-				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/><br>
+				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/>
 				<fmt:formatDate value="${p.board_date}" type="time" pattern="HH:mm"/> 
 				</div>
 				<div class="nos"> ${p.board_count}</div>
+				<div class="likes">${p.board_like}</div>
+				
 					 
 				</div>
 			</c:forEach>

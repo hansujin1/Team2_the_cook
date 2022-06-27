@@ -50,8 +50,8 @@ a {
 	transition: transform 1.2s ease-in-out;
 }
 
-.login_bt {
-	/*로그인 버튼  */
+/* .login_bt {
+	로그인 버튼 
 	display: block;
 	margin: 0 auto;
 	width: 300px;
@@ -68,7 +68,7 @@ a {
 	background: black;
 	color:white;
 	border:solid #ffffff ;
-}
+} */
 
 .login_img {
 	/* 로그인 옆 부분 이미지 */
