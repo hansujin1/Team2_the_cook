@@ -43,6 +43,14 @@ button {
 	padding-top: 20px;
 }
 
+#Table_MP{
+	padding-top: 20px;
+	font-size:20pt;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
 #ulTable {
 	width:950px;
 	margin:0 auto;
