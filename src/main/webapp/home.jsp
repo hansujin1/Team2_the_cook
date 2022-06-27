@@ -123,7 +123,7 @@
 
 			<div class="event_left">
 				<ul>
-					<li><img class="event_img" src="img/EVENT.jpg"></li>
+					<li><img class="event_img" src="img/EventLmg.jpg"></li>
 				</ul>
 			</div>
 
