@@ -19,7 +19,7 @@ public class currentDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = '1' order by board_date desc )) where rn between 1 and 6";
+		String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table order by board_date desc )) where rn between 1 and 6";
 
 		try {
 			con = DBManager.connect();
@@ -60,7 +60,7 @@ public class currentDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = '1' order by board_like desc )) where rn between 1 and 6";
+		String sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table order by board_like desc )) where rn between 1 and 6";
 
 		try {
 			con = DBManager.connect();

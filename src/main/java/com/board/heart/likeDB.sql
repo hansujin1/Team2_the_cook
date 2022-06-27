@@ -71,7 +71,7 @@ select * from ( select rownum as rn, board_number, board_id, board_date, board_t
 
 
 insert into board_table values 
-(board_table_seq.nextval,'mz',sysdate-1,'力格','郴侩','loginPage.jpg',200,1,1);
+(board_table_seq.nextval,'mz',sysdate-1,'力格','郴侩','loginPage.jpg',200,1,2);
 
-
+select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table order by board_date desc )) where rn between 1 and 6;
 
