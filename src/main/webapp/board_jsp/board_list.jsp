@@ -14,7 +14,7 @@
 		<li id ="Table_n">
 		<button class="text_Bt"
 			onclick="location.href='BoardController?category=${param.category}'">
-			글쓰기 
+			WRITE 
 			<img src="img/pencil.png" class="pencil">
 		</button>
 		</li>
@@ -42,7 +42,7 @@
 				<div class="titles"><a onclick="location.href='ShowPostDetailController?num=${p.board_number}'">${p.board_title}</a></div>
 				<div class="users">${p.board_id}</div>
 				<div class="dates">
-				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/><br>
+				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/>
 				<fmt:formatDate value="${p.board_date}" type="time" pattern="HH:mm"/> 
 				</div>
 				<div class="nos"> ${p.board_count}</div>
