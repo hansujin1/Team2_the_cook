@@ -14,25 +14,34 @@ import com.team2.login.LoginDAO;
 
 @WebServlet("/MyLikeC")
 public class MyLikeC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		if (MyLikeDao.likeCheck(request)) {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		if (LoginDAO.onlyLoginCan(request)) {
+
+			if (MyLikeDao.likeCheck(request)) {
+				LoginDAO.loginCheck(request);
+				likeDAO.hitHeart(request);
+				likeDAO.updateHeart(request);
+				System.out.println("true");
+			} else {
+				LoginDAO.loginCheck(request);
+				MyLikeDao.deleteLike(request);
+				MyLikeDao.downHeart(request);
+				System.out.println("false");
+			}
+
+			request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
+		} else {
 			LoginDAO.loginCheck(request);
-			likeDAO.hitHeart(request);	
-			likeDAO.updateHeart(request);
-			System.out.println("true");
-		}else {
-			LoginDAO.loginCheck(request);
-			MyLikeDao.deleteLike(request);
-			MyLikeDao.downHeart(request);
-			System.out.println("false");
+			request.setAttribute("contentPage", "login/login.jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-		
-		request.getRequestDispatcher("ShowPostDetailController").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 	}
 
 }
