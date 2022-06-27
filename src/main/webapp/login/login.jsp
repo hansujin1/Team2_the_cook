@@ -38,7 +38,7 @@
 				</div>
 
 				<div class="login_img__btn">
-					<button type="button" class="joinBt" onclick="location.href='regController'">회원가입</button>
+					<button type="button" class="joinBt" onclick="location.href='regController'">JOIN</button>
 				</div>
 			</div>
 
