@@ -60,14 +60,15 @@
 		<nav id="nav">
 			<ul>
 				<li class="Korea"><a href="ShowBoardListController?category=1">
-						한식 </a></li>
+						KOREAN </a></li>
 				<li class="Japan"><a href="ShowBoardListController?category=2">
-						일식 </a></li>
-				<li class="Western"><a
-					href="ShowBoardListController?category=3"> 양식 </a></li>
+						JAPANESE </a></li>
+				<li class="Western"><a href="ShowBoardListController?category=3"> 
+						WESTERN </a></li>
 				<li class="China"><a href="ShowBoardListController?category=4">
-						중식 </a></li>
-				<li class="Baking"><a href="#"> 홈베이킹 </a></li>
+						CHINESE </a></li>
+				<li class="Baking"><a href="ShowBoardListController?category=5"> 
+						HOME BAKING </a></li>
 				<li class="Event"><a href="ShowEventC"> EVENT </a></li>
 			</ul>
 		</nav>
