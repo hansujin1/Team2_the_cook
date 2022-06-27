@@ -1,3 +1,4 @@
+<%@page import="com.team2.login.LoginB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -15,6 +16,19 @@
 		});
 
 	});
+	
+	$(function() {
+		$(".contents").click(function() {
+			<%
+			HttpSession hs = request.getSession();
+			LoginB a = (LoginB) hs.getAttribute("loginInfo");
+			 %>
+			
+			if (<%=a%> == null) {
+				alert("로그인을 해주세요");
+			}
+		})
+	})
 </script>
 </head>
 <body>
