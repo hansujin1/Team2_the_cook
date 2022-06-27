@@ -26,9 +26,9 @@
 					<li class="img">Image</li>
 					<li class="title">Title</li>
 					<li class="user">UserID</li>
-					<li class="date">Date</li>
-					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}
-					&category=${param.category}&count=1'">View</li>
+					<li class="date" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=0'">Date</li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">View</li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=2'">Like</li>
 				</ul>
 			</li>
 		</ul>
@@ -45,7 +45,8 @@
 				<fmt:formatDate value="${p.board_date}" type="date" dateStyle="short"/>
 				<fmt:formatDate value="${p.board_date}" type="time" pattern="HH:mm"/> 
 				</div>
-				<div class="nos"> ${p.board_count}</div>
+				<div class="nos"> ${p.board_count} 좋아요 > ${p.board_like}</div>
+				
 					 
 				</div>
 			</c:forEach>

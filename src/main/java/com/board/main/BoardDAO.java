@@ -423,11 +423,13 @@ public class BoardDAO {
 	  
 	  if(count != null) {
 		  
-		  if(count.length()>0) {
+		  if(count.equals("1")) {
 		  
 		  sql="select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_count desc )) where rn between ? and ?";
 	      request.setAttribute("count", count);
-		  }
+		  } else if (count.equals("2")) {
+		  sql = "select * from ( select rownum as rn, board_number, board_id, board_date, board_title, board_txt, board_file, board_like, board_count, board_category from ( select * from board_table where board_category = ? order by board_like desc )) where rn between ? and ?";
+		}
 	  }
 	 
 	  
@@ -440,7 +442,6 @@ public class BoardDAO {
 		   
 		   HttpSession hs = request.getSession();
 		   String sessionecategory = (String) hs.getAttribute("categorySession");
-		  // System.out.println("¼¼¼Ç"+Sessionecategory);
            
 		 
 		   
