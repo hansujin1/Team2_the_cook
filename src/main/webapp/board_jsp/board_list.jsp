@@ -27,8 +27,8 @@
 					<li class="title">Title</li>
 					<li class="user">UserID</li>
 					<li class="date">Date</li>
-					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}
-					&category=${param.category}&count=1'">View</li>
+					<li class="no" onclick="location.href='ShowBoardListController?vpage=1&lastpage=${lastpage}&category=${param.category}&count=1'">
+					View</li>
 				</ul>
 			</li>
 		</ul>
