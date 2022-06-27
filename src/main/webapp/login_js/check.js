@@ -58,14 +58,6 @@ function call(){
 		return false;
 	}
 	
-	if(match(pw,pw1)){
-		alert("pw가 일치하지 않습니다");
-		pw1.focus();
-		pw1.value="";
-		
-		return false;
-	}
-	
 	if(regForm.overlapIDCheck.value !='idcheck'){
 		alert("아이디 중복체크를 해주세요");
 		
@@ -184,7 +176,13 @@ function changePw_call(){
 		
 		return false;
 	}
-	
+	if(lessThan(pw,3)|| notContain(pw,"qwertyuiopasdfghjklzxcvbnm")||notContain(pw,"1234567890") ||notContain(pw,"QWERTYUIOPASDFGHJKLZXCVBNM")){
+		alert("조건에 맞게 pw를 작성해주세요");
+		pw.focus();
+		pw.value="";
+		
+		return false;
+	}
 	
 	
 }
