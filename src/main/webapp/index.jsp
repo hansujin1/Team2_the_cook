@@ -15,6 +15,9 @@
 <script	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="login_js/check.js"></script>
 <script type="text/javascript" src="login_js/validCheck.js"></script>
+<script type="text/javascript" src="board.js/boardCheck.js"></script>
+<script type="text/javascript" src="board.js/valid.js"></script>
+
 <style>
 /* bxslider border 지우기 및 그림자 지우기 */
 .bx-wrapper {
