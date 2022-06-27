@@ -10,35 +10,28 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-
+		
 		$(".btn_toggle").click(function() {
 			$(this).parent().find('div').toggle();
 		});
 
-	});
-			<%
-			HttpSession hs = request.getSession();
-			LoginB a = (LoginB) hs.getAttribute("loginInfo");
-			 %>
 	
-	$(function() {
-		$("#test_contents").click(function() {
+
 			
-			if (<%=a%> == null) {
+	
+	
+		
+		$(".contents").click(function() {
+			let a = $(".contents2").val();
+			if (a == "") {
 				alert("로그인 해주세요");
 			}
 				
-		});
 	});
 	
-	$(function() {
-		$(".contents").click(function() {
-			
-			if (<%=a%> == null) {
-				alert("로그인 해주세요");
-			}
-		});
 	});
+
+	
 	
 </script>
 </head>
@@ -118,8 +111,8 @@
 					삭제</button>
                     </c:if>
                     
-					<div style="display: none;">
-						<form action="UpdateCommentControlle">
+					<div class="div_toggle" style="display: none;">
+						<form name="updateComment" action="UpdateCommentControlle" onsubmit="return checkUpdateComment()">
 							<input name="commentnum" value="${c.c_no}" type="hidden">
 							<input name="num" value="${r.board_number}" type="hidden">
 							<br> <span class="update_comment"> 
@@ -134,7 +127,7 @@
 			</c:forEach>
 <!-- 		</table>
  -->
-		<form action="CommentUploadController">
+		<form name="commentForm" action="CommentUploadController" onsubmit="return checkComment()">
 			<table class="create_C">
 				<tr>
 					<td><span class="comment">댓글</span></td>
@@ -143,6 +136,7 @@
 					<td><input name="num" value="${r.board_number}" type="hidden">
 						<input class="contents" name="contents"	placeholder="댓글을 남겨보세요 :)">
 						<button class="contents_btn">작성</button></td>
+						<input class="contents2" value="${sessionScope.loginInfo }" type="hidden">
 				</tr>
 			</table>
 		</form>

@@ -14,14 +14,24 @@ $(function() {
   	$(".upload-name").val(fileName);
 	});
 	
+	$(".create_upload").click(function() {
+	    var file = $("#filecheck").val();
+	    
+	    if(file == ""){
+	    alert("사진을 올려주세요");
+	    return false;
+	    }
+	    
+	});
+	
 });
 
 </script>
 </head>
 <body>
 
-	<form action="BoardController" method="post"
-		enctype="multipart/form-data">
+	<form name="board" action="BoardController" method="post"
+		enctype="multipart/form-data" onsubmit="return callCheck()">
 		<table class = "create_B">
 			<tr>
 				<td><input class = "create_Binput" name="title"
@@ -34,7 +44,7 @@ $(function() {
 			</tr>
 			<tr class="filebox">
     			<td>
-    				<input class="upload-name" name="file" placeholder="첨부할 사진을 선택해 주세요.">
+    				<input id="filecheck" class="upload-name" name="file" placeholder="첨부할 사진을 선택해 주세요.">
    			 		<label for="file">찾기</label> 
    			 		<input type="file" id="file" name="file">
    			 		<button class = "create_upload">업로드</button>
