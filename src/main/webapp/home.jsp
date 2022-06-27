@@ -74,13 +74,13 @@
 			controls : false, // 이전/다음 버튼 노출 여부
 			pager : false, // 동그라미 (불릿) 버튼 노출 여부  
 			speed : 1500,
-			pause : 4500,
+			pause : 3500,
 			adaptiveHeight : false
 		// 이미지 높이에 맞추어 자동으로 조절
 		});
 	</script>
 	<div class="currentDiv">
-		<h2 class="mainText">최근게시물</h2>
+		<h2 class="current_mainText">THE LATEST RECIPE</h2>
 		<c:forEach var="p" items="${post}">
 
 
@@ -98,7 +98,7 @@
 	</div>
 
 	<div class="popularDiv">
-		<h2 class="mainText">인기게시물</h2>
+		<h2 class="popular_mainText">A POPULAR RECIPE</h2>
 
 
 		<c:forEach var="p" items="${post1}">

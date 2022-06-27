@@ -5,7 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
+</head>
+<body onload="counter_init()">
+
+	<div class="session_counter">
+	
+		<div>
+			<span id="counter"></span>
+			<p class="counter_hover_text">사용자의 정보보호를 위해 자동 로그아웃됩니다</p>
+		</div>
+	</div>
+	
+	
+	
+	
+	<script type="text/javascript">
 	var tid;
 	var cnt = parseInt(3000);//초기값(초단위)
 
@@ -43,12 +57,14 @@
 		return "" + nHour + ":" + nMin + ":" + nSec;
 	}
 </script>
-</head>
-<body onload="counter_init()">
-
+	
+	
+	
+	
+	
 	<div class="login_dropdown">
 
-		<span class="dropbtn">My page</span>
+		<a href="#" class="dropbtn">My page</a>
 
 		<div class="dropdown-content">
 			<p>
@@ -69,10 +85,6 @@
 		</div>
 	</div>
 
-	<div class="session_counter">
-		<div>
-			(<span id="counter"></span>)
-		</div>
-	</div>
+	
 </body>
 </html>

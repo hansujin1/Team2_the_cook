@@ -5,7 +5,7 @@ header {
     left: 0;
     right: 0;
     background-color: white;
-    z-index : 999;
+    z-index : 990;
 }    
 
 body {
@@ -102,17 +102,18 @@ input::placeholder{
 #nav{
 	display: block;
 	width:100%;
-	padding-top: 150px;
+	margin-top: 140px;
 	color:gray;
 	text-align: center;
-	background-color: rgba(255, 255, 255, 0.1);		/* 4번째 값 Opacity */
+	padding-top: 10px;
 	padding-bottom: 10px;
+	z-index: 999;
 }
 
 
 
-#nav ul li a { /* 메뉴 hover시 밑줄 효과 */
-  color: #000;
+#nav ul a { /* 메뉴 hover시 밑줄 효과 */
+  color: #646464;
   display:inline-block; 
   margin:0;
   text-transform:uppercase; 
@@ -121,7 +122,7 @@ input::placeholder{
 #nav ul li a:after {
   display:block;
   content: '';
-  border-bottom: solid 3px #f1bc1b;  
+  border-bottom: solid 3px #8f8b54;  
   transform: scaleX(0);  
   transition: transform 150ms ease-in-out;
 }
@@ -248,9 +249,55 @@ input::placeholder{
     letter-spacing: -1px;
 }
 
+/* ---------------세션--------------- */
+
+.session_counter{
+	font-size: 10pt;
+	position: relative;
+	float:left;
+	left:-80%;
+}
+
+
+#counter { /*세션 카운터*/
+	color:gray;
+	display: flex;
+}
+
+.counter_hover_text { /*말풍선*/
+	display: none;
+	position: absolute;
+	width: 100px;
+	padding: 8px;
+	left: 0;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: #333;
+	color: #fff;
+	font-size: 14px;
+}
+
+span:hover + p.counter_hover_text {
+  display: block;
+}
+
+.counter_hover_text:after {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: 10px;
+  border: solid transparent;
+  border-color: rgba(51, 51, 51, 0);
+  border-bottom-color: #333;
+  border-width: 10px;
+  pointer-events: none;
+  content: ' ';
+}
 
 /* ---------------마이페이지 드롭다운---------------- */
-
 
 .login_dropdown {
 	position: relative;
@@ -298,19 +345,21 @@ input::placeholder{
 
 /* ----------------최근 게시물, 인기 게시물--------------- */
 
-.mainText{
-	margin: 0px 0px 30px 0px ;
-	color:gray;
-	font-size: 15pt;
+.current_mainText{
+	padding-top: 40px;
+	padding-bottom: 100px;
+	color:#000000;
+	font-size: 20pt;
     font-weight: bolder;
-    letter-spacing: -2pt;
+    letter-spacing: -1pt;
+    border-bottom : 1px solid black;
 }
 
 .currentDiv{/*- 최근 게시물 div-*/
     text-align:center;
     height:400px;
 /*     width:100%;
- */    margin: 0px 50px 80px 80px;
+ */    margin: 50px 50px 80px 80px;
 }
 
 .currentCont{/*- 최근 게시물 contents-*/
@@ -350,11 +399,21 @@ input::placeholder{
 	width:18px;
 }
 
+.popular_mainText{
+	padding-top: 100px;
+	padding-bottom: 100px;
+	color:#000000;
+	font-size: 20pt;
+    font-weight: bolder;
+    letter-spacing: -1pt;
+    border-bottom : 1px solid black;
+}
+
 .popularDiv{/*--- 인기 게시물 div -----*/
     text-align:center;
-    height:400px;
+    height:750px;
   /*   width:100%; */
-    margin: 0px 50px 80px 80px;
+    margin: 50px 50px 80px 80px;
 }
 
 .popularCont{/*- 인기 게시물 Contents-*/
