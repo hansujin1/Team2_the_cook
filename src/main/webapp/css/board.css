@@ -405,6 +405,11 @@ button {
 	padding : 2.5px 8px 2.5px 8px;
 }
 
+.filebox label:hover{
+	background-color: black;
+	color: white;
+}
+
 .filebox input[type="file"] {
     position: absolute;
     width: 0;
@@ -414,13 +419,19 @@ button {
     border: 0;
 }
 
+
 .create_upload { /* 업로드 버튼 */
 	cursor: pointer;
 	font-weight: 900;
 	background: #ffffff;
 	border: 1px solid #c0c0c0;
 	font-size: 9pt;
-	margin-left : 365px;
+	margin-left : 345px;
+}
+
+.create_upload:hover {
+	background-color: black;
+	color: white;
 }
 
 /* 게시글 보기 */
