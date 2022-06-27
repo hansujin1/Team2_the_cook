@@ -17,7 +17,7 @@ button {
 
 .imgs {
 	width: 200px;
-	height: 200px;
+	height: 150px;
 	display:block;
 	margin: 0 auto;
 	object-fit: cover;
@@ -37,8 +37,6 @@ button {
 	text-align: center;
 	font-size: 14pt;
 	height: 40px;
-	vertical-align: middle;
-	line-height: 30px;
 }
 
 #Table_n {
@@ -46,8 +44,9 @@ button {
 }
 
 #ulTable {
-	width:800px;
+	width:900px;
 	margin:0 auto;
+	color:#454329;
 }
 
 #ulTable>li>p{
@@ -66,8 +65,12 @@ button {
 	
 }
 
+.ulTalbe:hover{
+	color:rgb(188, 184, 141);
+}
+
 .ulTable>div:first-child {
-	width: 35%;
+	width: 20%;
 }
 
 .ulTable>div:first-child+div {
@@ -79,11 +82,11 @@ button {
 }
 
 .ulTable>div:first-child+div+div+div {
-	width: 10%;
+	width: 20%;
 }
 
 .ulTable>div:first-child+div+div+div+div{
-	width: 5%;
+	width: 10%;
 }
 
 
@@ -108,7 +111,7 @@ button {
 }
 
 #ulTable>li>ul>li:first-child {
-	width: 35%;
+	width: 20%;
 } /*img 열 크기*/
 #ulTable>li>ul>li:first-child+li {
 	width: 40%;
@@ -117,20 +120,20 @@ button {
 	width: 10%;
 } /*작성일 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li {
-	width: 10%;
+	width: 20%;
 } /*작성자 열 크기*/
 #ulTable>li>ul>li:first-child+li+li+li+li {
-	width: 5%;
+	width: 10%;
 } /*글번호 열 크기*/
 
 .text_Bt { /*글쓰기 버튼*/
 	cursor: pointer;
 	padding: 6px 0px 20px 30px;
-	font-weight: 900;
+	font-weight: 700;
 	font-size: 9pt;
 	background: #ffffff;
 	border: none;
-	margin: 50px 0px 0px 700px;
+	margin: 50px 0px 0px 770px;
 } 
 
 .pencil { /*연필 이미지*/
@@ -163,7 +166,8 @@ button {
 	text-align: center;
 	margin: 0 auto;
 	vertical-align: middle;
-	padding-top:10%;
+	padding-top:7%;
+	font-size:10pt;
 }
 
 .titles:hover {
@@ -171,7 +175,7 @@ button {
 }
 
 .users {
-	padding-top:10%;
+	padding-top:7%;
 	
 }
 
@@ -180,10 +184,10 @@ button {
 }
 
 .dates{
-	padding-top:8%;
+	padding-top:7%;
 }
 .nos{
-	padding-top:10%;
+	padding-top:7%;
 }
 
 
@@ -321,7 +325,7 @@ button {
 	margin-left: 25%;
 }
 .create_C {
-	background-color:  #fff0f8;
+	background-color:  #eae9db;
 	margin-left: 25%;
 	margin-bottom: 50px;
 }
@@ -388,8 +392,8 @@ button {
 
 
 .imgs2 { /* 최대 이미지 크기 조절 */
-	width: 230px;
-	height: 230px;
+	width: 850px;
+	height: 100%;
 	display:block;
 	position:relative;
 	cursor:pointer;
