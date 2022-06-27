@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body onload="counter_init()">
+<body>
 
 	<div class="login_dropdown">
 
