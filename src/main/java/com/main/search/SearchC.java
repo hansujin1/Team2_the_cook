@@ -15,7 +15,7 @@ public class SearchC extends HttpServlet {
 		
 		LoginDAO.loginCheck(request);
 		SearchDAO.search(request);
-		request.setAttribute("contentPage", "board_jsp/board_list.jsp");
+		request.setAttribute("contentPage", "scrap/searchPage.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
