@@ -15,8 +15,9 @@ public class SearchC extends HttpServlet {
 		
 		LoginDAO.loginCheck(request);
 		SearchDAO.search(request);
-		request.setAttribute("contentPage", "scrap/searchPage.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

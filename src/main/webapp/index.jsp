@@ -51,7 +51,7 @@
 				</button>
 				
 		</div>
-		<div>
+		<%-- <div>
 			<c:if test="${empty post}">
 					<div class="no_recipe_wrapper">
 						<span class="no_recipe">Sorry!
@@ -60,7 +60,7 @@
 					</div>
 					
 			</c:if>
-		</div>
+		</div> --%>
 		</form>
 	
 		<div id="login">

@@ -37,25 +37,35 @@ public class SearchDAO {
 
 
 			ArrayList<SearchB> post = new ArrayList<SearchB>();
+			
+			if(rs.next()) {
+				
+				while (rs.next()) {
 
-			while (rs.next()) {
+					SearchB s = new SearchB();
 
-				SearchB s = new SearchB();
+					s.setBoard_category(rs.getString("board_category"));
+					s.setBoard_count(rs.getString("board_count"));
+					s.setBoard_date(rs.getDate("board_date"));
+					s.setBoard_file(rs.getString("board_file"));
+					s.setBoard_id(rs.getString("board_id"));
+					s.setBoard_like(rs.getString("board_like"));
+					s.setBoard_number(rs.getString("board_number"));
+					s.setBoard_title(rs.getString("board_title"));
+					s.setBoard_txt(rs.getString("board_txt"));
+					post.add(s);
 
-				s.setBoard_category(rs.getString("board_category"));
-				s.setBoard_count(rs.getString("board_count"));
-				s.setBoard_date(rs.getDate("board_date"));
-				s.setBoard_file(rs.getString("board_file"));
-				s.setBoard_id(rs.getString("board_id"));
-				s.setBoard_like(rs.getString("board_like"));
-				s.setBoard_number(rs.getString("board_number"));
-				s.setBoard_title(rs.getString("board_title"));
-				s.setBoard_txt(rs.getString("board_txt"));
-				post.add(s);
-
+				}	
+				
+				request.setAttribute("post", post);
+				request.setAttribute("contentPage", "scrap/searchPage.jsp");
+				
+			} else {
+				
+				request.setAttribute("contentPage", "myPage/NoSearch.jsp");
 			}
+			
 
-			request.setAttribute("post", post);
 
 		} catch (Exception e) {
 			e.printStackTrace();
