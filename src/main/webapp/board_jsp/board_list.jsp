@@ -7,8 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+<%
+String pageCss = null;
+String vpage = request.getParameter("vpage");
+
+if(vpage != null){
+  if(vpage.length()>0){
+      pageCss = "page"+vpage;
+     }
+} else{
+      pageCss = "page"+"1";
+}
+%>
+
+#<%=pageCss%>{
+	font-weight:900;
+	color:#ff0080;
+}
+</style>
 </head>
 <body>
+
 	<div id="mainWrapper">
 		<li id ="Table_n">
 		<button class="text_Bt"
@@ -58,9 +78,8 @@
 		<div id="divPaging">
 			<div class="control">◀</div>
 			<c:forEach var="i" begin="1" end="${lastpage}">
-				<div
-					onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}&count=${count}'">
-					<c:out value="${i}" />
+				<div onclick="location.href='ShowBoardListController?vpage=${i}&lastpage=${lastpage}&category=${param.category}&count=${count}'">
+					<span id="page${i}"><c:out value="${i}" /></span>
 				</div>
 			</c:forEach>
 			<div class="control">▶</div>
