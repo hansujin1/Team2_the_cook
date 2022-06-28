@@ -14,11 +14,6 @@
 		$(".btn_toggle").click(function() {
 			$(this).parent().find('div').toggle();
 		});
-
-	
-
-			
-	
 	
 		
 		$(".contents").click(function() {
@@ -26,13 +21,12 @@
 			if (a == "") {
 				alert("로그인 해주세요");
 			}
-				
-	});
-	
-	});
+	    });
+		
 
-	
-	
+		
+		
+	});
 </script>
 </head>
 <body>
@@ -52,12 +46,12 @@
 				<c:if test="${likeCk == 1 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
 						style="color: red;" class="like" >♥</span>
-						<span onclick="location.href='MyLikeC?num=${r.board_number}'" class="like"> 
-						좋아요</span>
+						<span> 좋아요</span>
 				</c:if> 
 				<c:if test="${likeCk == 0 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="" id="test_contents" class="like">♡ 좋아요</span>
+						style="" id="test_contents" class="like">♡</span>
+						<span> 좋아요</span>
 				
 				</c:if> 
 					<span class="like">${r.board_like}</span>
@@ -82,14 +76,14 @@
 		<tr>
 			<c:if test="${r.board_id == sessionScope.loginInfo.id}">
 			<td>
-				
 				<button type="button" class="update_P"
-					onclick="location.href='UpdatePostController?num=${r.board_number}'">
-					글수정</button>
-				
-				<button type="button" class="del_P"
-					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">
-					글삭제</button>
+					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
+				<form action="DeletePostController" onsubmit="return checkdelete()">
+				    <input type="hidden" name="num" value="${r.board_number}">
+				    <input type="hidden" name="category" value="${r.board_category}">
+				    <input type="hidden" name="file" value="${r.board_file}">
+				<button class="del_P">삭제</button>
+				 </form>
 			</td>
 			</c:if>	
 		</tr>
