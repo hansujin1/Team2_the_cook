@@ -55,7 +55,7 @@ function overlapCheckMail() {
 	<div class="reg">
 
 		<form action="regController" method="post" name="regForm"
-			> <!-- onsubmit="return call()" -->
+			onsubmit="return call()"> 
 
 			<div>
 				<h2 id="reg_h2">회원 가입</h2>
