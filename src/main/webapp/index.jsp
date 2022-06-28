@@ -60,8 +60,9 @@ if(category != null){
 }
 %>
 
+
  #<%=color%> {
-   border-bottom: solid;
+   font-size:17pt;
  }
 </style>
 </head>

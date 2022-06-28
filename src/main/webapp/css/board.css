@@ -176,8 +176,8 @@ button {
 }
 
 #divPaging>div:focus , #divPaging>div:hover {
-	color:#ff0080;
-	border-bottom:2px solid #ff0080;
+	/* color:#ff0080;
+	border-bottom:2px solid #ff0080; */
 	font-weight: 900;
 }
 
