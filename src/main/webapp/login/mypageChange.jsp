@@ -15,7 +15,7 @@ window.onload = function() {
 			if(pw1.value != pw2.value){
 				mydiv.innerHTML = "비밀번호 불일치";
 			} else{
-  				mydiv.innerHTML = "비밀번호 일치";
+  				mydiv.innerHTML = "";
 			}
 		
 		});
@@ -33,7 +33,7 @@ window.onload = function() {
 				<h2 id="reg_h2">비밀번호 변경</h2>
 					
 				<label class="reg_label"> <span>Password</span><br>
-					<input class="reg_input" type="password"  id="pw1"  name="pw" /></label>
+					<input class="reg_input" type="password"  id="pw1"  name="pw" placeholder="대소문자 숫자 포함 5글자 이상" /></label>
 					
 				<label class="reg_label"> <span>Password</span><br>
 					<input class="reg_input" type="password"  id="pw2" /></label>
