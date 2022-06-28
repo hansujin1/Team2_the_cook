@@ -51,13 +51,13 @@
 					
 				<c:if test="${likeCk == 1 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="color: red;" >♥</span>
-						<span class="like"> 좋아요</span>
+						style="color: red;" class="like" >♥</span>
+						<span> 좋아요</span>
 				</c:if> 
 				<c:if test="${likeCk == 0 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="" id="test_contents">♡</span>
-						<span class="like"> 좋아요</span>
+						style="" id="test_contents" class="like">♡</span>
+						<span> 좋아요</span>
 				
 				</c:if> 
 					<span class="like">${r.board_like}</span>
@@ -130,12 +130,12 @@
 		<form name="commentForm" action="CommentUploadController" onsubmit="return checkComment()">
 			<table class="create_C">
 				<tr>
-					<td><span class="comment">댓글</span></td>
+					<td><span class="comment">COMMENT</span></td>
 				</tr>
 				<tr>
 					<td><input name="num" value="${r.board_number}" type="hidden">
 						<input class="contents" name="contents"	placeholder="댓글을 남겨보세요 :)">
-						<button class="contents_btn">작성</button></td>
+						<button class="btn btn-1">Comment</button></td>
 						<input class="contents2" value="${sessionScope.loginInfo }" type="hidden">
 				</tr>
 			</table>

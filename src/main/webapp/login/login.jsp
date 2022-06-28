@@ -24,8 +24,11 @@
 			<span class="pw_alert">${r}</span>
 			<p class="forgot-pass" onclick="location.href='idFindController'">아이디를 잊으셨나요?</p>
 			<p class="forgot-pass" onclick="location.href='pwFindController'">비밀번호를 잊으셨나요?</p>
-			<button class="login_bt">LOGIN</button>
-			
+			<div class="box bg-1">
+			<button class="button button--nina button--text-thick button--text-upper button--size-s" data-text="LOGIN">
+			<span>H</span><span>E</span><span>L</span><span>L</span><span>O</span>
+			</button>
+			</div>
 
 
 		</div>
