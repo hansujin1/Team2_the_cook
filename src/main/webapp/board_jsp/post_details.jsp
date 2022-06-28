@@ -14,11 +14,6 @@
 		$(".btn_toggle").click(function() {
 			$(this).parent().find('div').toggle();
 		});
-
-	
-
-			
-	
 	
 		
 		$(".contents").click(function() {
@@ -26,13 +21,12 @@
 			if (a == "") {
 				alert("로그인 해주세요");
 			}
-				
-	});
-	
-	});
+	    });
+		
 
-	
-	
+		
+		
+	});
 </script>
 </head>
 <body>
@@ -84,8 +78,12 @@
 			<td>
 				<button type="button" class="update_P"
 					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
-				<button type="button" class="del_P"
-					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">삭제</button>
+				<form action="DeletePostController" onsubmit="return checkdelete()">
+				    <input type="hidden" name="num" value="${r.board_number}">
+				    <input type="hidden" name="category" value="${r.board_category}">
+				    <input type="hidden" name="file" value="${r.board_file}">
+				<button class="del_P">삭제</button>
+				 </form>
 			</td>
 			</c:if>	
 		</tr>

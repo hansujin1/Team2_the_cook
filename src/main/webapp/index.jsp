@@ -17,6 +17,19 @@
 <script type="text/javascript" src="login_js/validCheck.js"></script>
 <script type="text/javascript" src="board.js/boardCheck.js"></script>
 <script type="text/javascript" src="board.js/valid.js"></script>
+<script type="text/javascript">
+/*
+$(document).ready(function(){ 
+	$("#categoryUl").find('a').click(function() {
+	$(this).css("color","red")
+     });
+	
+	});
+  */
+
+</script>
+
+
 <style>
 /* bxslider border 지우기 및 그림자 지우기 */
 .bx-wrapper {
@@ -24,6 +37,31 @@
 	background: #fbfbfb;
 	box-shadow: none;
 }
+
+<% 
+String color = null;
+String category= request.getParameter("category");
+
+if(category != null){
+	if(category.length()>0){
+		if(category.equals("1")){
+			color = "a1";
+		}else if(category.equals("2")){
+			color = "a2";
+		}else if(category.equals("3")){
+			color = "a3";
+		}else if(category.equals("4")){
+			color = "a4";
+		}else if (category.equals("5")){
+			color = "a5";
+		}
+	}
+}
+%>
+
+ #<%=color%> {
+   border-bottom: solid;
+ }
 </style>
 </head>
 <body>
@@ -59,16 +97,16 @@
 		</div>
 
 		<nav id="nav">
-			<ul>
-				<li class="Korea"><a href="ShowBoardListController?category=1">
+			<ul id ="categoryUl">
+				<li  class="Korea"><a id="a1" href="ShowBoardListController?category=1">
 						KOREAN </a></li>
-				<li class="Japan"><a href="ShowBoardListController?category=2">
+				<li class="Japan"><a id="a2" href="ShowBoardListController?category=2">
 						JAPANESE </a></li>
-				<li class="Western"><a href="ShowBoardListController?category=3"> 
+				<li class="Western"><a id="a3" href="ShowBoardListController?category=3"> 
 						WESTERN </a></li>
-				<li class="China"><a href="ShowBoardListController?category=4">
+				<li class="China"><a  id="a4" href="ShowBoardListController?category=4">
 						CHINESE </a></li>
-				<li class="Baking"><a href="ShowBoardListController?category=5"> 
+				<li class="Baking"><a id="a5" href="ShowBoardListController?category=5"> 
 						HOME BAKING </a></li>
 			</ul>
 		</nav>
@@ -89,7 +127,6 @@
 
 		</div>
 	</footer>
-
 
 
 </body>
