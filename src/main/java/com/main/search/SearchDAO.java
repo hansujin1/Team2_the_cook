@@ -33,8 +33,8 @@ public class SearchDAO {
 			
 			System.out.println(board_title);
 			
-			
 			rs = pstmt.executeQuery();
+
 
 			ArrayList<SearchB> post = new ArrayList<SearchB>();
 

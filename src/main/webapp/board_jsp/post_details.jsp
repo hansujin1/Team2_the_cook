@@ -52,12 +52,12 @@
 				<c:if test="${likeCk == 1 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
 						style="color: red;" class="like" >♥</span>
-						<span> 좋아요</span>
+						<span onclick="location.href='MyLikeC?num=${r.board_number}'" class="like"> 
+						좋아요</span>
 				</c:if> 
 				<c:if test="${likeCk == 0 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="" id="test_contents" class="like">♡</span>
-						<span> 좋아요</span>
+						style="" id="test_contents" class="like">♡ 좋아요</span>
 				
 				</c:if> 
 					<span class="like">${r.board_like}</span>
@@ -82,10 +82,14 @@
 		<tr>
 			<c:if test="${r.board_id == sessionScope.loginInfo.id}">
 			<td>
+				
 				<button type="button" class="update_P"
-					onclick="location.href='UpdatePostController?num=${r.board_number}'">수정</button>
+					onclick="location.href='UpdatePostController?num=${r.board_number}'">
+					글수정</button>
+				
 				<button type="button" class="del_P"
-					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">삭제</button>
+					onclick="location.href='DeletePostController?num=${r.board_number}&category=${r.board_category}&file=${r.board_file}'">
+					글삭제</button>
 			</td>
 			</c:if>	
 		</tr>
