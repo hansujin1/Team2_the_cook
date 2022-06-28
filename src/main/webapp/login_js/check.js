@@ -50,7 +50,7 @@ function call(){
 		return false;
 	}
 	
-	if(lessThan(pw,3)|| notContain(pw,"qwertyuiopasdfghjklzxcvbnm")||notContain(pw,"1234567890") ||notContain(pw,"QWERTYUIOPASDFGHJKLZXCVBNM")){
+	if(lessThan(pw,5)|| notContain(pw,"qwertyuiopasdfghjklzxcvbnm")||notContain(pw,"1234567890") ||notContain(pw,"QWERTYUIOPASDFGHJKLZXCVBNM")){
 		alert("조건에 맞게 pw를 작성해주세요");
 		pw.focus();
 		pw.value="";
@@ -176,7 +176,7 @@ function changePw_call(){
 		
 		return false;
 	}
-	if(lessThan(pw,3)|| notContain(pw,"qwertyuiopasdfghjklzxcvbnm")||notContain(pw,"1234567890") ||notContain(pw,"QWERTYUIOPASDFGHJKLZXCVBNM")){
+	if(lessThan(pw,5)|| notContain(pw,"qwertyuiopasdfghjklzxcvbnm")||notContain(pw,"1234567890") ||notContain(pw,"QWERTYUIOPASDFGHJKLZXCVBNM")){
 		alert("조건에 맞게 pw를 작성해주세요");
 		pw.focus();
 		pw.value="";

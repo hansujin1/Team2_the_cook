@@ -28,11 +28,12 @@ function use() {
 	        console.log(result.r); // 1 -> 있음 0 -> 없음
 	         if(result.r ==1){
 	        	 $('#showResult').text("이메일 중복입니다").css("color",'red');
+	        	 document.getElementById("useMail").style.visibility = "hidden";
 	        	 userId.focus();
 	        	 userId.value="";
 	         }else {
 	        	 $('#showResult').text("사용가능 이메일입니다").css("color","blue");	
-	        	 document.getElementById("useId").style.visibility = "visible";
+	        	 document.getElementById("useMail").style.visibility = "visible";
 			}
 	    },
 	    error : function(request, status, error) { // 결과 에러 콜백함수
@@ -57,7 +58,7 @@ function pass() {
 <br>
 <span id="showResult"></span>
 <br>
-<input onclick="pass()" id="useId" type="button" value="사용하기"  style="visibility:hidden;">
+<input onclick="pass()" id="useMail" type="button" value="사용하기"  style="visibility:hidden;">
 <input type="button" value="창닫기" onclick="window.close()">
 
 </body>

@@ -27,6 +27,7 @@ function use() {
 	        console.log(result.r); // 1 -> 있음 0 -> 없음
 	         if(result.r ==1){
 	        	 $('#showResult').text("아이디 중복입니다").css("color",'red');
+	        	 document.getElementById("useId").style.visibility = "hidden";
 	        	 userId.focus();
 	        	 userId.value="";
 	         }else {
