@@ -10,7 +10,6 @@
 </head>
 <body>
 	<div id="mainWrapper">
-
 		<li id ="Table_n">
 		<button class="text_Bt"
 			onclick="location.href='BoardController?category=${param.category}'">

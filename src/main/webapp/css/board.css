@@ -175,6 +175,12 @@ button {
 	display: inline-block;
 }
 
+#divPaging>div:focus , #divPaging>div:hover {
+	color:#ff0080;
+	border-bottom:2px solid #ff0080;
+	font-weight: 900;
+}
+
 .control{
 	font-size: 8pt;
 }
@@ -229,10 +235,12 @@ button {
 
 .details_B {
 /* 	background-color: #f8f8f8; */
-	margin-top: 10px;
+	margin-top: 50px;
 	margin-left: 25%;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	width:872px;
+	border: 1px solid black;
+	padding: 10px 10px 10px 10px;
 }
 
 .post_board {
@@ -267,7 +275,7 @@ button {
 }
 
 .contents{ /* 코멘트입력창 */
-	 width:720px;
+	 width:770px;
 	 border: 1px solid #bebebe;
 	 border-radius: 10px 10px 10px 10px;
 	 padding : 10px 10px 10px 10px;
@@ -382,13 +390,15 @@ button {
 /* 글쓰기 */
 .create_B {
 	background-color: #f8f8f8;
-	margin-top: 30px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 	margin-left: 25%;
+	border: 1px solid black;
 }
 .create_C {
 	/* background-color:  #eae9db; */
 	margin-top: 50px;
-	margin-left: 25%;
+	margin-left: 24%;
 	margin-bottom: 50px;
 }
 
@@ -396,7 +406,7 @@ button {
 	border: none;
 	outline: none;
 	width: 855px;
-	height: 20px;
+	height: 25px;
 	font-size:12pt;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 	padding-left: 10px;
@@ -419,7 +429,11 @@ button {
     border: 1px solid #dddddd;
     width: 40%;
     color: #999999;
-    margin : 0px 0px 5px 5px;
+    margin : 0px 0px 0px 5px;
+}
+
+.file_btn{
+	margin-bottom:10px;
 }
 
 .filebox label { /* 찾기 */
@@ -455,6 +469,7 @@ button {
 	border: 1px solid #c0c0c0;
 	font-size: 9pt;
 	margin-left : 345px;
+	margin-bottom: 10px;
 }
 
 .create_upload:hover {
@@ -492,7 +507,7 @@ button {
 
 
 .txt_c {
-	padding: 10px 1px 1px 10px;
+	padding: 10px 5px 5px 5px;
 }
 
 .update_P{/* 수정버튼 */
@@ -502,7 +517,7 @@ button {
 	border: 1px solid #c0c0c0;
 	font-size: 9pt;
 	float: left;
-	margin: 20px 0px 20px 740px;
+	margin: 20px 0px 20px 760px;
 }
 
 /* .eraser{
