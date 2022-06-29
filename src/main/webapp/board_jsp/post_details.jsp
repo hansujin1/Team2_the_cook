@@ -133,8 +133,9 @@
 				<tr>
 					<td><input name="num" value="${r.board_number}" type="hidden">
 						<input class="contents" name="contents"	placeholder="댓글을 남겨보세요 :)">
-						<button class="btn btn-1">Comment</button></td>
+						<button class="btn btn-1">Comment</button>
 						<input class="contents2" value="${sessionScope.loginInfo }" type="hidden">
+						</td>
 				</tr>
 			</table>
 		</form>
