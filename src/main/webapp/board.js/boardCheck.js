@@ -2,7 +2,7 @@ function callCheck() {
 	let title = document.board.title;
 	let txt = document.board.txt;
 	let file = document.board.txt;
-
+   
 
 	if (isEmpty(title) || isEmpty(txt) || isEmpty(file) ) {
 		alert("내용을 입력하세요!")
@@ -68,4 +68,15 @@ function checkUpdateComment() {
 function checkdelete() {
  return confirm("정말 삭제하시겠습니까?");
 }
+
+function checkSearch(){
+let search = document.searchform.board_title
+   	if (isEmpty(search)) {
+		alert("내용을 입력하세요!")
+		this.focus;
+		return false;
+	}
+	
+}
+
 

@@ -79,11 +79,11 @@ if(category != null){
 			
 		
 		
-	<form action="SearchC">
+	<form name="searchform" action="SearchC" onsubmit="return checkSearch()">
 		<div>
 			<!-- 검색창 -->
 			<input name="board_title" id="query" type="search"
-				placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?" value="${param.board_title}">
+				placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?">
 		</div>
 		
 		<div>
