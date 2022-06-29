@@ -38,7 +38,6 @@ public class SearchDAO {
 
 			ArrayList<SearchB> post = new ArrayList<SearchB>();
 			
-			if(board_title != null) {
 				
 				while (rs.next()) {
 
@@ -59,7 +58,6 @@ public class SearchDAO {
 				request.setAttribute("post", post);
 				request.setAttribute("contentPage", "scrap/searchPage.jsp");
 				
-			} 
 			/*
 			 * else { if (!post.isEmpty()) { System.out.println("¿¨?");
 			 * request.setAttribute("contentPage", "myPage/NoSearch.jsp"); }
