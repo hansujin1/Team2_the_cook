@@ -13,7 +13,7 @@ function valuecheck(){
 
 function use() {
 	
-	let inputId = $('#userId').val();
+	let inputId = $("#userId").val();
 	
 	$.ajax({
 	    type : 'post', // 타입 (get, post, put 등등)
@@ -26,12 +26,11 @@ function use() {
 	    success : function(result) { // 결과 성공 콜백함수
 	        console.log(result.r); // 1 -> 있음 0 -> 없음
 	         if(result.r ==1){
-	        	 $('#showResult').text("아이디 중복입니다").css("color",'red');
+	        	 $("#showResult").text("아이디 중복입니다").css("color",'red');
 	        	 document.getElementById("useId").style.visibility = "hidden";
 	        	 userId.focus();
-	        	 userId.value="";
 	         }else {
-	        	 $('#showResult').text("사용가능 아이디입니다").css("color","blue");	
+	        	 $("#showResult").text("사용가능 아이디입니다").css("color","blue");	
 	        	 document.getElementById("useId").style.visibility = "visible";
 			}
 	    },
