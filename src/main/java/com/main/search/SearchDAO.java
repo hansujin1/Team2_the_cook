@@ -56,7 +56,6 @@ public class SearchDAO {
 					post.add(s);
 
 				}	
-				System.out.println("¿¨?");	
 				request.setAttribute("post", post);
 				request.setAttribute("contentPage", "scrap/searchPage.jsp");
 				
