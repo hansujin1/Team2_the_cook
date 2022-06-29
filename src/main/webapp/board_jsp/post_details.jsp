@@ -46,12 +46,12 @@
 				<c:if test="${likeCk == 1 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
 						style="color: red;" class="like" >♥</span>
-						<span> 좋아요</span>
+						<span class="like"> 좋아요</span>
 				</c:if> 
 				<c:if test="${likeCk == 0 }">
 					<span onclick="location.href='MyLikeC?num=${r.board_number}'"
-						style="" id="test_contents" class="like">♡</span>
-						<span> 좋아요</span>
+						style="" id="test_contents" class="like">♡ 좋아요</span>
+						<span> </span>
 				
 				</c:if> 
 					<span class="like">${r.board_like}</span>
