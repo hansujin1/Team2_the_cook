@@ -76,14 +76,11 @@ if(category != null){
 			<a href="HC"> <img id="logo" src="img/Logo2.png"></a>
 		</div>
 		
-			
-		
-		
-	<form name="searchform" action="SearchC" onsubmit="return checkSearch()">
+	<form action="SearchC">
 		<div>
 			<!-- 검색창 -->
 			<input name="board_title" id="query" type="search"
-				placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?">
+				placeholder="셰프님, 오늘은 어떤 맛의 세계로 떠나볼까요?" value="${param.board_title}">
 		</div>
 		
 		<div>
