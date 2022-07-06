@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=transparent&color=F5A9BC&text=TheCook&fontColor=000000&fontAlign=60&fontAlignY=55&animation=twinkling)
+![header](https://capsule-render.vercel.app/api?type=transparent&color=F5A9BC&text=TheCook&fontColor=000000&fontAlign=18&fontAlignY=55&animation=twinkling)
 # Semi Project 
 #### project:The Cook
 #### member:한수진 김원봉 이영경
