@@ -19,7 +19,7 @@ The Cook은 누구나 자신의 레시피를 올리고 다른 사람들의 레�
 <img src="https://user-images.githubusercontent.com/107031295/177460542-f73f3af0-3b66-4281-ba2a-dfe0163d7dcf.JPG" width="600px" height="300px">
 
 ### Home Page
-
+<img src="https://user-images.githubusercontent.com/107031295/177461031-2c23d307-f007-4113-b13c-b0a09c93c50e.png" width="600px" height="300px">
 <br>
 
 ### Tools
