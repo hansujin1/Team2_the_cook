@@ -16,6 +16,7 @@ The Cook은 누구나 자신의 레시피를 올리고 다른 사람들의 레�
 또한 취미생활을 배우기 위해 커뮤니티를 주로 사용하는 것을 보고 요리 커뮤니티를 만들게 되었습니다.
 
 ### 전체 DB
+<img src="https://user-images.githubusercontent.com/107031295/177460542-f73f3af0-3b66-4281-ba2a-dfe0163d7dcf.JPG" width="600px" height="300px">
 
 ### Home Page
 
